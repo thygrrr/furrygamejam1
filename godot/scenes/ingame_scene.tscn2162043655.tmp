@@ -24,16 +24,15 @@ process_mode = 2
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.907426, -0.325865, 0.265315, 0, 0.631381, 0.775473, -0.420214, -0.703684, 0.572931, 2.17853, 7.82891, 5.78412)
-fov = 45.0
+transform = Transform3D(0.623229, -0.654742, 0.427667, 0, 0.546861, 0.837224, -0.78204, -0.521782, 0.340819, 6.4191, 12.4296, 5.31581)
+fov = 30.0
 size = 7.0
 
 [node name="Critter" type="Node3D" parent="."]
 script = ExtResource("4_7v5ay")
 
-[node name="view" parent="Critter" instance=ExtResource("5_2577t")]
+[node name="die-placeholder" parent="Critter" instance=ExtResource("5_2577t")]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
-top_level = true
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="Critter"]
 
@@ -42,6 +41,7 @@ shape = SubResource("SphereShape3D_0oab4")
 
 [node name="Critter2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+script = ExtResource("4_7v5ay")
 
 [node name="die-placeholder" parent="Critter2" instance=ExtResource("5_2577t")]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
@@ -53,6 +53,7 @@ shape = SubResource("SphereShape3D_0oab4")
 
 [node name="Critter3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+script = ExtResource("4_7v5ay")
 
 [node name="die-placeholder" parent="Critter3" instance=ExtResource("5_2577t")]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
