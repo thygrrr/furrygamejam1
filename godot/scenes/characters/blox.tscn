@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5xpof3rkouys"]
+
+[ext_resource type="PackedScene" uid="uid://o760msijykqa" path="res://scenes/characters/critter.tscn" id="1_8bkix"]
+[ext_resource type="PackedScene" uid="uid://by1sq3ttatgdg" path="res://models/blockfox/blockfox.obj" id="2_rt6ut"]
+
+[node name="Blox" instance=ExtResource("1_8bkix")]
+
+[node name="blockfox" parent="anchor/view" index="0" instance=ExtResource("2_rt6ut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.4, 0)
