@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://by1sq3ttatgdg"
-path="res://.godot/imported/blockfox.obj-f4de047a925580e81f34ad89f3ed697b.scn"
+uid="uid://ycbyjjgtsp6d"
+path="res://.godot/imported/foxfox.obj-b2377f816a09126110cfb8f7d8281c70.scn"
 
 [deps]
 
-source_file="res://models/blockfox/blockfox.obj"
-dest_files=["res://.godot/imported/blockfox.obj-f4de047a925580e81f34ad89f3ed697b.scn"]
+source_file="res://models/fox/foxfox.obj"
+dest_files=["res://.godot/imported/foxfox.obj-b2377f816a09126110cfb8f7d8281c70.scn"]
 
 [params]
 

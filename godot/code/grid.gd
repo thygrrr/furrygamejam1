@@ -5,6 +5,10 @@ extends Node
 var grid : Array[Array] = []
 
 func _enter_tree() -> void:
+	reset()
+
+func reset() -> void:
+	grid.clear()
 	grid.resize(size)
 	for row in grid:
 		row.resize(size)

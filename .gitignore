@@ -1,3 +1,6 @@
+# Builds output
+build/
+
 # Referenced from: https://github.com/github/gitignore/blob/main/Godot.gitignore
 # Godot 4+ specific ignores
 .godot/
