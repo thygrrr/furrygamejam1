@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://7hfa53wvbi87"]
-
-[ext_resource type="PackedScene" uid="uid://o760msijykqa" path="res://characters/critter.tscn" id="1_eq12e"]
-[ext_resource type="PackedScene" uid="uid://clx3c6buhi2ku" path="res://models/die-placeholder.glb" id="2_vux45"]
-
-[node name="Blolf" instance=ExtResource("1_eq12e")]
-
-[node name="die-placeholder" parent="anchor/view" index="0" instance=ExtResource("2_vux45")]
-transform = Transform3D(-1, -7.10543e-15, -1.74846e-07, 0, -1, 5.96047e-08, -1.74846e-07, 5.96046e-08, 1, 0, 0, 0)

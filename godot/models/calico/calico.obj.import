@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ycbyjjgtsp6d"
-path="res://.godot/imported/foxfox.obj-b2377f816a09126110cfb8f7d8281c70.scn"
+uid="uid://bv8tdfqtnsl5y"
+path="res://.godot/imported/calico.obj-c4912c00b0de44332392122392bcb348.scn"
 
 [deps]
 
-source_file="res://models/fox/foxfox.obj"
-dest_files=["res://.godot/imported/foxfox.obj-b2377f816a09126110cfb8f7d8281c70.scn"]
+source_file="res://models/calico/calico.obj"
+dest_files=["res://.godot/imported/calico.obj-c4912c00b0de44332392122392bcb348.scn"]
 
 [params]
 
@@ -20,7 +20,7 @@ nodes/root_scale=0.4
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
-meshes/generate_lods=true
+meshes/generate_lods=false
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2

@@ -7,9 +7,9 @@
 [ext_resource type="Script" uid="uid://nfe45hfgghg0" path="res://code/player.gd" id="5_1sh3m"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="5_etwux"]
 [ext_resource type="Script" uid="uid://bw5kmvu7nlxnm" path="res://code/level.gd" id="5_q7kwb"]
-[ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="6_5jhce"]
+[ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://tiles/wall.tscn" id="6_5jhce"]
 [ext_resource type="PackedScene" uid="uid://cpwfyp0ltuwm0" path="res://models/kenney.nl/animal-dog.glb" id="7_th7mp"]
-[ext_resource type="PackedScene" uid="uid://7hfa53wvbi87" path="res://characters/blat.tscn" id="9_etwux"]
+[ext_resource type="PackedScene" uid="uid://7hfa53wvbi87" path="res://characters/blolf.tscn" id="9_etwux"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_1sh3m"]
 
@@ -85,7 +85,7 @@ script = ExtResource("5_1sh3m")
 
 [node name="Label3D" type="Label3D" parent="Level/Blox"]
 transform = Transform3D(0.974, 0, 0.226549, 0, 1, 0, -0.226549, 0, 0.974, 0, 2, 0)
-text = "..."
+text = "buffer=0"
 
 [node name="Blolf" parent="Level" instance=ExtResource("9_etwux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
