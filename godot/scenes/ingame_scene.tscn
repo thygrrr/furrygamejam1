@@ -1,13 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=17 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
-[ext_resource type="Script" uid="uid://nfe45hfgghg0" path="res://scenes/critter.gd" id="4_7v5ay"]
-[ext_resource type="PackedScene" uid="uid://clx3c6buhi2ku" path="res://models/die-placeholder.glb" id="5_2577t"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_0oab4"]
-radius = 0.7
+[ext_resource type="PackedScene" uid="uid://o760msijykqa" path="res://scenes/characters/critter.tscn" id="4_th7mp"]
+[ext_resource type="PackedScene" uid="uid://cpwfyp0ltuwm0" path="res://models/kenney.nl/animal-dog.glb" id="7_th7mp"]
+[ext_resource type="PackedScene" uid="uid://calmwxeurahf8" path="res://models/kenney.nl/button-floor-round.glb" id="8_q7kwb"]
+[ext_resource type="PackedScene" uid="uid://bqlbnbe0pv81m" path="res://models/kenney.nl/button-floor-round-small.glb" id="9_o7ls4"]
+[ext_resource type="PackedScene" uid="uid://083f0qdv30u7" path="res://models/kenney.nl/button-floor-square.glb" id="10_hysgw"]
+[ext_resource type="PackedScene" uid="uid://c8bwreafcgh5n" path="res://models/kenney.nl/floor-square.glb" id="11_bcpdc"]
+[ext_resource type="PackedScene" uid="uid://d4kb04iphuhsq" path="res://models/kenney.nl/coin.glb" id="11_l64ye"]
+[ext_resource type="PackedScene" uid="uid://c3wi7reil71ek" path="res://models/kenney.nl/column-low.glb" id="12_rohyw"]
+[ext_resource type="PackedScene" uid="uid://bcxjr6dlq12i6" path="res://models/kenney.nl/column.glb" id="13_hr6f0"]
+[ext_resource type="PackedScene" uid="uid://dxk0s0l8bbafh" path="res://models/kenney.nl/floor-thick.glb" id="13_telmm"]
+[ext_resource type="PackedScene" uid="uid://crlwfuk62g0nj" path="res://models/kenney.nl/crate-color.glb" id="14_6ywyt"]
+[ext_resource type="PackedScene" uid="uid://dvsoxt0q2mf6k" path="res://models/kenney.nl/crate.glb" id="15_fq0u6"]
+[ext_resource type="PackedScene" uid="uid://qcpjtsngk2eo" path="res://models/kenney.nl/door-garage.glb" id="16_fvcpb"]
 
 [node name="IngameScene" type="Node3D"]
 script = ExtResource("1_objyc")
@@ -24,55 +32,163 @@ process_mode = 2
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.907426, -0.325865, 0.265315, 0, 0.631381, 0.775473, -0.420214, -0.703684, 0.572931, 2.17853, 7.82891, 5.78412)
+transform = Transform3D(0.925546, -0.293622, 0.239063, 0, 0.631381, 0.775474, -0.378635, -0.717737, 0.584372, 3.60724, 6.9615, 0.900234)
 fov = 45.0
 size = 7.0
 
-[node name="Critter" type="Node3D" parent="."]
-script = ExtResource("4_7v5ay")
+[node name="Critter" parent="." instance=ExtResource("4_th7mp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+script = null
 
-[node name="view" parent="Critter" instance=ExtResource("5_2577t")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
-top_level = true
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Critter"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Critter/AnimatableBody3D"]
-shape = SubResource("SphereShape3D_0oab4")
-
-[node name="Critter2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-
-[node name="die-placeholder" parent="Critter2" instance=ExtResource("5_2577t")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Critter2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Critter2/AnimatableBody3D"]
-shape = SubResource("SphereShape3D_0oab4")
-
-[node name="Critter3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-
-[node name="die-placeholder" parent="Critter3" instance=ExtResource("5_2577t")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Critter3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Critter3/AnimatableBody3D"]
-shape = SubResource("SphereShape3D_0oab4")
+[node name="Critter2" parent="." instance=ExtResource("4_th7mp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, -3)
 
 [node name="Key Light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.263067, -0.474316, 0.840131, 0, 0.870803, 0.491632, -0.964778, -0.129332, 0.22908, 6.51529, 5.43031, 5.73197)
+transform = Transform3D(0.263067, -0.474316, 0.840131, 0, 0.870803, 0.491632, -0.964778, -0.129332, 0.229079, 6.51529, 5.43031, 5.73197)
 light_color = Color(1, 1, 0.894118, 1)
 
 [node name="Fill Light" type="DirectionalLight3D" parent="Key Light"]
 transform = Transform3D(-0.987413, 0.0450577, 0.151606, 0.0777567, 0.973014, 0.217248, -0.137727, 0.226302, -0.964271, 4.74077, 0.759048, -15.4735)
 light_color = Color(6.73831e-06, 0.932929, 0.932929, 1)
 
-[connection signal="mouse_entered" from="Critter/AnimatableBody3D" to="Critter" method="_on_animatable_body_3d_mouse_entered"]
-[connection signal="mouse_exited" from="Critter/AnimatableBody3D" to="Critter" method="_on_animatable_body_3d_mouse_exited"]
-[connection signal="mouse_entered" from="Critter2/AnimatableBody3D" to="Critter2" method="_on_animatable_body_3d_mouse_entered"]
-[connection signal="mouse_exited" from="Critter2/AnimatableBody3D" to="Critter2" method="_on_animatable_body_3d_mouse_exited"]
-[connection signal="mouse_entered" from="Critter3/AnimatableBody3D" to="Critter3" method="_on_animatable_body_3d_mouse_entered"]
-[connection signal="mouse_exited" from="Critter3/AnimatableBody3D" to="Critter3" method="_on_animatable_body_3d_mouse_exited"]
+[node name="Level" type="Node3D" parent="."]
+
+[node name="button-floor-round2" parent="Level" instance=ExtResource("8_q7kwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="button-floor-round-small2" parent="Level" instance=ExtResource("9_o7ls4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="button-floor-square2" parent="Level" instance=ExtResource("10_hysgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="coin2" parent="Level" instance=ExtResource("11_l64ye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="column-low2" parent="Level" instance=ExtResource("12_rohyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="column2" parent="Level" instance=ExtResource("13_hr6f0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="crate-color2" parent="Level" instance=ExtResource("14_6ywyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="crate2" parent="Level" instance=ExtResource("15_fq0u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="door-garage2" parent="Level" instance=ExtResource("16_fvcpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="door-garage3" parent="Level" instance=ExtResource("16_fvcpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="floor-square2" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="floor-square10" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="floor-square11" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="floor-square12" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="floor-square3" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="floor-square4" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+
+[node name="floor-square5" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
+
+[node name="floor-square6" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+
+[node name="floor-square7" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
+
+[node name="floor-square8" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+
+[node name="floor-square9" parent="Level" instance=ExtResource("11_bcpdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
+
+[node name="floor-thick2" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="floor-thick7" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
+
+[node name="floor-thick8" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8)
+
+[node name="floor-thick9" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -9)
+
+[node name="floor-thick3" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+
+[node name="floor-thick4" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+
+[node name="floor-thick5" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+
+[node name="floor-thick6" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
+
+[node name="floor-thick10" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+
+[node name="floor-thick18" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="floor-thick19" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="floor-thick23" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="floor-thick24" parent="Level" instance=ExtResource("13_telmm")]
+
+[node name="floor-thick22" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="floor-thick25" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="floor-thick26" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="floor-thick27" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="floor-thick21" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="floor-thick11" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+
+[node name="floor-thick12" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -8)
+
+[node name="floor-thick13" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -9)
+
+[node name="floor-thick14" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="floor-thick15" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+
+[node name="floor-thick16" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+
+[node name="floor-thick17" parent="Level" instance=ExtResource("13_telmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="animal-dog2" parent="." instance=ExtResource("7_th7mp")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 2.78787, 0.2, -7.50503)
