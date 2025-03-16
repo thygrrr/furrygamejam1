@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=28 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -11,11 +11,22 @@
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://fonts/Montserrat-Medium.ttf" id="6_iid22"]
 [ext_resource type="PackedScene" uid="uid://cpwfyp0ltuwm0" path="res://models/kenney.nl/animal-dog.glb" id="7_th7mp"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_etwux"]
+[ext_resource type="PackedScene" uid="uid://cn1iuvjun030d" path="res://models/props/biggertable.obj" id="12_l64ye"]
+[ext_resource type="PackedScene" uid="uid://blxpa8ypqqfft" path="res://models/props/BilliarTable.obj" id="13_rohyw"]
+[ext_resource type="PackedScene" uid="uid://plipgykjfsec" path="res://models/props/bowlofchips.obj" id="14_hr6f0"]
+[ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_6ywyt"]
+[ext_resource type="PackedScene" uid="uid://ctfigr0jnqf05" path="res://models/props/drinkblue.obj" id="16_fq0u6"]
+[ext_resource type="PackedScene" uid="uid://bsbely2p2wge4" path="res://models/props/drinkgreen.obj" id="17_fvcpb"]
+[ext_resource type="PackedScene" uid="uid://d1ttbxhafr6ay" path="res://models/props/drinkred.obj" id="18_dqase"]
+[ext_resource type="PackedScene" uid="uid://dgt3hqsvua35e" path="res://models/props/drinkyellow.obj" id="19_amt0v"]
+[ext_resource type="PackedScene" uid="uid://blh7xqlf3ppq4" path="res://models/props/pumpkinsoup.obj" id="20_rky18"]
+[ext_resource type="PackedScene" uid="uid://cvl12r7u5nyfw" path="res://models/props/table.obj" id="21_or0qi"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_1sh3m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2vs8u"]
 font = ExtResource("6_iid22")
+font_size = 32
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
@@ -87,6 +98,41 @@ script = ExtResource("5_q7kwb")
 
 [node name="HUD" type="CanvasLayer" parent="Level"]
 
+[node name="Intro" type="Control" parent="Level/HUD"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Level/HUD/Intro"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -20.0
+offset_right = 191.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press UP to meet Blitty."
+label_settings = SubResource("LabelSettings_2vs8u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Cutscene" type="Label" parent="Level/HUD"]
 unique_name_in_owner = true
 visible = false
@@ -95,14 +141,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -44.5
 offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_right = 121.5
+offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "Hello Kitty!"
+text = "Hey Blitty!"
 label_settings = SubResource("LabelSettings_2vs8u")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -190,3 +236,33 @@ mesh = SubResource("SphereMesh_1sh3m")
 
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_1sh3m")
+
+[node name="biggertable" parent="." instance=ExtResource("12_l64ye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+
+[node name="BilliarTable" parent="." instance=ExtResource("13_rohyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -7)
+
+[node name="bowlofchips" parent="." instance=ExtResource("14_hr6f0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -4)
+
+[node name="door" parent="." instance=ExtResource("15_6ywyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -2)
+
+[node name="drinkblue" parent="." instance=ExtResource("16_fq0u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="drinkgreen" parent="." instance=ExtResource("17_fvcpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
+
+[node name="drinkred" parent="." instance=ExtResource("18_dqase")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2)
+
+[node name="drinkyellow" parent="." instance=ExtResource("19_amt0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="pumpkinsoup" parent="." instance=ExtResource("20_rky18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -1)
+
+[node name="table" parent="." instance=ExtResource("21_or0qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -4)

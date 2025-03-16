@@ -17,9 +17,12 @@ func _ready() -> void:
 func _main() -> void:
 	player = %Blox
 
-	# await _intro()
+	%Intro.show()
 
 	_play()
+	await player.moved
+	%Intro.hide()
+
 	playing = await _until(player.facing, %Blitty)
 
 	await _cutscene()
