@@ -1,4 +1,4 @@
-extends Node3D
+extends Critter
 class_name Player
 
 var from_rotation := Quaternion.IDENTITY
@@ -26,6 +26,7 @@ var flip : Tween
 
 # Single Entry Point into execution flow.
 func _ready() -> void:
+	super()
 	anchor.top_level = true
 	goal_rotation = view.quaternion
 	from_rotation = goal_rotation
@@ -35,6 +36,8 @@ func _ready() -> void:
 
 # Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
 func _process(_delta : float) -> void:
+	super(_delta)
+
 	view.quaternion = from_rotation.slerp(goal_rotation, rotation_t)
 
 	var p := anchor.global_position
