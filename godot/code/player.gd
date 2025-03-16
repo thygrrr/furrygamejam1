@@ -14,7 +14,7 @@ var flip_down := Quaternion(Vector3.LEFT, deg_to_rad(90))
 @onready var offset : Node3D = %offset
 @onready var view : Node3D = %view
 
-var rotate : Tween
+var flip : Tween
 var input_buffer : Array[InputEvent] = []
 
 # Single Entry Point into execution flow.
@@ -79,8 +79,9 @@ func _execute(event: InputEvent) -> void:
 		goal_rotation *= next_flip
 
 		rotation_t = 0.0
-		rotate = create_tween()
-		rotate.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(self, "rotation_t", 1.0, 0.3)
+
+		flip = create_tween()
+		flip.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(self, "rotation_t", 1.0, 0.3).set_delay(0.1)
 
 		var bounce := create_tween()
 		var parallel_a = bounce.parallel()
@@ -95,7 +96,7 @@ func _execute(event: InputEvent) -> void:
 
 		# Wait for the tween here, just where we did anything with it.
 		# Nobody else needs to know and check it, because this function owns it.
-		await rotate.finished
+		await flip.finished
 	else:
 		# TODO: can't move there, play blocked anim
 		pass
