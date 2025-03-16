@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=30 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://bw5kmvu7nlxnm" path="res://code/level.gd" id="5_q7kwb"]
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="6_5jhce"]
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://fonts/Montserrat-Medium.ttf" id="6_iid22"]
-[ext_resource type="PackedScene" uid="uid://cpwfyp0ltuwm0" path="res://models/kenney.nl/animal-dog.glb" id="7_th7mp"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_etwux"]
 [ext_resource type="PackedScene" uid="uid://cn1iuvjun030d" path="res://models/props/biggertable.obj" id="12_l64ye"]
 [ext_resource type="PackedScene" uid="uid://blxpa8ypqqfft" path="res://models/props/BilliarTable.obj" id="13_rohyw"]
@@ -21,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://dgt3hqsvua35e" path="res://models/props/drinkyellow.obj" id="19_amt0v"]
 [ext_resource type="PackedScene" uid="uid://blh7xqlf3ppq4" path="res://models/props/pumpkinsoup.obj" id="20_rky18"]
 [ext_resource type="PackedScene" uid="uid://cvl12r7u5nyfw" path="res://models/props/table.obj" id="21_or0qi"]
+[ext_resource type="PackedScene" uid="uid://1bo2ww8u72xc" path="res://models/props/mailbox.obj" id="21_rohyw"]
+[ext_resource type="PackedScene" uid="uid://rav3yqmxiw7s" path="res://models/props/minidog.obj" id="22_hr6f0"]
+[ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="23_hr6f0"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_1sh3m"]
 
@@ -114,22 +116,43 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="Level/HUD/Intro"]
+[node name="Panel2" type="Panel" parent="Level/HUD/Intro"]
+layout_mode = 0
+offset_left = -18.5
+offset_top = -390.5
+offset_right = 230.5
+offset_bottom = -309.5
+
+[node name="Label" type="RichTextLabel" parent="Level/HUD/Intro/Panel2"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -191.0
-offset_top = -20.0
-offset_right = 191.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "Press UP to meet Blitty."
-label_settings = SubResource("LabelSettings_2vs8u")
+bbcode_enabled = true
+text = "Heyy [color=orange][b]Blox[/b][/color]! Over here!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Level/HUD/Intro"]
+layout_mode = 0
+offset_left = 166.5
+offset_top = 262.5
+offset_right = 415.5
+offset_bottom = 343.5
+
+[node name="Label" type="RichTextLabel" parent="Level/HUD/Intro/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Press [color=green]UP[/color] to meet [color=pink][b]Blitty[/b][/color]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -157,7 +180,6 @@ vertical_alignment = 1
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, -3)
 script = ExtResource("5_1sh3m")
-excitement = 2.0
 
 [node name="Label3D" type="Label3D" parent="Level/Blox"]
 transform = Transform3D(0.974, 0, 0.226549, 0, 1, 0, -0.226549, 0, 0.974, 0, 2, 0)
@@ -227,9 +249,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -8)
 [node name="wall14" parent="Level" instance=ExtResource("6_5jhce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -9)
 
-[node name="animal-dog2" parent="." instance=ExtResource("7_th7mp")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 2.78787, 0.2, -7.50503)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -8)
 cast_shadow = 0
@@ -267,3 +286,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2)
 
 [node name="table" parent="." instance=ExtResource("21_or0qi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -6)
+
+[node name="mailbox" parent="." instance=ExtResource("21_rohyw")]
+transform = Transform3D(-0.0871558, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.0871558, 3.2, 0.2, -4)
+
+[node name="minidog" parent="." instance=ExtResource("22_hr6f0")]
+transform = Transform3D(0.173029, 0, -0.984917, 0, 1, 0, 0.984917, 0, 0.173029, 2.8, 0.210695, -7.4)
+script = ExtResource("23_hr6f0")
+excitement = 15.0

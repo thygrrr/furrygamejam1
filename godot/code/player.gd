@@ -36,8 +36,6 @@ func _ready() -> void:
 
 # Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
 func _process(_delta : float) -> void:
-	super(_delta)
-
 	view.quaternion = from_rotation.slerp(goal_rotation, rotation_t)
 
 	var p := anchor.global_position

@@ -21,9 +21,9 @@ func _main() -> void:
 
 	_play()
 	await player.moved
-	%Intro.hide()
 
 	playing = await _until(player.facing, %Blitty)
+	%Intro.hide()
 
 	await _cutscene()
 	# await _nextlevel()
