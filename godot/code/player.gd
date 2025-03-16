@@ -6,10 +6,10 @@ var goal_rotation := Quaternion.IDENTITY
 
 var rotation_t : float = 1.0
 
-var flip_left := Quaternion(Vector3.FORWARD, deg_to_rad(90))
-var flip_right := Quaternion(Vector3.BACK, deg_to_rad(90))
-var flip_up := Quaternion(Vector3.RIGHT, deg_to_rad(90))
-var flip_down := Quaternion(Vector3.LEFT, deg_to_rad(90))
+var flip_left := Quaternion(Vector3.BACK, deg_to_rad(90))
+var flip_right := Quaternion(Vector3.FORWARD, deg_to_rad(90))
+var flip_up := Quaternion(Vector3.LEFT, deg_to_rad(90))
+var flip_down := Quaternion(Vector3.RIGHT, deg_to_rad(90))
 
 
 
@@ -27,21 +27,25 @@ var flip : Tween
 # Single Entry Point into execution flow.
 func _ready() -> void:
 	super()
-	anchor.top_level = true
-	goal_rotation = view.quaternion
-	from_rotation = goal_rotation
-
+	var old_quaternion := quaternion
 	quaternion = Quaternion.IDENTITY
+	anchor.top_level = true
+	goal_rotation = old_quaternion
+	from_rotation = goal_rotation
+	view.quaternion = goal_rotation
+
 
 
 # Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
 func _process(_delta : float) -> void:
+	var p := anchor.global_position
+	var k := pow(0.9, _delta * 120.0)
+	anchor.global_position = k * anchor.global_position + (1-k) * global_position
+
 	view.quaternion = from_rotation.slerp(goal_rotation, rotation_t)
 
-	var p := anchor.global_position
-	anchor.global_position = p.lerp(global_position, pow(0.1, _delta * 120.0))
-
-
+func _in_view_space(rot : Quaternion):
+	return view.quaternion.inverse() * rot * view.quaternion
 
 # Resolve a single input event
 func _execute(event: InputEvent) -> void:
@@ -67,8 +71,8 @@ func _execute(event: InputEvent) -> void:
 		Grid.clear(global_position)
 		global_position += next_step
 
-		from_rotation = view.quaternion
-		goal_rotation *= next_flip
+		from_rotation = goal_rotation
+		goal_rotation *= _in_view_space(next_flip)
 
 		rotation_t = 0.0
 
@@ -90,7 +94,7 @@ func _execute(event: InputEvent) -> void:
 		# Nobody else needs to know and check it, because this function owns it.
 		await flip.finished
 		moved.emit()
-		var node = Grid.read(global_position + view.basis.z * -1)
+		var node = Grid.read(global_position + view.basis.z)
 		if node:
 			facing.emit(node)
 

@@ -22,6 +22,9 @@ func _main() -> void:
 	_play()
 	await player.moved
 
+	%Intro.hide()
+	%Tip2.show()
+
 	playing = await _until(player.facing, %Blitty)
 	%Intro.hide()
 

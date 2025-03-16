@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=21 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://bw5kmvu7nlxnm" path="res://code/level.gd" id="5_q7kwb"]
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="6_5jhce"]
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://fonts/Montserrat-Medium.ttf" id="6_iid22"]
-[ext_resource type="PackedScene" uid="uid://q5urabsljkln" path="res://characters/blocelot.tscn" id="6_pxehq"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_etwux"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_6ywyt"]
 [ext_resource type="PackedScene" uid="uid://1bo2ww8u72xc" path="res://models/props/mailbox.obj" id="21_rohyw"]
@@ -17,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="23_hr6f0"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_1sh3m"]
+frustum_focal_length = 25.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_2vs8u"]
 font = ExtResource("6_iid22")
@@ -57,13 +57,15 @@ process_mode = 2
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.925546, -0.293621, 0.239063, 7.52252e-09, 0.63138, 0.775473, -0.378635, -0.717736, 0.584371, 3.60724, 6.9615, 0.900234)
+transform = Transform3D(0.969467, -0.238738, 0.0560226, 0.111619, 0.633022, 0.766044, -0.218348, -0.736401, 0.640342, 2.60724, 6.9615, 0.900234)
 environment = ExtResource("4_etwux")
 attributes = SubResource("CameraAttributesPhysical_1sh3m")
+current = true
 size = 7.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, -1.41714e-08, 5.6365e-17, 1.41714e-08, 1, -3.97738e-09, 0, 3.97738e-09, 1, 2, 6, -1)
+visible = false
 light_energy = 0.3
 shadow_opacity = 0.8
 shadow_blur = 3.0
@@ -71,14 +73,13 @@ omni_range = 50.0
 omni_attenuation = 0.5
 
 [node name="Fill Light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.94582, 0.281101, 0.162505, 0.284887, 0.958561, -1.4185e-07, -0.155771, 0.0462953, -0.986708, -5.59737, -1.51598, -2.48465)
+transform = Transform3D(-0.494737, -0.196262, -0.846591, 0, 0.974165, -0.225837, 0.869043, -0.11173, -0.481955, -3.51481, -1.71708, -9.25504)
 light_color = Color(6.73831e-06, 0.932929, 0.932929, 1)
-light_energy = 0.25
+light_energy = 0.5
 
 [node name="Key Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.66568, -0.440507, 0.602348, -0.430059, 0.433197, 0.792079, -0.609851, -0.786317, 0.0989269, 6.51529, 5.43031, 5.73197)
 light_color = Color(1, 1, 0.921569, 1)
-light_energy = 0.5
 shadow_enabled = true
 shadow_opacity = 0.7
 directional_shadow_split_1 = 0.05
@@ -94,6 +95,7 @@ script = ExtResource("5_q7kwb")
 
 [node name="Intro" type="Control" parent="Level/HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -149,9 +151,6 @@ Springtime."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Critter" parent="Level/HUD/Intro/Panel3" instance=ExtResource("6_pxehq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
-
 [node name="Panel" type="Panel" parent="Level/HUD/Intro"]
 layout_mode = 0
 offset_left = 166.5
@@ -160,6 +159,65 @@ offset_right = 415.5
 offset_bottom = 343.5
 
 [node name="Label" type="RichTextLabel" parent="Level/HUD/Intro/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Press [color=green]LEFT[/color] to go out."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tip2" type="Control" parent="Level/HUD"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel2" type="Panel" parent="Level/HUD/Tip2"]
+layout_mode = 0
+offset_left = -18.5
+offset_top = -390.5
+offset_right = 230.5
+offset_bottom = -309.5
+
+[node name="Label" type="RichTextLabel" parent="Level/HUD/Tip2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Heyy [color=orange][b]Blox[/b][/color]! Over here!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Level/HUD/Tip2"]
+layout_mode = 0
+offset_left = 166.5
+offset_top = 262.5
+offset_right = 415.5
+offset_bottom = 343.5
+
+[node name="Label" type="RichTextLabel" parent="Level/HUD/Tip2/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -196,12 +254,12 @@ vertical_alignment = 1
 
 [node name="Blox" parent="Level" instance=ExtResource("5_etwux")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, -3)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -3)
 script = ExtResource("5_1sh3m")
 
 [node name="Blitty" parent="Level" instance=ExtResource("9_etwux")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
 
 [node name="wall" parent="Level" instance=ExtResource("6_5jhce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
@@ -278,6 +336,6 @@ transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 4, 0, 
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 2.8, 0.2, -4.3)
 
 [node name="minidog" parent="." instance=ExtResource("22_hr6f0")]
-transform = Transform3D(0.173029, 0, -0.984917, 0, 1, 0, 0.984917, 0, 0.173029, 2.8, 0.210695, -7.4)
+transform = Transform3D(0.173029, 0, -0.984917, 0, 1, 0, 0.984917, 0, 0.173029, 2.8, 0.210695, -6.6)
 script = ExtResource("23_hr6f0")
 excitement = 15.0
