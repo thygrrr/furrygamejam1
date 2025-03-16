@@ -1,4 +1,5 @@
 extends Node3D
+class_name Player
 
 var from_rotation := Quaternion.IDENTITY
 var goal_rotation := Quaternion.IDENTITY
@@ -10,12 +11,18 @@ var flip_right := Quaternion(Vector3.BACK, deg_to_rad(90))
 var flip_up := Quaternion(Vector3.RIGHT, deg_to_rad(90))
 var flip_down := Quaternion(Vector3.LEFT, deg_to_rad(90))
 
+
+
+signal facing(whom: Critter)
+signal moved(direction: Vector3)
+
+
+
 @onready var anchor : Node3D = %anchor
 @onready var offset : Node3D = %offset
 @onready var view : Node3D = %view
 
 var flip : Tween
-var input_buffer : Array[InputEvent] = []
 
 # Single Entry Point into execution flow.
 func _ready() -> void:
@@ -25,18 +32,6 @@ func _ready() -> void:
 
 	quaternion = Quaternion.IDENTITY
 
-	await _main()
-
-
-# Main event loop, currently dummy condition and processes input indefinitely
-func _main() -> void:
-	while true:
-		if input_buffer:
-			await _execute(input_buffer.pop_front())
-		else:
-			await get_tree().process_frame
-
-
 # Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
 func _process(_delta : float) -> void:
 	view.quaternion = from_rotation.slerp(goal_rotation, rotation_t)
@@ -44,11 +39,6 @@ func _process(_delta : float) -> void:
 	var p := anchor.global_position
 	anchor.global_position = p.lerp(global_position, pow(0.1, _delta * 120.0))
 
-
-# Buffer input events
-func _input(event: InputEvent) -> void:
-	if event.is_action_type() and event.is_pressed():
-		input_buffer.append(event)
 
 
 # Resolve a single input event
@@ -97,6 +87,11 @@ func _execute(event: InputEvent) -> void:
 		# Wait for the tween here, just where we did anything with it.
 		# Nobody else needs to know and check it, because this function owns it.
 		await flip.finished
+		moved.emit()
+		var node = Grid.read(global_position + view.basis.z * -1)
+		if node:
+			facing.emit(node)
+
 	else:
 		# TODO: can't move there, play blocked anim
 		pass
