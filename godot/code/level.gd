@@ -1,4 +1,8 @@
 extends Node3D
+class_name MyClass
+
+static func TheFunction() -> void:
+	pass
 
 var player : Player
 var playing : bool
@@ -12,6 +16,9 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	_main() # run in background
 
+static func global_something() -> void:
+	pass
+
 
 # Main event loop, currently dummy condition and processes input indefinitely
 func _main() -> void:
@@ -24,9 +31,11 @@ func _main() -> void:
 
 	%Intro.hide()
 	%Tip2.show()
+	await _until(player.facing, %Mailbox)
+	%Tip2.hide()
 
+	%Tip3.show()
 	playing = await _until(player.facing, %Blitty)
-	%Intro.hide()
 
 	await _cutscene()
 	# await _nextlevel()
