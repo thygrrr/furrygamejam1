@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxd84i4g6yp12"]
 
 [ext_resource type="PackedScene" uid="uid://dxk0s0l8bbafh" path="res://models/kenney.nl/floor-thick.glb" id="1_1vt3p"]
-[ext_resource type="Script" uid="uid://d0yi5hhd4qvu3" path="res://code/grid_occupant.gd" id="2_p3kyp"]
+[ext_resource type="Script" uid="uid://d0yi5hhd4qvu3" path="res://code/obstacle.gd" id="2_p3kyp"]
 
 [node name="wall" instance=ExtResource("1_1vt3p")]
 script = ExtResource("2_p3kyp")

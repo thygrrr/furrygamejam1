@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://o760msijykqa"]
 
-[ext_resource type="Script" uid="uid://d0yi5hhd4qvu3" path="res://code/grid_occupant.gd" id="1_tbpbb"]
+[ext_resource type="Script" uid="uid://d7jtgn1llo46" path="res://code/critter.gd" id="1_ftbhh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0oab4"]
 radius = 0.7
 
 [node name="Critter" type="Node3D"]
+script = ExtResource("1_ftbhh")
 
 [node name="anchor" type="Node3D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("1_tbpbb")
 
 [node name="offset" type="Node3D" parent="anchor"]
 unique_name_in_owner = true

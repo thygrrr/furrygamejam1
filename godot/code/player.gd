@@ -32,6 +32,7 @@ func _ready() -> void:
 
 	quaternion = Quaternion.IDENTITY
 
+
 # Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
 func _process(_delta : float) -> void:
 	view.quaternion = from_rotation.slerp(goal_rotation, rotation_t)

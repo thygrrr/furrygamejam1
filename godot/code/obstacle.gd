@@ -1,4 +1,4 @@
-class_name grid_occupant
+class_name Obstacle
 extends Node3D
 
 func _ready() -> void:
