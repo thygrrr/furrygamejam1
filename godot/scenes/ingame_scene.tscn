@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=21 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bw5kmvu7nlxnm" path="res://code/level.gd" id="5_q7kwb"]
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="6_5jhce"]
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://fonts/Montserrat-Medium.ttf" id="6_iid22"]
+[ext_resource type="FontFile" uid="uid://c48ib8mymiale" path="res://fonts/Fredoka-Bold.ttf" id="7_4d8mm"]
+[ext_resource type="Texture2D" uid="uid://b4jlx6pbus1q4" path="res://characters/blox-portrait.png" id="7_pxehq"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_etwux"]
 [ext_resource type="PackedScene" uid="uid://b2mrudvpj2lof" path="res://characters/tiles/mailbox.tscn" id="14_ilpo5"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_6ywyt"]
@@ -56,7 +58,6 @@ size = 7.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, -1.41714e-08, 5.6365e-17, 1.41714e-08, 1, -3.97738e-09, 0, 3.97738e-09, 1, 2, 6, -1)
-visible = false
 light_energy = 0.3
 shadow_opacity = 0.8
 shadow_blur = 3.0
@@ -71,6 +72,7 @@ light_energy = 0.5
 [node name="Key Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.66568, -0.440507, 0.602348, -0.430059, 0.433197, 0.792079, -0.609851, -0.786317, 0.0989269, 6.51529, 5.43031, 5.73197)
 light_color = Color(1, 1, 0.921569, 1)
+light_energy = 0.7
 shadow_enabled = true
 shadow_opacity = 0.7
 directional_shadow_split_1 = 0.05
@@ -81,6 +83,31 @@ directional_shadow_blend_splits = true
 [node name="Level" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_q7kwb")
+
+[node name="Fixed UI" type="CanvasLayer" parent="Level"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level/Fixed UI"]
+offset_right = 420.0
+offset_bottom = 96.0
+
+[node name="TextureRect" type="TextureRect" parent="Level/Fixed UI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_pxehq")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="Level/Fixed UI/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Level/Fixed UI/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/bold_font = ExtResource("7_4d8mm")
+text = "Hello world wtf is going on"
 
 [node name="HUD" type="CanvasLayer" parent="Level"]
 
@@ -124,19 +151,21 @@ vertical_alignment = 1
 [node name="Step1" type="Control" parent="Level/HUD"]
 unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="Panel" type="Panel" parent="Level/HUD/Step1"]
 layout_mode = 0
-offset_left = 576.0
-offset_top = 727.0
-offset_right = 825.0
-offset_bottom = 808.0
+offset_left = 120.0
+offset_top = 256.0
+offset_right = 369.0
+offset_bottom = 337.0
 
 [node name="Label" type="RichTextLabel" parent="Level/HUD/Step1/Panel"]
 layout_mode = 1
@@ -189,19 +218,21 @@ vertical_alignment = 1
 [node name="Step3" type="Control" parent="Level/HUD"]
 unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="Panel" type="Panel" parent="Level/HUD/Step3"]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 323.0
-offset_right = 325.0
-offset_bottom = 404.0
+offset_left = -424.0
+offset_top = -24.0
+offset_right = -264.0
+offset_bottom = 57.0
 
 [node name="Label" type="RichTextLabel" parent="Level/HUD/Step3/Panel"]
 layout_mode = 1
@@ -214,7 +245,30 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 bbcode_enabled = true
-text = "Now, greet your friend [color=pink][b]Blitty[/b][/color]."
+text = "Let's greet our friend!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Level/HUD/Step3"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = -256.0
+offset_right = 433.0
+offset_bottom = -175.0
+
+[node name="Label" type="RichTextLabel" parent="Level/HUD/Step3/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Hey [color=orange][b]Blox[/b][/color]!
+I'm over here!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -226,9 +280,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -169.0
-offset_top = 31.0
+offset_top = 33.0
 offset_right = 249.0
-offset_bottom = 114.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

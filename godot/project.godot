@@ -33,7 +33,10 @@ window/stretch/aspect="keep_height"
 
 [gui]
 
+theme/default_theme_scale=1.5
 theme/custom="res://ui/theme.tres"
+theme/custom_font="uid://cxwclb8igvjto"
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
