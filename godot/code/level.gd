@@ -14,6 +14,9 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
+	for child in $HUD.get_children():
+		child.hide()
+
 	_main() # run in background
 
 static func global_something() -> void:
@@ -24,17 +27,19 @@ static func global_something() -> void:
 func _main() -> void:
 	player = %Blox
 
-	%Intro.show()
+	#await %Intro1.play()
+
+	%Step1.show()
 
 	_play()
 	await player.moved
 
-	%Intro.hide()
-	%Tip2.show()
+	%Step1.hide()
+	%Step2.show()
 	await _until(player.facing, %Mailbox)
-	%Tip2.hide()
+	%Step2.hide()
 
-	%Tip3.show()
+	%Step3.show()
 	playing = await _until(player.facing, %Blitty)
 
 	await _cutscene()
@@ -42,7 +47,7 @@ func _main() -> void:
 
 
 func _cutscene():
-	%Cutscene.show()
+	%Outro.show()
 
 
 func _until(awaitable: Signal, whom: Node) -> bool:

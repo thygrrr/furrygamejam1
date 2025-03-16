@@ -121,14 +121,24 @@ Springtime."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Level/HUD/Intro"]
-layout_mode = 0
-offset_left = 166.5
-offset_top = 262.5
-offset_right = 415.5
-offset_bottom = 343.5
+[node name="Step1" type="Control" parent="Level/HUD"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Intro/Panel"]
+[node name="Panel" type="Panel" parent="Level/HUD/Step1"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 727.0
+offset_right = 825.0
+offset_bottom = 808.0
+
+[node name="Label" type="RichTextLabel" parent="Level/HUD/Step1/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,51 +153,24 @@ text = "Press [color=green]LEFT[/color] to go out."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tip2" type="Control" parent="Level/HUD"]
+[node name="Step2" type="Control" parent="Level/HUD"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -44.5
-offset_top = -11.5
-offset_right = 44.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-
-[node name="Panel2" type="Panel" parent="Level/HUD/Tip2"]
-layout_mode = 0
-offset_left = -18.5
-offset_top = -390.5
-offset_right = 230.5
-offset_bottom = -309.5
-
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Tip2/Panel2"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-bbcode_enabled = true
-text = "Heyy [color=orange][b]Blox[/b][/color]! Over here!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Level/HUD/Tip2"]
+[node name="Panel" type="Panel" parent="Level/HUD/Step2"]
 layout_mode = 0
-offset_left = 166.5
-offset_top = 262.5
-offset_right = 415.5
-offset_bottom = 343.5
+offset_left = 58.0
+offset_top = 787.0
+offset_right = 307.0
+offset_bottom = 868.0
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Tip2/Panel"]
+[node name="Label" type="RichTextLabel" parent="Level/HUD/Step2/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -203,51 +186,24 @@ to get your mail."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tip3" type="Control" parent="Level/HUD"]
+[node name="Step3" type="Control" parent="Level/HUD"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -44.5
-offset_top = -11.5
-offset_right = 44.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-
-[node name="Panel2" type="Panel" parent="Level/HUD/Tip3"]
-layout_mode = 0
-offset_left = -18.5
-offset_top = -390.5
-offset_right = 230.5
-offset_bottom = -309.5
-
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Tip3/Panel2"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-bbcode_enabled = true
-text = "Heyy [color=orange][b]Blox[/b][/color]! Over here!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Level/HUD/Tip3"]
+[node name="Panel" type="Panel" parent="Level/HUD/Step3"]
 layout_mode = 0
-offset_left = 166.5
-offset_top = 262.5
-offset_right = 415.5
-offset_bottom = 343.5
+offset_left = 76.0
+offset_top = 323.0
+offset_right = 325.0
+offset_bottom = 404.0
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Tip3/Panel"]
+[node name="Label" type="RichTextLabel" parent="Level/HUD/Step3/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -262,22 +218,22 @@ text = "Now, greet your friend [color=pink][b]Blitty[/b][/color]."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cutscene" type="Label" parent="Level/HUD"]
+[node name="Outro" type="Label" parent="Level/HUD"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -44.5
-offset_top = -11.5
-offset_right = 121.5
-offset_bottom = 28.5
+offset_left = -169.0
+offset_top = 31.0
+offset_right = 249.0
+offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "Hey Blitty!"
+text = "Hey Blitty!
+(outro plays / level solved)"
 label_settings = SubResource("LabelSettings_2vs8u")
 horizontal_alignment = 1
 vertical_alignment = 1
