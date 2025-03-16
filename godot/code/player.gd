@@ -38,7 +38,6 @@ func _ready() -> void:
 
 # Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
 func _process(_delta : float) -> void:
-	var p := anchor.global_position
 	var k := pow(0.9, _delta * 120.0)
 	anchor.global_position = k * anchor.global_position + (1-k) * global_position
 
@@ -77,16 +76,16 @@ func _execute(event: InputEvent) -> void:
 		rotation_t = 0.0
 
 		flip = create_tween()
-		flip.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(self, "rotation_t", 1.0, 0.3).set_delay(0.1)
+		flip.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(self, "rotation_t", 1.0, 0.2).set_delay(0.05)
 
 		var bounce := create_tween()
 		var parallel_a = bounce.parallel()
 		var parallel_b = bounce.parallel()
 
-		parallel_a.set_ease(Tween.EASE_OUT).tween_property(offset, "position", Vector3(0, 0.7, 0), 0.15)
-		parallel_a.parallel().set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(0.9, 1.3, 0.9), 0.15)
-		parallel_a.chain().set_ease(Tween.EASE_IN).tween_property(offset, "position", Vector3.ZERO, 0.1)
-		parallel_b.set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(1.25, 0.9, 1.25), 0.1)
+		parallel_a.set_ease(Tween.EASE_OUT).tween_property(offset, "position", Vector3(0, 0.7, 0), 0.1)
+		parallel_a.parallel().set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(0.9, 1.3, 0.9), 0.1)
+		parallel_a.chain().set_ease(Tween.EASE_IN).tween_property(offset, "position", Vector3.ZERO, 0.05)
+		parallel_b.set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(1.25, 0.9, 1.25), 0.05)
 		parallel_b.chain().set_ease(Tween.EASE_IN).tween_property(anchor, "scale", Vector3.ONE, 0.1)
 
 
