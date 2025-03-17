@@ -9,8 +9,11 @@ var playing : bool
 
 var input_buffer : Array[InputEvent] = []
 
+var _bindings : Dictionary[String, Variant] = {}
+
 func _enter_tree() -> void:
 	Grid.reset()
+	_bindings.clear()
 
 
 func _ready() -> void:
@@ -27,6 +30,7 @@ static func global_something() -> void:
 func _main() -> void:
 	player = %Blox
 
+
 	#await %Intro1.play()
 
 	%Step1.show()
@@ -34,29 +38,53 @@ func _main() -> void:
 	_play()
 	await player.moved
 
+	bind(player.moved, "moved")
+	bind(player.faces, "faces")
+
+	await any(["moved", "faces"])
+
+	print("Both have happened")
+
+
 	%Step1.hide()
 	%Step2.show()
-	await _until(player.facing, %Mailbox)
+	await until(player.faces, %Mailbox)
 	%Step2.hide()
 
 	%Step3.show()
-	playing = await _until(player.facing, %Blitty)
+	playing = await until(player.faces, %Blitty)
 
 	await _cutscene()
 	# await _nextlevel()
-
 
 func _cutscene():
 	%Outro.show()
 
 
-func _until(awaitable: Signal, whom: Node) -> bool:
+func until(awaitable: Signal, whom: Node) -> bool:
 	while true:
 		var other = await awaitable
 		if whom == other:
 			break;
 	return false # mild hack, dont have nice semantics for this yet
 
+
+func bind(from: Signal, slot: String) -> void:
+	_bindings[slot] = await from
+
+
+func all(args : Array[String]):
+	for arg in args:
+		while not arg in _bindings:
+			await get_tree().process_frame
+
+func any(args : Array[String]):
+	var solved = false
+	while not solved:
+		await get_tree().process_frame
+		for arg in args:
+			if arg in _bindings:
+				solved = true
 
 func _play():
 	playing = true

@@ -13,7 +13,7 @@ var flip_down := Quaternion(Vector3.RIGHT, deg_to_rad(90))
 
 
 
-signal facing(whom: Critter)
+signal faces(whom: Critter)
 signal moved(direction: Vector3)
 
 
@@ -93,10 +93,22 @@ func _execute(event: InputEvent) -> void:
 		# Nobody else needs to know and check it, because this function owns it.
 		await flip.finished
 		moved.emit()
-		var node = Grid.read(global_position + view.basis.z)
-		if node:
-			facing.emit(node)
+
+		if not is_vertical():
+			var node = Grid.read(global_position + view.global_basis.z)
+			if node:
+				faces.emit(node)
 
 	else:
 		# TODO: can't move there, play blocked anim
 		pass
+
+
+func is_vertical():
+	return is_up() or is_down()
+
+func is_up():
+	return Vector3.UP.dot(view.global_basis.z) > 0.9
+
+func is_down():
+	return Vector3.DOWN.dot(view.global_basis.z) > 0.9

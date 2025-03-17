@@ -102,6 +102,7 @@ offset_bottom = 40.0
 rotation = 1.5708
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Level/Fixed UI/deg90"]
+layout_mode = 0
 offset_left = 528.0
 offset_top = -416.0
 offset_right = 950.0
@@ -217,6 +218,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Level/HUD/Step1"]
+layout_mode = 0
 offset_left = -456.0
 offset_top = 160.0
 offset_right = -2.0
@@ -467,7 +469,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9)
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 4, 0, -3)
 
 [node name="minidog" parent="Level" instance=ExtResource("22_hr6f0")]
-transform = Transform3D(0.422049, 0, -0.906573, 0, 1, 0, 0.906573, 0, 0.422049, 4, 0.210695, -6.1)
+transform = Transform3D(0.422049, 0, -0.906573, 0, 1, 0, 0.906573, 0, 0.422049, 4.1, 0.210695, -6.3)
+script = ExtResource("23_hr6f0")
+excitement = 15.0
+metadata/_edit_group_ = true
+
+[node name="minidog2" parent="Level" instance=ExtResource("22_hr6f0")]
+transform = Transform3D(0.906573, 0, 0.422049, 0, 1, 0, -0.422049, 0, 0.906573, 2, 0.210695, -7.1)
 script = ExtResource("23_hr6f0")
 excitement = 15.0
 
