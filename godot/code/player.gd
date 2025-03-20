@@ -48,6 +48,7 @@ func _in_view_space(rot : Quaternion):
 
 # Resolve a single input event
 func _execute(event: InputEvent) -> void:
+
 	var next_step : Vector3
 	var next_flip : Quaternion
 
@@ -66,7 +67,10 @@ func _execute(event: InputEvent) -> void:
 	else:
 		return
 
+
 	if Grid.write(global_position + next_step, self):
+		_move_sound()
+
 		Grid.clear(global_position)
 		global_position += next_step
 

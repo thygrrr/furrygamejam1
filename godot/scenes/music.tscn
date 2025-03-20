@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://7k2jkqdy1lb2"]
+
+[node name="Music" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

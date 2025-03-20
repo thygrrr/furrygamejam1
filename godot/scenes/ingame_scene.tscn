@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=22 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_etwux"]
 [ext_resource type="PackedScene" uid="uid://b2mrudvpj2lof" path="res://characters/tiles/mailbox.tscn" id="14_ilpo5"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_6ywyt"]
+[ext_resource type="AudioStream" uid="uid://bmwjocwtlg76r" path="res://music/FGJ25_BlockPartyTrack01_demo.mp3" id="17_th7mp"]
 [ext_resource type="PackedScene" uid="uid://rav3yqmxiw7s" path="res://models/props/minidog.obj" id="22_hr6f0"]
 [ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="23_hr6f0"]
 
@@ -485,3 +486,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
 
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_1sh3m")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_th7mp")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

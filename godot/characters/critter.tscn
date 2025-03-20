@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://o760msijykqa"]
+[gd_scene load_steps=8 format=3 uid="uid://o760msijykqa"]
 
 [ext_resource type="Script" uid="uid://d7jtgn1llo46" path="res://code/critter.gd" id="1_ftbhh"]
 [ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="2_wrh6k"]
+[ext_resource type="AudioStream" uid="uid://co2yrt8gdd44s" path="res://sfx/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_005_75680.mp3" id="3_ijayo"]
+[ext_resource type="AudioStream" uid="uid://bkyx6wby54mgo" path="res://sfx/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_004_75679.mp3" id="3_lhthu"]
+[ext_resource type="AudioStream" uid="uid://3kcfd1w6p6vm" path="res://sfx/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_006_75681.mp3" id="5_wnex8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0oab4"]
 radius = 0.7
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p1xh7"]
+random_pitch = 2.0
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("3_ijayo")
+stream_1/stream = ExtResource("3_lhthu")
+stream_2/stream = ExtResource("3_ijayo")
+stream_3/stream = ExtResource("5_wnex8")
 
 [node name="Critter" type="Node3D"]
 script = ExtResource("1_ftbhh")
@@ -25,6 +37,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
 shape = SubResource("SphereShape3D_0oab4")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_p1xh7")
+volume_db = -8.0
+max_polyphony = 5
+panning_strength = 0.2
 
 [connection signal="mouse_entered" from="AnimatableBody3D" to="." method="_on_animatable_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="AnimatableBody3D" to="." method="_on_animatable_body_3d_mouse_exited"]
