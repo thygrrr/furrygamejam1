@@ -15,6 +15,8 @@ func _ready() -> void:
 	shake.frequency = 0.03
 	shake.domain_warp_enabled = true
 
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time += delta

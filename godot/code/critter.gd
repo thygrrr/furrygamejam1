@@ -60,7 +60,7 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 		# Wait for the tween here, just where we did anything with it.
 		# Nobody else needs to know and check it, because this function owns it.
 		await get_tree().create_timer(0.15).timeout
-		%CameraShake.trauma += 0.5
+		%CameraShake.trauma = 0.5
 
 		await flip.finished
 

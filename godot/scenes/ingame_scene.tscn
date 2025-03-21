@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b4jlx6pbus1q4" path="res://characters/blox-portrait.png" id="7_pxehq"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_etwux"]
 [ext_resource type="FontFile" uid="uid://gg0i6831qui1" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="10_hr6f0"]
-[ext_resource type="Script" uid="uid://j2e33yr53486" path="res://scenes/ui_follow.gd" id="10_l64ye"]
+[ext_resource type="Script" uid="uid://j2e33yr53486" path="res://code/ui_follow.gd" id="10_rohyw"]
 [ext_resource type="Script" uid="uid://bob5guqytrpmh" path="res://code/smooth_remote_transform.gd" id="12_o7ls4"]
 [ext_resource type="PackedScene" uid="uid://b2mrudvpj2lof" path="res://characters/tiles/mailbox.tscn" id="14_ilpo5"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_6ywyt"]
@@ -83,7 +83,7 @@ motion_smooth_time = 0.4
 metadata/_custom_type_script = "uid://biw0dyhb42sar"
 
 [node name="CameraAnchor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, 4)
 
 [node name="CameraFollow" type="Node3D" parent="CameraAnchor"]
 
@@ -94,7 +94,6 @@ target = NodePath("../../../Look")
 
 [node name="CameraShake" type="Node3D" parent="CameraAnchor/CameraFollow/CameraLook"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("6_rohyw")
 
 [node name="Camera3D" type="Camera3D" parent="CameraAnchor/CameraFollow/CameraLook/CameraShake"]
@@ -342,11 +341,9 @@ vertical_alignment = 1
 [node name="Step3" type="Control" parent="Level/UI"]
 unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -354,10 +351,8 @@ size_flags_horizontal = 4
 [node name="Panel" type="Panel" parent="Level/UI/Step3"]
 visible = false
 layout_mode = 0
-offset_left = -424.0
-offset_top = -24.0
-offset_right = -264.0
-offset_bottom = 57.0
+offset_right = 160.0
+offset_bottom = 81.0
 
 [node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Panel"]
 layout_mode = 1
@@ -396,18 +391,26 @@ Over here !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Waff" type="Panel" parent="Level/UI/Step3" node_paths=PackedStringArray("target")]
+[node name="Waff1" type="Control" parent="Level/UI/Step3" node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 248.0
-offset_top = -48.0
-offset_right = 334.0
-offset_bottom = 33.0
-rotation = -1.5708
-script = ExtResource("10_l64ye")
+anchors_preset = 0
+scale = Vector2(2, 2)
+script = ExtResource("10_rohyw")
 target = NodePath("../../../Chip")
 
-[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Waff"]
+[node name="Content" type="Panel" parent="Level/UI/Step3/Waff1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 120.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Waff1/Content"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -416,22 +419,63 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 bbcode_enabled = true
-text = "[color=gray][font size=15]Chip:[/font][/color] Waff!"
+text = "[color=gray][font size=15]Chip[/font][/color]
+Waff!"
+horizontal_alignment = 1
+
+[node name="Waff2" type="Control" parent="Level/UI/Step3" node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+anchors_preset = 0
+scale = Vector2(2, 2)
+script = ExtResource("10_rohyw")
+target = NodePath("../../../Dado")
+
+[node name="Content" type="Panel" parent="Level/UI/Step3/Waff2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 120.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Waff2/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "[color=gray][font size=15]Dado[/font][/color]
+Wiff?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Waff2" type="Panel" parent="Level/UI/Step3" node_paths=PackedStringArray("target")]
+[node name="Waff3" type="Control" parent="Level/UI/Step3" node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 248.0
-offset_top = -48.0
-offset_right = 334.0
-offset_bottom = 33.0
-rotation = -1.5708
-script = ExtResource("10_l64ye")
-target = NodePath("../../../Dado")
+anchors_preset = 0
+scale = Vector2(2, 2)
+script = ExtResource("10_rohyw")
+target = NodePath("../../../Losa")
 
-[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Waff2"]
+[node name="Content" type="Panel" parent="Level/UI/Step3/Waff3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 120.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Waff3/Content"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -440,7 +484,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 bbcode_enabled = true
-text = "[color=gray][font size=15]Dado:[/font][/color] Wiff?"
+text = "[color=gray][font size=15]Losa[/font][/color]
+Weff?!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -489,77 +534,9 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 4, 0.2, -6
 unique_name_in_owner = true
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 4, 0.2, -7)
 
-[node name="wall" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
-
-[node name="wall16" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
-
-[node name="wall17" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
-
-[node name="wall2" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
-
-[node name="wall3" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
-
-[node name="wall4" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6)
-
-[node name="wall5" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8)
-
-[node name="wall6" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
-
-[node name="wall18" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -11)
-
-[node name="wall8" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
-
-[node name="wall15" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
-
-[node name="wall9" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
-
-[node name="wall19" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
-
-[node name="wall20" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
-
-[node name="wall10" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
-
-[node name="wall11" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
-
-[node name="wall12" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
-
-[node name="wall13" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
-
-[node name="wall21" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11)
-
-[node name="wall22" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -10)
-
-[node name="wall23" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -10)
-
-[node name="wall24" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9)
-
-[node name="wall25" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9)
-
-[node name="door" parent="Level" instance=ExtResource("15_6ywyt")]
-transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 4, 0.185064, -3)
+[node name="Losa" parent="Level" instance=ExtResource("22_rohyw")]
+unique_name_in_owner = true
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 4, 0.2, -8)
 
 [node name="Mailbox" parent="Level" instance=ExtResource("14_ilpo5")]
 unique_name_in_owner = true
@@ -607,8 +584,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, -1, 0, -1.42109e-14
 mesh = SubResource("TextMesh_hr6f0")
 skeleton = NodePath("../..")
 
-[node name="building-type-e2" parent="Level" instance=ExtResource("19_l64ye")]
-transform = Transform3D(-2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, 7.1, 0, -3)
+[node name="Environment" type="Node" parent="Level"]
+
+[node name="building-type-e2" parent="Level/Environment" instance=ExtResource("19_l64ye")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.1, 0, 2)
+
+[node name="wall" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="wall16" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="wall17" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="wall2" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="wall3" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="wall4" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="wall5" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="wall6" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="wall18" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="wall8" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="wall15" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="wall9" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+
+[node name="wall19" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+
+[node name="wall20" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+
+[node name="wall10" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="wall11" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="wall12" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+
+[node name="wall13" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3)
+
+[node name="wall21" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
+
+[node name="wall22" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+
+[node name="wall23" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="wall24" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+
+[node name="wall25" parent="Level/Environment" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+
+[node name="door" parent="Level/Environment" instance=ExtResource("15_6ywyt")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 5, 0.185064, 2)
 
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_1sh3m")
@@ -621,7 +672,7 @@ parameters/looping = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_hysgw")
-volume_db = -7.0
+volume_db = -8.0
 autoplay = true
 bus = &"Sound"
 parameters/looping = true

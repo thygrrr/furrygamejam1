@@ -30,7 +30,6 @@ static func global_something() -> void:
 func _main() -> void:
 	player = %Blox
 
-
 	#await %Intro1.play()
 
 	%Step1.show()
@@ -54,8 +53,9 @@ func _main() -> void:
 	%Arrow2.show()
 	%Step2.hide()
 
-	%Waff.show_for_critter(%Blox)
+	%Waff1.show_for_critter(%Blox)
 	%Waff2.show_for_critter(%Blox)
+	%Waff3.show_for_critter(%Blox)
 
 	await until(player.faces, %Chip)
 	%Step3.show()
@@ -63,7 +63,7 @@ func _main() -> void:
 	%Arrow2.hide()
 
 	await _cutscene()
-	# await _nextlevel()
+
 
 func _cutscene():
 	%Outro.show()

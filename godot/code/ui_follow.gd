@@ -1,7 +1,11 @@
 extends Control
 
 @export var target : Interactable
+
+@onready var content : Control = $Content
+
 var critter_view : Node3D
+
 
 func _orient():
 	if (critter_view.global_position - target.global_position).length() > 1.1:
@@ -13,26 +17,40 @@ func _orient():
 		return
 
 	if critter_view.global_basis.y.dot(target.global_basis.y) > 0.5:
+		content.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT, true)
+		content.position = content.size * Vector2(0, -1) # I hate godot bugs
 		rotation_degrees = 0
 		show()
 		return
 
 	if critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
+		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
+		content.position = content.size * Vector2(-1, 0) # I hate godot bugs
 		rotation_degrees = 180
 		show()
 		return
 
 	if critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
+		content.set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
+		content.position = content.size * -1
 		rotation_degrees = 90
 		show()
 		return
 
 	if critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
-		rotation_degrees = 90
+		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
+		content.position = Vector2.ZERO
+		rotation_degrees = -90
 		show()
 		return
 
 	hide()
+
+func _center():
+	content.offset_bottom = 0
+	content.offset_top = 0
+	content.offset_left = 0
+	content.offset_right = 0
 
 func _check_self(critter: Node3D):
 	visible = (critter == target)
