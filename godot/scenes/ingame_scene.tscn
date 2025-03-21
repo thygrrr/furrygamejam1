@@ -1,17 +1,20 @@
-[gd_scene load_steps=22 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=25 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Environment" uid="uid://dcqc2mpy0qkyy" path="res://vfx/default_environment.tres" id="4_etwux"]
+[ext_resource type="Script" uid="uid://biw0dyhb42sar" path="res://code/smooth_follow.gd" id="4_hysgw"]
 [ext_resource type="Script" uid="uid://nfe45hfgghg0" path="res://code/player.gd" id="5_1sh3m"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="5_etwux"]
+[ext_resource type="Script" uid="uid://ts62aa2lgsgi" path="res://code/look_at.gd" id="5_o7ls4"]
 [ext_resource type="Script" uid="uid://bw5kmvu7nlxnm" path="res://code/level.gd" id="5_q7kwb"]
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="6_5jhce"]
 [ext_resource type="FontFile" uid="uid://c48ib8mymiale" path="res://fonts/Fredoka-Bold.ttf" id="7_4d8mm"]
 [ext_resource type="Texture2D" uid="uid://b4jlx6pbus1q4" path="res://characters/blox-portrait.png" id="7_pxehq"]
 [ext_resource type="FontFile" uid="uid://cxwclb8igvjto" path="res://fonts/FredokaOne-Regular.ttf" id="8_4d8mm"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_etwux"]
+[ext_resource type="Script" uid="uid://bob5guqytrpmh" path="res://code/smooth_remote_transform.gd" id="12_o7ls4"]
 [ext_resource type="PackedScene" uid="uid://b2mrudvpj2lof" path="res://characters/tiles/mailbox.tscn" id="14_ilpo5"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_6ywyt"]
 [ext_resource type="AudioStream" uid="uid://bmwjocwtlg76r" path="res://music/FGJ25_BlockPartyTrack01_demo.mp3" id="17_th7mp"]
@@ -50,8 +53,24 @@ unique_name_in_owner = true
 process_mode = 2
 visible = false
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.969467, -0.238738, 0.0560227, 0.111619, 0.633022, 0.766044, -0.218348, -0.736401, 0.640342, -0.39276, 6.9615, 5.90023)
+[node name="Look" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_hysgw")
+target = NodePath("../Level/Blox/Cam")
+motion_smooth_time = 0.4
+metadata/_custom_type_script = "uid://biw0dyhb42sar"
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 6)
+
+[node name="CameraFollow" type="Node3D" parent="CameraAnchor"]
+
+[node name="CameraLook" type="Node3D" parent="CameraAnchor/CameraFollow" node_paths=PackedStringArray("target")]
+transform = Transform3D(0.999633, 0.0193731, -0.0189358, 0, 0.69899, 0.715132, 0.0270903, -0.714869, 0.698733, 0, 0, 0)
+script = ExtResource("5_o7ls4")
+target = NodePath("../../../Look")
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor/CameraFollow/CameraLook"]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0, 0, 0)
 environment = ExtResource("4_etwux")
 attributes = SubResource("CameraAttributesPhysical_1sh3m")
 current = true
@@ -86,15 +105,15 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5)
 script = ExtResource("5_q7kwb")
 
-[node name="Fixed UI" type="CanvasLayer" parent="Level"]
+[node name="Permanent UI" type="CanvasLayer" parent="Level"]
 
-[node name="deg0" type="Control" parent="Level/Fixed UI"]
+[node name="deg0" type="Control" parent="Level/Permanent UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="deg90" type="Control" parent="Level/Fixed UI"]
+[node name="deg90" type="Control" parent="Level/Permanent UI"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -102,23 +121,23 @@ offset_right = 40.0
 offset_bottom = 40.0
 rotation = 1.5708
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Level/Fixed UI/deg90"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Level/Permanent UI/deg90"]
 layout_mode = 0
 offset_left = 528.0
 offset_top = -416.0
 offset_right = 950.0
 offset_bottom = -320.0
 
-[node name="TextureRect" type="TextureRect" parent="Level/Fixed UI/deg90/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Level/Permanent UI/deg90/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("7_pxehq")
 expand_mode = 2
 
-[node name="Panel" type="Panel" parent="Level/Fixed UI/deg90/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Level/Permanent UI/deg90/HBoxContainer"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Level/Fixed UI/deg90/HBoxContainer/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Level/Permanent UI/deg90/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,14 +149,14 @@ text = "Hello world wtf is going on"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="deg180" type="Control" parent="Level/Fixed UI"]
+[node name="deg180" type="Control" parent="Level/Permanent UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 rotation = 3.14159
 
-[node name="deg270" type="Control" parent="Level/Fixed UI"]
+[node name="deg270" type="Control" parent="Level/Permanent UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_top = 424.0
@@ -145,9 +164,9 @@ offset_right = 40.0
 offset_bottom = 464.0
 rotation = -1.5708
 
-[node name="HUD" type="CanvasLayer" parent="Level"]
+[node name="UI" type="CanvasLayer" parent="Level"]
 
-[node name="Intro" type="Control" parent="Level/HUD"]
+[node name="Intro" type="Control" parent="Level/UI"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 8
@@ -163,14 +182,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel3" type="Panel" parent="Level/HUD/Intro"]
+[node name="Panel3" type="Panel" parent="Level/UI/Intro"]
 layout_mode = 0
 offset_left = -77.5
 offset_top = -64.5
 offset_right = 171.5
 offset_bottom = 16.5
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Intro/Panel3"]
+[node name="Label" type="RichTextLabel" parent="Level/UI/Intro/Panel3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,7 +203,7 @@ Springtime."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Step1" type="Control" parent="Level/HUD"]
+[node name="Step1" type="Control" parent="Level/UI"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 8
@@ -196,14 +215,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="Level/HUD/Step1"]
+[node name="Panel" type="Panel" parent="Level/UI/Step1"]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 256.0
 offset_right = 369.0
 offset_bottom = 337.0
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Step1/Panel"]
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step1/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,19 +237,19 @@ text = "Press [color=green]LEFT[/color] to go out."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Level/HUD/Step1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Level/UI/Step1"]
 layout_mode = 0
 offset_left = -456.0
 offset_top = 160.0
 offset_right = -2.0
 offset_bottom = 288.0
 
-[node name="Panel2" type="Panel" parent="Level/HUD/Step1/HBoxContainer"]
+[node name="Panel2" type="Panel" parent="Level/UI/Step1/HBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Level/HUD/Step1/HBoxContainer/Panel2"]
+[node name="TextureRect" type="TextureRect" parent="Level/UI/Step1/HBoxContainer/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,11 +259,11 @@ grow_vertical = 2
 texture = ExtResource("7_pxehq")
 expand_mode = 2
 
-[node name="Panel" type="Panel" parent="Level/HUD/Step1/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Level/UI/Step1/HBoxContainer"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Level/HUD/Step1/HBoxContainer/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Level/UI/Step1/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -257,7 +276,7 @@ Let's enjoy the sun!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Step2" type="Control" parent="Level/HUD"]
+[node name="Step2" type="Control" parent="Level/UI"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -267,14 +286,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="Level/HUD/Step2"]
+[node name="Panel" type="Panel" parent="Level/UI/Step2"]
 layout_mode = 0
 offset_left = 58.0
 offset_top = 787.0
 offset_right = 307.0
 offset_bottom = 868.0
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Step2/Panel"]
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step2/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -290,7 +309,7 @@ to get your mail."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Step3" type="Control" parent="Level/HUD"]
+[node name="Step3" type="Control" parent="Level/UI"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 8
@@ -302,7 +321,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="Level/HUD/Step3"]
+[node name="Panel" type="Panel" parent="Level/UI/Step3"]
 visible = false
 layout_mode = 0
 offset_left = -424.0
@@ -310,7 +329,7 @@ offset_top = -24.0
 offset_right = -264.0
 offset_bottom = 57.0
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Step3/Panel"]
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -325,7 +344,7 @@ text = "Let's greet our friend !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Level/HUD/Step3"]
+[node name="Panel2" type="Panel" parent="Level/UI/Step3"]
 visible = false
 layout_mode = 0
 offset_left = 184.0
@@ -333,7 +352,7 @@ offset_top = -256.0
 offset_right = 433.0
 offset_bottom = -175.0
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Step3/Panel2"]
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -347,7 +366,7 @@ Over here !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel3" type="Panel" parent="Level/HUD/Step3"]
+[node name="Panel3" type="Panel" parent="Level/UI/Step3"]
 layout_mode = 0
 offset_left = 248.0
 offset_top = -48.0
@@ -355,7 +374,7 @@ offset_right = 334.0
 offset_bottom = 33.0
 rotation = -1.5708
 
-[node name="Label" type="RichTextLabel" parent="Level/HUD/Step3/Panel3"]
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Panel3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -368,7 +387,7 @@ text = "Waff! Waff!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Outro" type="Label" parent="Level/HUD"]
+[node name="Outro" type="Label" parent="Level/UI"]
 unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -393,12 +412,23 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -3)
 script = ExtResource("5_1sh3m")
 
+[node name="Cam" type="Node3D" parent="Level/Blox" node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
+script = ExtResource("12_o7ls4")
+target = NodePath("../../../CameraAnchor/CameraFollow")
+motion_smooth_time = 0.5
+scaling = Vector3(0.7, 1, 1.2)
+metadata/_custom_type_script = "uid://bob5guqytrpmh"
+
 [node name="Blitty" parent="Level" instance=ExtResource("9_etwux")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -11)
 
 [node name="wall" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="wall7" parent="Level" instance=ExtResource("6_5jhce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="wall16" parent="Level" instance=ExtResource("6_5jhce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
@@ -489,6 +519,5 @@ mesh = SubResource("PlaneMesh_1sh3m")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_th7mp")
-autoplay = true
 bus = &"Music"
 parameters/looping = true

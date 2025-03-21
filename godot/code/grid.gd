@@ -16,16 +16,27 @@ func reset() -> void:
 
 func read(pos: Vector3) -> Node:
 	var center = float(size/2)
-	return grid[roundi(center+pos.x)][roundi(center+pos.z)]
+	var x = roundi(center+pos.x)
+	var z = roundi(center+pos.z)
+	if (x >= size) or (z >= size) or (x < 0) or (z < 0):
+		return null
+	return grid[x][z]
 
 func write(pos: Vector3, node: Node) -> bool:
 	var center = float(size/2)
+	var x = roundi(center+pos.x)
+	var z = roundi(center+pos.z)
+	prints(x, z)
+	if (x >= size) or (z >= size) or (x < 0) or (z < 0):
+		return false
 	if not (read(pos)):
-		grid[roundi(center+pos.x)][roundi(center+pos.z)] = node
+		grid[x][z] = node
 		return true
 	return false
 
 
 func clear(pos: Vector3) -> void:
 	var center = float(size/2)
-	grid[roundi(center+pos.x)][roundi(center+pos.z)] = null
+	var x = roundi(center+pos.x)
+	var z = roundi(center+pos.z)
+	grid[x][z] = null

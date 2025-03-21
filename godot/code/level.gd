@@ -17,7 +17,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	for child in $HUD.get_children():
+	for child in $UI.get_children():
 		child.hide()
 
 	_main() # run in background
