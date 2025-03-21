@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkl6ot2pjoo3n"]
+
+[ext_resource type="PackedScene" uid="uid://rav3yqmxiw7s" path="res://models/props/minidog.obj" id="1_l6cbk"]
+[ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="2_plj7h"]
+[ext_resource type="Script" uid="uid://cc3guqkshykyd" path="res://code/interactable.gd" id="2_qgd4y"]
+
+[node name="Chip" instance=ExtResource("1_l6cbk")]
+script = ExtResource("2_qgd4y")
+
+[node name="Mesh" parent="." index="0"]
+script = ExtResource("2_plj7h")

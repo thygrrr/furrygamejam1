@@ -18,17 +18,21 @@ func read(pos: Vector3) -> Node:
 	var center = float(size/2)
 	var x = roundi(center+pos.x)
 	var z = roundi(center+pos.z)
+
 	if (x >= size) or (z >= size) or (x < 0) or (z < 0):
 		return null
+
 	return grid[x][z]
 
 func write(pos: Vector3, node: Node) -> bool:
 	var center = float(size/2)
 	var x = roundi(center+pos.x)
 	var z = roundi(center+pos.z)
-	prints(x, z)
+
 	if (x >= size) or (z >= size) or (x < 0) or (z < 0):
 		return false
+
+
 	if not (read(pos)):
 		grid[x][z] = node
 		return true

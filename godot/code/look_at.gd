@@ -5,7 +5,6 @@ extends Node3D
 @onready var noise = FastNoiseLite.new()
 @onready var shake = FastNoiseLite.new()
 
-var target_position := Vector3(0, 0, 0)
 var acceleration_offset := Vector3(0, 0, 0)
 var time : float = 0
 

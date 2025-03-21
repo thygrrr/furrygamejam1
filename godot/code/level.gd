@@ -43,15 +43,16 @@ func _main() -> void:
 
 	await any(["moved", "faces"])
 
-	print("Both have happened")
-
 
 	%Step1.hide()
 	%Step2.show()
 	await until(player.faces, %Mailbox)
 	%Step2.hide()
 
+	await until(player.faces, %Chip)
+
 	%Step3.show()
+	%Waff.show_for_critter(%Blox)
 	playing = await until(player.faces, %Blitty)
 
 	await _cutscene()

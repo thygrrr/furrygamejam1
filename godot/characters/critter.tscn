@@ -41,6 +41,7 @@ shape = SubResource("SphereShape3D_0oab4")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_p1xh7")
 volume_db = -8.0
+unit_size = 5.0
 max_polyphony = 5
 panning_strength = 0.2
 
