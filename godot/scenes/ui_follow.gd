@@ -4,9 +4,6 @@ extends Control
 var other : Node3D
 
 func _orient():
-	if not other:
-		return
-
 	if (other.global_position - target.global_position).length() > 1.1:
 		hide()
 		return
@@ -37,16 +34,21 @@ func _orient():
 
 	hide()
 
+func _check_self(other: Node3D):
+	visible = (other == target)
+	_orient()
 
 func show_for_critter(critter : Critter):
-	pass
+	other = critter.view
+	critter.faces.connect(_check_self)
+	_orient()
+	show()
 
-func _process(_delta: float) -> void:
-	if (!visible):
-		return
-
+func _position():
 	var camera = get_viewport().get_camera_3d()
 	if camera and target:
-		var screen_position = camera.unproject_position(target.global_position)
-		global_position = screen_position
-		_orient()
+		var screen_position := camera.unproject_position(target.global_position)
+		global_position = global_position * 0.8 + 0.2 * screen_position
+
+func _process(_delta: float) -> void:
+	_position()
