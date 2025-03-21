@@ -32,7 +32,7 @@ static func Pos(current : Vector3, target : Vector3, smoothTime : float, deltaTi
 		output.y = originalTo.y
 		linear_velocity.y = (output.y - originalTo.y) / deltaTime
 	if (originalTo.z > current.z) == (output.z > originalTo.z):
-		output.z = originalTo.zdd
+		output.z = originalTo.z
 		linear_velocity.z = (output.z - originalTo.z) / deltaTime
 
 	# Write state back

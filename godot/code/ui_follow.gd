@@ -7,6 +7,29 @@ extends Control
 var critter_view : Node3D
 
 
+func _check_self(critter: Node3D):
+	visible = (critter == target)
+	if visible:
+		target.highlight.play()
+		_orient()
+
+
+func show_for_critter(critter : Critter):
+	critter_view = critter.view
+	critter.faces.connect(_check_self)
+
+
+func _position():
+	var camera = get_viewport().get_camera_3d()
+	if camera and target:
+		var screen_position := camera.unproject_position(target.global_position)
+		global_position = global_position * 0.8 + 0.2 * screen_position
+
+
+func _process(_delta: float) -> void:
+	_position()
+
+
 func _orient():
 	if (critter_view.global_position - target.global_position).length() > 1.1:
 		hide()
@@ -15,6 +38,8 @@ func _orient():
 	if critter_view.global_basis.z.dot(target.global_basis.z) > -0.5:
 		hide()
 		return
+
+	show()
 
 	if target.global_basis.z.dot(Vector3.LEFT) > 0.5:
 		_orient_left()
@@ -25,7 +50,6 @@ func _orient():
 	elif target.global_basis.z.dot(Vector3.BACK) > 0.5:
 		_orient_back()
 	else:
-		print("nla")
 		hide()
 
 
@@ -34,29 +58,24 @@ func _orient_left():
 		content.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT, true)
 		content.position = content.size * Vector2(0, -1) # I hate godot bugs
 		rotation_degrees = 0
-		show()
-		return
 
-	if critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
+	elif critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
 		content.set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
 		content.position = content.size * Vector2(-1, -1)
 		rotation_degrees = 90
-		show()
-		return
 
-	if critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
+	elif critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
 		content.position = content.size * Vector2(-1, 0) # I hate godot bugsewerew
 		rotation_degrees = 180
-		show()
-		return
 
-	if critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
+	elif critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
 		content.position = content.size * Vector2(0, 0)
 		rotation_degrees = -90
-		show()
-		return
+
+	else:
+		assert(false, "No rotation found?!")
 
 
 
@@ -65,29 +84,24 @@ func _orient_right():
 		content.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT, true)
 		content.position = content.size * Vector2(-1, -1) # I hate godot bugs
 		rotation_degrees = 0
-		show()
-		return
 
-	if critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
+	elif critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
 		content.set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
 		content.position = content.size * Vector2(-1, 0)
 		rotation_degrees = 90
-		show()
-		return
 
-	if critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
+	elif critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
 		content.position = content.size * Vector2(0, 0) # I hate godot bugsewerew
 		rotation_degrees = 180
-		show()
-		return
 
-	if critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
+	elif critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
 		content.position = content.size * Vector2(0, -1)
 		rotation_degrees = -90
-		show()
-		return
+
+	else:
+		assert(false, "No rotation found?!")
 
 
 func _orient_forward():
@@ -95,29 +109,24 @@ func _orient_forward():
 		content.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT, true)
 		content.position = content.size * Vector2(0, 0) # I hate godot bugs
 		rotation_degrees = 0
-		show()
-		return
 
-	if critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
+	elif critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
 		content.set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
 		content.position = content.size * Vector2(0, 0)
 		rotation_degrees = 90
-		show()
-		return
 
-	if critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
+	elif critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
 		content.position = content.size * Vector2(-1, -1) # I hate godot bugsewerew
 		rotation_degrees = 180
-		show()
-		return
 
-	if critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
+	elif critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
 		content.position = content.size * Vector2(-1, -1)
 		rotation_degrees = -90
-		show()
-		return
+
+	else:
+		assert(false, "No rotation found?!")
 
 
 
@@ -126,53 +135,21 @@ func _orient_back():
 		content.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT, true)
 		content.position = content.size * Vector2(0, -1) # I hate godot bugs
 		rotation_degrees = 0
-		show()
-		return
 
-	if critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
+	elif critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
 		content.position = content.size * Vector2(-1, 0) # I hate godot bugsewerew
 		rotation_degrees = 180
-		show()
-		return
 
-	if critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
+	elif critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
 		content.set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
 		content.position = content.size * Vector2(-1, -1)
 		rotation_degrees = 90
-		show()
-		return
 
-	if critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
+	elif critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
 		content.position = content.size * Vector2(0, 0)
 		rotation_degrees = -90
-		show()
-		return
 
-
-
-func _center():
-	content.offset_bottom = 0
-	content.offset_top = 0
-	content.offset_left = 0
-	content.offset_right = 0
-
-func _check_self(critter: Node3D):
-	visible = (critter == target)
-	if visible:
-		target.highlight.play()
-		_orient()
-
-func show_for_critter(critter : Critter):
-	critter_view = critter.view
-	critter.faces.connect(_check_self)
-
-func _position():
-	var camera = get_viewport().get_camera_3d()
-	if camera and target:
-		var screen_position := camera.unproject_position(target.global_position)
-		global_position = global_position * 0.8 + 0.2 * screen_position
-
-func _process(_delta: float) -> void:
-	_position()
+	else:
+		assert(false, "No rotation found?!")
