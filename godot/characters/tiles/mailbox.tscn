@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://1bo2ww8u72xc" path="res://models/props/mailbox.obj" id="1_jlo5d"]
 [ext_resource type="Script" uid="uid://cc3guqkshykyd" path="res://code/interactable.gd" id="2_8y03a"]
-[ext_resource type="PackedScene" uid="uid://dxk0s0l8bbafh" path="res://models/kenney.nl/floor-thick.glb" id="2_sjbgx"]
+[ext_resource type="PackedScene" uid="uid://dxk0s0l8bbafh" path="res://models/kenney.nl-prototyping/floor-thick.glb" id="2_sjbgx"]
 [ext_resource type="AudioStream" uid="uid://dh5mvunw7ljux" path="res://sfx/zapsplat_household_mailbox_metal_parcel_box_lid_close_003_87352.mp3" id="4_42yfl"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8y03a"]

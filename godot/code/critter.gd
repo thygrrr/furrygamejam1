@@ -7,7 +7,6 @@ class_name Critter
 
 @onready var voice : AudioStreamPlayer3D = $voice
 
-
 var from_rotation := Quaternion.IDENTITY
 var goal_rotation := Quaternion.IDENTITY
 

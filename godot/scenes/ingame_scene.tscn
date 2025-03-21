@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bob5guqytrpmh" path="res://code/smooth_remote_transform.gd" id="12_o7ls4"]
 [ext_resource type="PackedScene" uid="uid://b2mrudvpj2lof" path="res://characters/tiles/mailbox.tscn" id="14_ilpo5"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_6ywyt"]
+[ext_resource type="PackedScene" uid="uid://luadyus3s47o" path="res://models/kenney.nl-suburban/building-type-e.glb" id="19_l64ye"]
 [ext_resource type="AudioStream" uid="uid://ndi3nvqd3m3g" path="res://sfx/draper_sfx_north_wales_dawn_country_lane_slight_breeze_blackcap_garden_warblers_sheep_dogs_and_sheep_in_distance.mp3" id="20_hysgw"]
 [ext_resource type="PackedScene" uid="uid://dkl6ot2pjoo3n" path="res://characters/chip.tscn" id="22_rohyw"]
 [ext_resource type="AudioStream" uid="uid://bxopboy8aq5mo" path="res://music/FGJ25_BlockPartyTrack01_V1_loop.mp3" id="23_6ywyt"]
@@ -45,11 +46,6 @@ font = ExtResource("10_hr6f0")
 font_size = 32
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="TextMesh" id="TextMesh_rohyw"]
-text = "ALL CUBES ARE
-BEAUTIFUL"
-font = ExtResource("10_hr6f0")
 
 [sub_resource type="TextMesh" id="TextMesh_hr6f0"]
 text = ">"
@@ -487,14 +483,6 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 4, 0.2, -6
 unique_name_in_owner = true
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 4, 0.2, -7)
 
-[node name="house wall" parent="Level" instance=ExtResource("6_5jhce")]
-transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 0.5, 5.0023, 0, -1.96774)
-
-[node name="Graffito" type="MeshInstance3D" parent="Level/house wall"]
-transform = Transform3D(0.433013, -0.25, 0, 0.05, 0.0866025, 0, 0, 0, 1, -0.217901, 0.0688475, 0.485342)
-mesh = SubResource("TextMesh_rohyw")
-skeleton = NodePath("../../UI/Step3")
-
 [node name="wall" parent="Level" instance=ExtResource("6_5jhce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
 
@@ -613,6 +601,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, -1, 0, -1.42109e-14
 mesh = SubResource("TextMesh_hr6f0")
 skeleton = NodePath("../..")
 
+[node name="building-type-e2" parent="Level" instance=ExtResource("19_l64ye")]
+transform = Transform3D(-2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, 7.1, 0, -3)
+
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_1sh3m")
 
@@ -628,3 +619,7 @@ volume_db = -7.0
 autoplay = true
 bus = &"Sound"
 parameters/looping = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
