@@ -53,11 +53,15 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 		parallel_a.set_ease(Tween.EASE_OUT).tween_property(offset, "position", Vector3(0, 0.7, 0), 0.15)
 		parallel_a.parallel().set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(0.9, 1.3, 0.9), 0.1)
 		parallel_a.chain().set_ease(Tween.EASE_IN).tween_property(offset, "position", Vector3.ZERO, 0.05)
+
 		parallel_b.set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(1.25, 0.9, 1.25), 0.05)
 		parallel_b.chain().set_ease(Tween.EASE_IN).tween_property(anchor, "scale", Vector3.ONE, 0.1)
 
 		# Wait for the tween here, just where we did anything with it.
 		# Nobody else needs to know and check it, because this function owns it.
+		await get_tree().create_timer(0.15).timeout
+		%CameraShake.trauma += 0.5
+
 		await flip.finished
 
 		moved.emit()
