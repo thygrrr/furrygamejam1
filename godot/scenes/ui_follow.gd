@@ -43,8 +43,6 @@ func _check_self(critter: Node3D):
 func show_for_critter(critter : Critter):
 	critter_view = critter.view
 	critter.faces.connect(_check_self)
-	_check_self(target)
-	show()
 
 func _position():
 	var camera = get_viewport().get_camera_3d()

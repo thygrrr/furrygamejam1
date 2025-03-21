@@ -51,7 +51,7 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 		var parallel_a = bounce.parallel()
 		var parallel_b = bounce.parallel()
 
-		parallel_a.set_ease(Tween.EASE_OUT).tween_property(offset, "position", Vector3(0, 0.7, 0), 0.1)
+		parallel_a.set_ease(Tween.EASE_OUT).tween_property(offset, "position", Vector3(0, 0.7, 0), 0.15)
 		parallel_a.parallel().set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(0.9, 1.3, 0.9), 0.1)
 		parallel_a.chain().set_ease(Tween.EASE_IN).tween_property(offset, "position", Vector3.ZERO, 0.05)
 		parallel_b.set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(1.25, 0.9, 1.25), 0.05)
@@ -67,8 +67,10 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 			faces.emit(null)
 		else:
 			var node = Grid.read(global_position + view.global_basis.z)
-			if node:
+			if node and node != self:
 				faces.emit(node)
+			else:
+				faces.emit(null)
 
 
 func is_vertical():

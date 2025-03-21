@@ -54,10 +54,11 @@ func _main() -> void:
 	%Arrow2.show()
 	%Step2.hide()
 
-	await until(player.faces, %Chip)
-
-	%Step3.show()
 	%Waff.show_for_critter(%Blox)
+	%Waff2.show_for_critter(%Blox)
+
+	await until(player.faces, %Chip)
+	%Step3.show()
 	playing = await until(player.faces, %Blitty)
 	%Arrow2.hide()
 
