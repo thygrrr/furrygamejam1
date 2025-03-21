@@ -70,7 +70,7 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 			faces.emit(null)
 		else:
 			var node = Grid.read(global_position + view.global_basis.z)
-			if node and node != self:
+			if node and node != self and node.global_basis.z.dot(view.global_basis.z) < -0.5:
 				faces.emit(node)
 			else:
 				faces.emit(null)

@@ -54,7 +54,7 @@ font = ExtResource("10_hr6f0")
 font_size = 48
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etwux"]
-albedo_color = Color(0.677971, 0.239181, 0.472577, 1)
+albedo_color = Color(0.201303, 0.487727, 0.390602, 1)
 metallic = 0.25
 roughness = 0.5
 
@@ -463,12 +463,38 @@ scale = Vector2(2, 2)
 script = ExtResource("10_rohyw")
 target = NodePath("../../../Losa")
 
+[node name="Content" type="Panel" parent="Level/UI/Step3/Waff3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 120.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Waff3/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "[color=gray][font size=15]Losa[/font][/color]
+Weff?!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Waff4" type="Control" parent="Level/UI/Step3" node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
 anchors_preset = 0
 scale = Vector2(2, 2)
 script = ExtResource("10_rohyw")
-target = NodePath("../../../Chip3")
+target = NodePath("../../../Chip2")
 
 [node name="Content" type="Panel" parent="Level/UI/Step3/Waff4"]
 layout_mode = 1
@@ -501,7 +527,7 @@ unique_name_in_owner = true
 anchors_preset = 0
 scale = Vector2(2, 2)
 script = ExtResource("10_rohyw")
-target = NodePath("../../../Chip4")
+target = NodePath("../../../Chip3")
 
 [node name="Content" type="Panel" parent="Level/UI/Step3/Waff5"]
 layout_mode = 1
@@ -514,34 +540,6 @@ offset_right = 120.0
 offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Content" type="Panel" parent="Level/UI/Step3/Waff5/Content"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -35.0
-offset_right = 60.0
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Waff5/Content/Content"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-bbcode_enabled = true
-text = "[color=gray][font size=15]Losa[/font][/color]
-Weff?!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Label" type="RichTextLabel" parent="Level/UI/Step3/Waff5/Content"]
 layout_mode = 1
@@ -562,7 +560,7 @@ unique_name_in_owner = true
 anchors_preset = 0
 scale = Vector2(2, 2)
 script = ExtResource("10_rohyw")
-target = NodePath("../../../Chip5")
+target = NodePath("../../../Chip4")
 
 [node name="Content" type="Panel" parent="Level/UI/Step3/Waff6"]
 layout_mode = 1
@@ -595,7 +593,7 @@ unique_name_in_owner = true
 anchors_preset = 0
 scale = Vector2(2, 2)
 script = ExtResource("10_rohyw")
-target = NodePath("../../../Chip2")
+target = NodePath("../../../Chip5")
 
 [node name="Content" type="Panel" parent="Level/UI/Step3/Waff7"]
 layout_mode = 1
@@ -604,8 +602,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 120.0
-offset_bottom = 70.0
+offset_left = -60.0
+offset_top = -35.0
+offset_right = 60.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -674,11 +674,11 @@ transform = Transform3D(-1.78814e-07, 0, 1, 0, 1, 0, -1, 0, -1.78814e-07, 1, 0.2
 
 [node name="Chip4" parent="Level" instance=ExtResource("22_rohyw")]
 unique_name_in_owner = true
-transform = Transform3D(-1.78814e-07, 0, 1, 0, 1, 0, -1, 0, -1.78814e-07, 1, 0.2, -5)
+transform = Transform3D(-1, 0, -2.22525e-07, 0, 1, 0, 2.22525e-07, 0, -1, 1, 0.2, -2)
 
 [node name="Chip5" parent="Level" instance=ExtResource("22_rohyw")]
 unique_name_in_owner = true
-transform = Transform3D(-1.78814e-07, 0, 1, 0, 1, 0, -1, 0, -1.78814e-07, 1, 0.2, -4)
+transform = Transform3D(1, 0, 2.23517e-07, 0, 1, 0, -2.23517e-07, 0, 1, -2.00684, 0.197656, -4.99824)
 
 [node name="Dado" parent="Level" instance=ExtResource("22_rohyw")]
 unique_name_in_owner = true
@@ -686,11 +686,11 @@ transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 4, 0.2, 
 
 [node name="Losa" parent="Level" instance=ExtResource("22_rohyw")]
 unique_name_in_owner = true
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 4, 0.2, -8)
+transform = Transform3D(-2.08616e-07, 0, -1, 0, 1, 0, 1, 0, -2.08616e-07, 4, 0.2, -8)
 
 [node name="Mailbox" parent="Level" instance=ExtResource("14_ilpo5")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -5)
 
 [node name="Arrow0" type="MeshInstance3D" parent="Level"]
 unique_name_in_owner = true
@@ -740,7 +740,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.1, 0, 2)
 
 [node name="wall" parent="Level/Environment" instance=ExtResource("6_5jhce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 
 [node name="wall16" parent="Level/Environment" instance=ExtResource("6_5jhce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)

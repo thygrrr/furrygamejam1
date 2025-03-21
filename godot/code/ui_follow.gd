@@ -16,6 +16,14 @@ func _orient():
 		hide()
 		return
 
+	if target.global_basis.z.dot(Vector3.LEFT) > 0.5:
+		_orient_left()
+	elif target.global_basis.z.dot(Vector3.RIGHT) > 0.5:
+		_orient_right()
+	else:
+		hide()
+
+func _orient_left():
 	if critter_view.global_basis.y.dot(target.global_basis.y) > 0.5:
 		content.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT, true)
 		content.position = content.size * Vector2(0, -1) # I hate godot bugs
@@ -25,26 +33,56 @@ func _orient():
 
 	if critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
-		content.position = content.size * Vector2(-1, 0) # I hate godot bugs
+		content.position = content.size * Vector2(-1, 0) # I hate godot bugsewerew
 		rotation_degrees = 180
 		show()
 		return
 
 	if critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
 		content.set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
-		content.position = content.size * -1
+		content.position = content.size * Vector2(-1, -1)
 		rotation_degrees = 90
 		show()
 		return
 
 	if critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
 		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
-		content.position = Vector2.ZERO
+		content.position = content.size * Vector2(0, 0)
 		rotation_degrees = -90
 		show()
 		return
 
-	hide()
+
+
+func _orient_right():
+	if critter_view.global_basis.y.dot(target.global_basis.y) > 0.5:
+		content.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT, true)
+		content.position = content.size * Vector2(-1, -1) # I hate godot bugs
+		rotation_degrees = 0
+		show()
+		return
+
+	if critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
+		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
+		content.position = content.size * Vector2(0, 0) # I hate godot bugsewerew
+		rotation_degrees = 180
+		show()
+		return
+
+	if critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
+		content.set_anchors_preset(Control.PRESET_BOTTOM_LEFT, true)
+		content.position = content.size * Vector2(-1, 0)
+		rotation_degrees = 90
+		show()
+		return
+
+	if critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
+		content.set_anchors_preset(Control.PRESET_TOP_RIGHT, true)
+		content.position = content.size * Vector2(0, -1)
+		rotation_degrees = -90
+		show()
+		return
+
 
 func _center():
 	content.offset_bottom = 0
