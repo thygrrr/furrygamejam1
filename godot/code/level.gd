@@ -56,6 +56,9 @@ func _main() -> void:
 	%Waff1.show_for_critter(%Blox)
 	%Waff2.show_for_critter(%Blox)
 	%Waff3.show_for_critter(%Blox)
+	%Waff4.show_for_critter(%Blox)
+	%Waff5.show_for_critter(%Blox)
+	%Waff6.show_for_critter(%Blox)
 
 	await until(player.faces, %Chip)
 	%Step3.show()
