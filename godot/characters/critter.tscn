@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://o760msijykqa"]
+[gd_scene load_steps=9 format=3 uid="uid://o760msijykqa"]
 
 [ext_resource type="Script" uid="uid://d7jtgn1llo46" path="res://code/critter.gd" id="1_ftbhh"]
 [ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="2_wrh6k"]
 [ext_resource type="AudioStream" uid="uid://co2yrt8gdd44s" path="res://sfx/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_005_75680.mp3" id="3_ijayo"]
 [ext_resource type="AudioStream" uid="uid://bkyx6wby54mgo" path="res://sfx/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_004_75679.mp3" id="3_lhthu"]
 [ext_resource type="AudioStream" uid="uid://3kcfd1w6p6vm" path="res://sfx/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_006_75681.mp3" id="5_wnex8"]
+[ext_resource type="AudioStream" uid="uid://b5vko40b7rdyt" path="res://sfx/skyclad_ANMLDog_Dachshund_Miniature_Male_Age_10_Bark_Yelp_Descend_Sad_Distressed_Exterior_SCS_NONE_480.mp3" id="6_wnex8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0oab4"]
 radius = 0.7
@@ -44,6 +45,11 @@ volume_db = -8.0
 unit_size = 5.0
 max_polyphony = 5
 panning_strength = 0.2
+
+[node name="voice" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_wnex8")
+
+[node name="highlight" type="AudioStreamPlayer3D" parent="."]
 
 [connection signal="mouse_entered" from="AnimatableBody3D" to="." method="_on_animatable_body_3d_mouse_entered"]
 [connection signal="mouse_exited" from="AnimatableBody3D" to="." method="_on_animatable_body_3d_mouse_exited"]

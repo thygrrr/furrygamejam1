@@ -45,8 +45,13 @@ func _main() -> void:
 
 
 	%Step1.hide()
+	%Arrow0.hide()
+	%Arrow1.show()
 	%Step2.show()
 	await until(player.faces, %Mailbox)
+	%Mailbox.highlight.play()
+	%Arrow1.hide()
+	%Arrow2.show()
 	%Step2.hide()
 
 	await until(player.faces, %Chip)
@@ -54,6 +59,7 @@ func _main() -> void:
 	%Step3.show()
 	%Waff.show_for_critter(%Blox)
 	playing = await until(player.faces, %Blitty)
+	%Arrow2.hide()
 
 	await _cutscene()
 	# await _nextlevel()

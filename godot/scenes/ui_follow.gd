@@ -1,47 +1,49 @@
 extends Control
 
-@export var target : Node3D
-var other : Node3D
+@export var target : Interactable
+var critter_view : Node3D
 
 func _orient():
-	if (other.global_position - target.global_position).length() > 1.1:
+	if (critter_view.global_position - target.global_position).length() > 1.1:
 		hide()
 		return
 
-	if other.global_basis.z.dot(target.global_basis.z) > -0.5:
+	if critter_view.global_basis.z.dot(target.global_basis.z) > -0.5:
 		hide()
 		return
 
-	if other.global_basis.y.dot(target.global_basis.y) > 0.5:
+	if critter_view.global_basis.y.dot(target.global_basis.y) > 0.5:
 		rotation_degrees = 0
 		show()
 		return
 
-	if other.global_basis.y.dot(target.global_basis.y) < -0.5:
+	if critter_view.global_basis.y.dot(target.global_basis.y) < -0.5:
 		rotation_degrees = 180
 		show()
 		return
 
-	if other.global_basis.x.dot(target.global_basis.y) > 0.5:
+	if critter_view.global_basis.x.dot(target.global_basis.y) > 0.5:
 		rotation_degrees = 90
 		show()
 		return
 
-	if other.global_basis.x.dot(target.global_basis.y) < -0.5:
+	if critter_view.global_basis.x.dot(target.global_basis.y) < -0.5:
 		rotation_degrees = 90
 		show()
 		return
 
 	hide()
 
-func _check_self(other: Node3D):
-	visible = (other == target)
-	_orient()
+func _check_self(critter: Node3D):
+	visible = (critter == target)
+	if visible:
+		target.highlight.play()
+		_orient()
 
 func show_for_critter(critter : Critter):
-	other = critter.view
+	critter_view = critter.view
 	critter.faces.connect(_check_self)
-	_orient()
+	_check_self(target)
 	show()
 
 func _position():

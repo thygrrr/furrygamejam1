@@ -5,6 +5,8 @@ class_name Critter
 @onready var offset : Node3D = %offset
 @onready var view : Node3D = %view
 
+@onready var voice : AudioStreamPlayer3D = $voice
+
 
 var from_rotation := Quaternion.IDENTITY
 var goal_rotation := Quaternion.IDENTITY

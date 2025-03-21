@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=30 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -19,9 +19,9 @@
 [ext_resource type="Script" uid="uid://bob5guqytrpmh" path="res://code/smooth_remote_transform.gd" id="12_o7ls4"]
 [ext_resource type="PackedScene" uid="uid://b2mrudvpj2lof" path="res://characters/tiles/mailbox.tscn" id="14_ilpo5"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_6ywyt"]
-[ext_resource type="AudioStream" uid="uid://bmwjocwtlg76r" path="res://music/FGJ25_BlockPartyTrack01_demo.mp3" id="17_th7mp"]
 [ext_resource type="PackedScene" uid="uid://rav3yqmxiw7s" path="res://models/props/minidog.obj" id="22_hr6f0"]
-[ext_resource type="PackedScene" uid="uid://dkl6ot2pjoo3n" path="res://characters/Chip.tscn" id="22_rohyw"]
+[ext_resource type="PackedScene" uid="uid://dkl6ot2pjoo3n" path="res://characters/chip.tscn" id="22_rohyw"]
+[ext_resource type="AudioStream" uid="uid://bxopboy8aq5mo" path="res://music/FGJ25_BlockPartyTrack01_V1_loop.mp3" id="23_6ywyt"]
 [ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="23_hr6f0"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_1sh3m"]
@@ -37,6 +37,10 @@ outline_color = Color(0, 0, 0, 1)
 text = "ALL CUBES ARE
 BEAUTIFUL"
 font = ExtResource("10_hr6f0")
+
+[sub_resource type="TextMesh" id="TextMesh_hr6f0"]
+text = ">"
+font_size = 48
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etwux"]
 albedo_color = Color(0.677971, 0.239181, 0.472577, 1)
@@ -68,7 +72,7 @@ motion_smooth_time = 0.4
 metadata/_custom_type_script = "uid://biw0dyhb42sar"
 
 [node name="CameraAnchor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 3)
 
 [node name="CameraFollow" type="Node3D" parent="CameraAnchor"]
 
@@ -396,7 +400,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 bbcode_enabled = true
-text = "Waff! Waff!"
+text = "Waff!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -530,10 +534,53 @@ excitement = 15.0
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5)
 
+[node name="Arrow0" type="MeshInstance3D" parent="Level"]
+unique_name_in_owner = true
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 2, 0, -3)
+mesh = SubResource("TextMesh_hr6f0")
+
+[node name="Arrow1" type="MeshInstance3D" parent="Level"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 0, -5)
+visible = false
+mesh = SubResource("TextMesh_hr6f0")
+
+[node name="Arrow" type="MeshInstance3D" parent="Level/Arrow1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="Arrow2" type="MeshInstance3D" parent="Level/Arrow1"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -1, -1, -4.37114e-08)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="Arrow2" type="MeshInstance3D" parent="Level"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 0, 3, 0, -8)
+visible = false
+mesh = SubResource("TextMesh_hr6f0")
+
+[node name="Arrow5" type="MeshInstance3D" parent="Level/Arrow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, 1, 0, -1.42109e-14)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="Arrow6" type="MeshInstance3D" parent="Level/Arrow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, -2, 0, -1.42109e-14)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="Arrow7" type="MeshInstance3D" parent="Level/Arrow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, -1, 0, -1.42109e-14)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_1sh3m")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_th7mp")
+stream = ExtResource("23_6ywyt")
+autoplay = true
 bus = &"Music"
 parameters/looping = true

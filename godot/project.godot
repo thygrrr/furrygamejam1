@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="BLOCK PARTY"
-run/main_scene="uid://cik30de5gaaah"
+run/main_scene="uid://dv2y18ye8j7o0"
 config/features=PackedStringArray("4.4")
+boot_splash/bg_color=Color(0.501961, 0.27451, 0.27451, 1)
+boot_splash/image="uid://dbi3kwcagajfd"
 config/icon="res://icon.svg"
 
 [autoload]
