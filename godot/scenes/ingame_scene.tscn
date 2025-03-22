@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=30 format=4 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="6_5jhce"]
 [ext_resource type="Script" uid="uid://qnkq6cbv0adf" path="res://code/camera_shake.gd" id="6_rohyw"]
 [ext_resource type="Texture2D" uid="uid://b4jlx6pbus1q4" path="res://characters/blox-portrait.png" id="7_pxehq"]
+[ext_resource type="Script" uid="uid://ydal6ykomv0n" path="res://code/stiff_follow.gd" id="8_hr6f0"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_etwux"]
 [ext_resource type="FontFile" uid="uid://gg0i6831qui1" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="10_hr6f0"]
 [ext_resource type="Script" uid="uid://j2e33yr53486" path="res://code/ui_follow.gd" id="10_rohyw"]
@@ -78,7 +79,7 @@ visible = false
 
 [node name="Look" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_hysgw")
-target = NodePath("../Level/Blox/Cam")
+target = NodePath("../Cam/CameraMover")
 motion_smooth_time = 0.4
 metadata/_custom_type_script = "uid://biw0dyhb42sar"
 
@@ -102,6 +103,18 @@ environment = ExtResource("4_etwux")
 attributes = SubResource("CameraAttributesPhysical_1sh3m")
 current = true
 size = 7.0
+
+[node name="Cam" type="Node3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_hr6f0")
+
+[node name="CameraMover" type="Node3D" parent="Cam" node_paths=PackedStringArray("target")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("12_o7ls4")
+target = NodePath("../../CameraAnchor/CameraFollow")
+motion_smooth_time = 0.5
+scaling = Vector3(0.7, 1, 1.2)
+metadata/_custom_type_script = "uid://bob5guqytrpmh"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, -1.41714e-08, 5.6365e-17, 1.41714e-08, 1, -3.97738e-09, 0, 3.97738e-09, 1, 3, 4, 1)
@@ -513,14 +526,6 @@ vertical_alignment = 1
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -3)
 script = ExtResource("5_1sh3m")
-
-[node name="Cam" type="Node3D" parent="Level/Blox" node_paths=PackedStringArray("target")]
-unique_name_in_owner = true
-script = ExtResource("12_o7ls4")
-target = NodePath("../../../CameraAnchor/CameraFollow")
-motion_smooth_time = 0.5
-scaling = Vector3(0.7, 1, 1.2)
-metadata/_custom_type_script = "uid://bob5guqytrpmh"
 
 [node name="Blitty" parent="Level" instance=ExtResource("9_etwux")]
 unique_name_in_owner = true
