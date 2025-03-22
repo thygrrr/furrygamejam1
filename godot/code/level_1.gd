@@ -9,8 +9,6 @@ func count_move() -> void:
 	moves += 1
 
 func _main() -> void:
-	LevelManager.current = self # Hack :)
-
 	player = %Blox
 	Camera.follow = player
 
@@ -19,12 +17,10 @@ func _main() -> void:
 	%Step1.show()
 
 	_play()
+
 	await player.moved
 
-#	bind(player.moved, "moved")
-#	bind(player.faces, "faces")
-
-#	await any(["moved", "faces"])
+	#await any2(player.moved, player.faces, %Blitty.faces)
 
 	%Step1.hide()
 	%Arrow0.hide()
@@ -51,4 +47,4 @@ func _main() -> void:
 
 func _cutscene():
 	%Outro.show()
-	get_parent().fade_overlay.fade_out()
+	AppUi.fade_overlay.fade_out()

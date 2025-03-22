@@ -1,6 +1,8 @@
 extends Node3D
 class_name Level
 
+signal process
+
 var player : Player
 var playing : bool
 
@@ -17,7 +19,7 @@ func _ready() -> void:
 	for child in $UI.get_children():
 		child.hide()
 
-	_main() # run in background
+	_main.call_deferred() # run in background
 
 
 func _main():
@@ -39,16 +41,23 @@ func bind(from: Signal, slot: String) -> void:
 func all(args : Array[String]):
 	for arg in args:
 		while not arg in _bindings:
-			await get_tree().process_frame
+			await process
+
+
+#func any2(a : Signal, b : Signal = Signal(), c : Signal = Signal(), d : Signal = Signal(), e : Signal = Signal()):
+	#if b:
+	#	pass
+	#pass
 
 
 func any(args : Array[String]):
 	var solved = false
 	while not solved:
-		await get_tree().process_frame
+		await process
 		for arg in args:
 			if arg in _bindings:
 				solved = true
+
 
 func _play():
 	playing = true
@@ -56,8 +65,11 @@ func _play():
 		if input_buffer:
 			await player._execute(input_buffer.pop_front())
 		else:
-			await get_tree().process_frame
+			await process
 
+
+func _process(_delta: float):
+	process.emit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_type() and event.is_pressed():
