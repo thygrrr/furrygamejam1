@@ -46,3 +46,4 @@ func _main() -> void:
 
 func _cutscene():
 	%Outro.show()
+	get_parent().fade_overlay.fade_out()

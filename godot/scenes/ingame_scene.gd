@@ -1,7 +1,7 @@
 extends Node
 
-@onready var fade_overlay = %FadeOverlay
-@onready var pause_overlay = %PauseOverlay
+@onready var fade_overlay : FadeOverlay = %FadeOverlay
+@onready var pause_overlay : PauseOverlay = %PauseOverlay
 
 func _ready() -> void:
 	fade_overlay.visible = true
