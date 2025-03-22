@@ -35,6 +35,7 @@ window/stretch/aspect="keep_width"
 
 [gui]
 
+common/snap_controls_to_pixels=false
 theme/default_theme_scale=1.5
 theme/custom="uid://d22mpqutkotsu"
 theme/custom_font="uid://gg0i6831qui1"

@@ -79,7 +79,7 @@ visible = false
 
 [node name="Look" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_hysgw")
-target = NodePath("../Cam/CameraMover")
+target = NodePath("../Cam/Mover")
 motion_smooth_time = 0.4
 metadata/_custom_type_script = "uid://biw0dyhb42sar"
 
@@ -108,11 +108,12 @@ size = 7.0
 unique_name_in_owner = true
 script = ExtResource("8_hr6f0")
 
-[node name="CameraMover" type="Node3D" parent="Cam" node_paths=PackedStringArray("target")]
+[node name="Mover" type="Node3D" parent="Cam" node_paths=PackedStringArray("target")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("12_o7ls4")
 target = NodePath("../../CameraAnchor/CameraFollow")
-motion_smooth_time = 0.5
+motion_smooth_time = 1.0
+angular_smooth_time = 0.5
 scaling = Vector3(0.7, 1, 1.2)
 metadata/_custom_type_script = "uid://bob5guqytrpmh"
 
@@ -677,7 +678,7 @@ parameters/looping = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_hysgw")
-volume_db = -8.0
+volume_db = -12.0
 autoplay = true
 bus = &"Sound"
 parameters/looping = true
