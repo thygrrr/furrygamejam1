@@ -14,8 +14,11 @@ var linear_velocity : Array[Vector3] = [Vector3.ZERO]
 var angular_velocity : Array[Vector3] = [Vector3.ZERO]
 
 func _process(delta: float) -> void:
-	_follow_rotation(delta)
-	_follow_position(delta)
+	if target and follow_position:
+		_follow_position(delta)
+	if target and follow_rotation:
+		_follow_rotation(delta)
+
 
 func _follow_rotation(delta: float) -> void:
 	var current_eulers = global_rotation

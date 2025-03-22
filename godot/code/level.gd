@@ -29,7 +29,8 @@ static func global_something() -> void:
 # Main event loop, currently dummy condition and processes input indefinitely
 func _main() -> void:
 	player = %Blox
-	%Cam.target = player
+	Camera.follow = player
+	#Camera.look = player
 
 	#await %Intro1.play()
 

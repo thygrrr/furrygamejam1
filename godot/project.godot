@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 UserSettings="*res://settings/user_settings.gd"
 Grid="*res://code/grid.gd"
+Camera="*res://ui/camera.tscn"
 
 [debug]
 

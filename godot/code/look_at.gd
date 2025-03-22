@@ -20,6 +20,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time += delta
+	if not target:
+		return
 	var target_position = target.global_position
 	var noise_pos = Vector3(noise.get_noise_2d(1, time)*3, noise.get_noise_2d(5, time)*1, noise.get_noise_2d(10, time)*1)
 	global_transform = global_transform.looking_at(target_position + noise_pos)

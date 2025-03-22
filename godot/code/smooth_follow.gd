@@ -12,6 +12,8 @@ var linear_velocity : Array[Vector3] = [Vector3.ZERO]
 var angular_velocity : Array[Vector3] = [Vector3.ZERO]
 
 func _process(delta: float) -> void:
+	if not target:
+		return
 	_follow_rotation(delta)
 	_follow_position(delta)
 
