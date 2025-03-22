@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=10 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Script" uid="uid://biw0dyhb42sar" path="res://code/smooth_follow.gd" id="4_hysgw"]
-[ext_resource type="PackedScene" uid="uid://bqw6myde6pcwa" path="res://models/kenney.nl-suburban/planter.glb" id="8_vus8m"]
 [ext_resource type="PackedScene" uid="uid://bo6gr2w24mxr1" path="res://levels/level_test.tscn" id="10_2vs8u"]
 [ext_resource type="AudioStream" uid="uid://ndi3nvqd3m3g" path="res://sfx/draper_sfx_north_wales_dawn_country_lane_slight_breeze_blackcap_garden_warblers_sheep_dogs_and_sheep_in_distance.mp3" id="20_hysgw"]
 [ext_resource type="AudioStream" uid="uid://bxopboy8aq5mo" path="res://music/FGJ25_BlockPartyTrack01_V1_loop.mp3" id="23_6ywyt"]
@@ -84,6 +83,3 @@ parameters/looping = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="planter2" parent="." instance=ExtResource("8_vus8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
