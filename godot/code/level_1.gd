@@ -1,25 +1,30 @@
 extends Level
 
+@export var moves_par : int = 0
+@export var moves_record : int = 0
 
-func blitty_debug(other: Node3D) -> void:
-	prints("Blitty faces", other)
+var moves : int = 0
 
+func count_move() -> void:
+	moves += 1
 
 func _main() -> void:
+	LevelManager.current = self # Hack :)
+
 	player = %Blox
 	Camera.follow = player
 
-	#await %Intro1.play()
-	%Blitty.faces.connect(blitty_debug)
+	player.moved.connect(count_move)
+
 	%Step1.show()
 
 	_play()
 	await player.moved
 
-	bind(player.moved, "moved")
-	bind(player.faces, "faces")
+#	bind(player.moved, "moved")
+#	bind(player.faces, "faces")
 
-	await any(["moved", "faces"])
+#	await any(["moved", "faces"])
 
 	%Step1.hide()
 	%Arrow0.hide()
@@ -37,11 +42,11 @@ func _main() -> void:
 	%Waff1.show_for_critter(%Blox)
 	%Waff2.show_for_critter(%Blox)
 
-	#await until(player.faces, %Chip)
 	playing = await until(player.faces, %Blitty)
 	%Arrow2.hide()
 
 	await _cutscene()
+	prints("Moves taken:", moves)
 
 
 func _cutscene():

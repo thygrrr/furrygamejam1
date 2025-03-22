@@ -11,6 +11,8 @@ func _ready() -> void:
 
 	pause_overlay.game_exited.connect(_save_game)
 
+	LevelManager.load.call_deferred(1, self)
+
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:
 		get_viewport().set_input_as_handled()
