@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=7 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" uid="uid://btxfctnmgpykd" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="2_nl5i6"]
@@ -6,10 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="3_kf1us"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
 [ext_resource type="AudioStream" uid="uid://bxopboy8aq5mo" path="res://music/FGJ25_BlockPartyTrack01_V1_loop.mp3" id="6_6ad1t"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
-font_size = 8
-font_color = Color(1, 1, 1, 0.486275)
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
@@ -29,10 +25,19 @@ size_flags_vertical = 3
 color = Color(0.501961, 0.27451, 0.27451, 1)
 
 [node name="GameLogo" parent="UI" instance=ExtResource("4_fnufg")]
+modulate = Color(0, 0, 0, 0.7)
 offset_left = -16.0
 offset_top = 24.0
 offset_right = 904.0
 offset_bottom = 284.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameLogo-FG" parent="UI" instance=ExtResource("4_fnufg")]
+offset_left = -8.0
+offset_top = 40.0
+offset_right = 912.0
+offset_bottom = 300.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -44,13 +49,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -16.0
+offset_top = -120.0
+offset_right = 24.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -61,10 +66,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = -64.5
-offset_right = 90.0
-offset_bottom = 64.5
+offset_left = -88.0
+offset_top = -52.0
+offset_right = 92.0
+offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -102,16 +107,29 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "leave_game"
 
-[node name="Credits" type="MarginContainer" parent="UI/Control/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/margin_top = 10
+[node name="Label" type="RichTextLabel" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = 112.0
+offset_right = 348.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "A tiny tricky Puzzle Game made for
+[font size=64]Furry Game Jam #1[/font]
 
-[node name="Label" type="Label" parent="UI/Control/VBoxContainer/Credits"]
-layout_mode = 2
-text = "credits"
-label_settings = SubResource("LabelSettings_2ikbh")
-horizontal_alignment = 1
+code:       3 Tigers in a Trenchcoat
+music:      CoVahr of AudioCreatures
+graphics:  someone404 and Mobropro
+
+[font size=24]Sound effects from Zapsplat.com
+Additional Graphics by Kenney.nl
+Pixel Fonts by Eeve Somepx[/font]"
 
 [node name="FadeOverlay" parent="UI" instance=ExtResource("3_kf1us")]
 unique_name_in_owner = true

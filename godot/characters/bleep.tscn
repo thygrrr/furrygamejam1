@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0g3lhg4l6vfk"]
+[gd_scene load_steps=4 format=3 uid="uid://d0g3lhg4l6vfk"]
 
 [ext_resource type="PackedScene" uid="uid://o760msijykqa" path="res://characters/critter.tscn" id="1_r67bi"]
 [ext_resource type="PackedScene" uid="uid://ck73t1lrkahjf" path="res://models/sheep/sheep.obj" id="2_3hw3k"]
+[ext_resource type="PackedScene" uid="uid://cecukiai465fh" path="res://models/sheep/sheepblinking.obj" id="3_w42bm"]
 
 [node name="Bleep" instance=ExtResource("1_r67bi")]
 
-[node name="sheep" parent="anchor/offset/view" index="0" instance=ExtResource("2_3hw3k")]
+[node name="Normal" parent="anchor/offset/view" index="0" instance=ExtResource("2_3hw3k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.4, -0.1)
+
+[node name="Blink" parent="anchor/offset/view" index="1" instance=ExtResource("3_w42bm")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.4, -0.1)

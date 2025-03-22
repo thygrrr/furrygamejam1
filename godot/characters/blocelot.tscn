@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://q5urabsljkln"]
+[gd_scene load_steps=4 format=3 uid="uid://q5urabsljkln"]
 
 [ext_resource type="PackedScene" uid="uid://o760msijykqa" path="res://characters/critter.tscn" id="1_nk0gf"]
 [ext_resource type="PackedScene" uid="uid://bgfpsd6sd5fej" path="res://models/ocelot/ocelot.obj" id="2_w6cih"]
+[ext_resource type="PackedScene" uid="uid://bwxotyw5xrbc" path="res://models/ocelot/ocelotblinking.obj" id="3_w6cih"]
 
 [node name="Blocelot" instance=ExtResource("1_nk0gf")]
 
-[node name="ocelot" parent="anchor/offset/view" index="0" instance=ExtResource("2_w6cih")]
+[node name="Normal" parent="anchor/offset/view" index="0" instance=ExtResource("2_w6cih")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.4, -0.2)
+
+[node name="Blink" parent="anchor/offset/view" index="1" instance=ExtResource("3_w6cih")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.4, -0.2)
+visible = false
