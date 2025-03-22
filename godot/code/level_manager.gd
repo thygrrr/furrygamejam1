@@ -1,8 +1,14 @@
 extends Node
 
-@export var levels : Array[PackedScene] = []
+var levels : Array[PackedScene] = []
+var l0 : PackedScene = preload("res://levels/level_test.tscn")
+var l1 : PackedScene = preload("res://levels/level_1.tscn")
+var l2 : PackedScene = preload("res://levels/level_2.tscn")
 
 var current : Node3D
+
+func _ready() -> void:
+	levels = [l0, l1, l2]
 
 func load(choice: int) -> void:
 	if (choice >= 0 and choice < levels.size()):

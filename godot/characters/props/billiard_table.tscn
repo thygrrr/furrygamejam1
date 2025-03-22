@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dybuqfbfjm6bm"]
+
+[ext_resource type="PackedScene" uid="uid://djfa3yhhl2e6d" path="res://characters/props/obstacle.tscn" id="1_ywu47"]
+[ext_resource type="PackedScene" uid="uid://blxpa8ypqqfft" path="res://models/props/BilliarTable.obj" id="2_6x2bm"]
+[ext_resource type="Script" uid="uid://d0yi5hhd4qvu3" path="res://code/obstacle.gd" id="3_34go7"]
+
+[node name="BilliardTable" instance=ExtResource("1_ywu47")]
+
+[node name="BilliarTable" parent="." index="0" instance=ExtResource("2_6x2bm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="block1" type="Node3D" parent="." index="1"]
+script = ExtResource("3_34go7")
+group_as_parent = true
+
+[node name="block2" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+script = ExtResource("3_34go7")
+group_as_parent = true

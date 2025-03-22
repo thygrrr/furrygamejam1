@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2m8uuse6vbu3"]
+
+[ext_resource type="PackedScene" uid="uid://djfa3yhhl2e6d" path="res://characters/props/obstacle.tscn" id="1_38bd8"]
+[ext_resource type="PackedScene" uid="uid://cvl12r7u5nyfw" path="res://models/props/table.obj" id="2_crjkh"]
+[ext_resource type="Script" uid="uid://d0yi5hhd4qvu3" path="res://code/obstacle.gd" id="3_xmjtv"]
+
+[node name="Obstacle" instance=ExtResource("1_38bd8")]
+
+[node name="table" parent="." index="0" instance=ExtResource("2_crjkh")]
+
+[node name="block1" type="Node3D" parent="." index="1"]
+script = ExtResource("3_xmjtv")
+group_as_parent = true
