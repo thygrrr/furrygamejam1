@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
+[ext_resource type="PackedScene" uid="uid://m7dutl3kt23p" path="res://levels/level_1.tscn" id="2_5jhce"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Script" uid="uid://biw0dyhb42sar" path="res://code/smooth_follow.gd" id="4_hysgw"]
-[ext_resource type="PackedScene" uid="uid://bo6gr2w24mxr1" path="res://levels/level_test.tscn" id="10_2vs8u"]
 [ext_resource type="AudioStream" uid="uid://ndi3nvqd3m3g" path="res://sfx/draper_sfx_north_wales_dawn_country_lane_slight_breeze_blackcap_garden_warblers_sheep_dogs_and_sheep_in_distance.mp3" id="20_hysgw"]
 [ext_resource type="AudioStream" uid="uid://bxopboy8aq5mo" path="res://music/FGJ25_BlockPartyTrack01_V1_loop.mp3" id="23_6ywyt"]
 
@@ -19,6 +19,8 @@ size = Vector2(100, 100)
 
 [node name="IngameScene" type="Node3D"]
 script = ExtResource("1_objyc")
+
+[node name="Level" parent="." instance=ExtResource("2_5jhce")]
 
 [node name="App UI" type="CanvasLayer" parent="."]
 
@@ -59,10 +61,6 @@ directional_shadow_split_1 = 0.05
 directional_shadow_split_2 = 0.1
 directional_shadow_split_3 = 0.3
 directional_shadow_blend_splits = true
-
-[node name="Level" parent="." instance=ExtResource("10_2vs8u")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 8)
 
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_1sh3m")

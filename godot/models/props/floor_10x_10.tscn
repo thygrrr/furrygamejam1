@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://we7qefwji5sk"]
+
+[ext_resource type="PackedScene" uid="uid://dxk0s0l8bbafh" path="res://models/kenney.nl-prototyping/floor-thick.glb" id="1_ikkc8"]
+
+[node name="Floor-10x10" type="Node3D"]
+
+[node name="floor-thick2" parent="." instance=ExtResource("1_ikkc8")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -4.5, 0, 0)
