@@ -41,6 +41,7 @@ func all(args : Array[String]):
 		while not arg in _bindings:
 			await get_tree().process_frame
 
+
 func any(args : Array[String]):
 	var solved = false
 	while not solved:

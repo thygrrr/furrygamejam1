@@ -17,6 +17,7 @@ func _check_self(critter: Node3D):
 func show_for_critter(critter : Critter):
 	critter_view = critter.view
 	critter.faces.connect(_check_self)
+	hide()
 
 
 func _position():

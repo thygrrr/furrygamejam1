@@ -1,5 +1,6 @@
 extends Level
 
+
 func blitty_debug(other: Node3D) -> void:
 	prints("Blitty faces", other)
 
@@ -7,7 +8,6 @@ func blitty_debug(other: Node3D) -> void:
 func _main() -> void:
 	player = %Blox
 	Camera.follow = player
-	#Camera.look = player
 
 	#await %Intro1.play()
 	%Blitty.faces.connect(blitty_debug)
@@ -21,7 +21,6 @@ func _main() -> void:
 
 	await any(["moved", "faces"])
 
-
 	%Step1.hide()
 	%Arrow0.hide()
 	%Arrow1.show()
@@ -34,11 +33,11 @@ func _main() -> void:
 	%Arrow2.show()
 	%Step2.hide()
 
+	%Step3.show()
 	%Waff1.show_for_critter(%Blox)
 	%Waff2.show_for_critter(%Blox)
 
-	await until(player.faces, %Chip)
-	%Step3.show()
+	#await until(player.faces, %Chip)
 	playing = await until(player.faces, %Blitty)
 	%Arrow2.hide()
 
