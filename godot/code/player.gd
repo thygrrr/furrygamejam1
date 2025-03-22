@@ -1,18 +1,19 @@
 extends Critter
 class_name Player
 
+
 func debug_faces(other: Node3D):
-	print(other)
+	if other:
+		prints("Player faces", other)
+
 
 func _ready() -> void:
 	super()
 	faces.connect(debug_faces)
 
 
-
 # Resolve a single input event
 func _execute(event: InputEvent) -> void:
-
 	var next_step : Vector3
 	var next_flip : Quaternion
 
@@ -40,8 +41,8 @@ func _execute(event: InputEvent) -> void:
 	if obstacle is Critter and obstacle.can_move(next_pos + next_step):
 		var crit = (obstacle as Critter)
 		crit.move_to(next_pos + next_step, next_flip)
-		await move_to(next_pos, next_flip)
-		await get_tree().process_frame
+		await await get_tree().create_timer(0.05).timeout
+		await await move_to(next_pos, next_flip)
 	else:
 		pass # play collision fx
 

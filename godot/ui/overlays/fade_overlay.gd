@@ -18,11 +18,13 @@ func fade_in():
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "modulate", Color(modulate, 0.0), fade_in_duration)\
 	.finished.connect(_on_complete_fade_in)
+	await tween.finished
 
 func fade_out():
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "modulate", Color(modulate, minimum_opacity), fade_out_duration)\
 	.finished.connect(_on_complete_fade_out)
+	await tween.finished
 
 func _on_complete_fade_out():
 	emit_signal("on_complete_fade_out")

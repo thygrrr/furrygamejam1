@@ -12,3 +12,4 @@ func load(choice: int) -> void:
 			current = null
 		current = levels[choice].instantiate()
 		get_tree().root.add_child(current)
+		await AppUi.fade_overlay.fade_in()

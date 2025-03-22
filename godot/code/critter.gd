@@ -20,6 +20,7 @@ var flip : Tween
 
 signal moved(direction: Vector3)
 signal faces(whom: Critter)
+signal process
 
 func _ready() -> void:
 	super()
@@ -37,6 +38,7 @@ func _process(_delta : float) -> void:
 	anchor.global_position = k * anchor.global_position + (1-k) * global_position
 
 	view.quaternion = from_rotation.slerp(goal_rotation, rotation_t)
+	process.emit()
 
 
 

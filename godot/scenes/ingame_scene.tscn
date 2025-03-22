@@ -4,7 +4,3 @@
 
 [node name="IngameScene" type="Node3D"]
 script = ExtResource("1_objyc")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
