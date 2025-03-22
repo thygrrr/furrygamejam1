@@ -24,6 +24,22 @@ signal faces(whom: Critter)
 
 func _ready() -> void:
 	super()
+	var old_quaternion := quaternion
+	quaternion = Quaternion.IDENTITY
+	anchor.top_level = true
+	goal_rotation = old_quaternion
+	from_rotation = goal_rotation
+	view.quaternion = goal_rotation
+
+
+# Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
+func _process(_delta : float) -> void:
+	var k := pow(0.9, _delta * 120.0)
+	anchor.global_position = k * anchor.global_position + (1-k) * global_position
+
+	view.quaternion = from_rotation.slerp(goal_rotation, rotation_t)
+
+
 
 func _move_sound() -> void:
 	$MoveSound.play(0.05)
@@ -31,21 +47,26 @@ func _move_sound() -> void:
 func _flop_sound() -> void:
 	$FlopSound.play()
 
+func _pop_sound() -> void:
+	$PopSound.play()
+
 func _block_sound() -> void:
 	$BlockSound.play()
 
-func _in_view_space(rot : Quaternion):
+func _in_view_space(rot : Quaternion) -> Quaternion:
 	return view.quaternion.inverse() * rot * view.quaternion
 
+func can_move(destination: Vector3) -> bool:
+	return Grid.read(destination) == null
 
-func move_to(destination: Vector3, next_flip : Quaternion) -> bool:
-	if !Grid.write(destination, self):
-		_block_sound()
-		return false
 
+func move_to(destination: Vector3, next_flip : Quaternion):
+	_pop_sound()
 	_move_sound()
 
 	Grid.clear(global_position)
+	Grid.write(destination, self)
+
 	global_position = destination
 
 	from_rotation = goal_rotation
@@ -85,8 +106,6 @@ func move_to(destination: Vector3, next_flip : Quaternion) -> bool:
 			faces.emit(node)
 		else:
 			faces.emit(null)
-
-	return true
 
 
 func is_vertical():

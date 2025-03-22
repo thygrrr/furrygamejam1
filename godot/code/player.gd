@@ -5,25 +5,10 @@ func debug_faces(other: Node3D):
 	if other:
 		print(other.name)
 
-# Single Entry Point into execution flow.
 func _ready() -> void:
 	super()
 	faces.connect(debug_faces)
-	var old_quaternion := quaternion
-	quaternion = Quaternion.IDENTITY
-	anchor.top_level = true
-	goal_rotation = old_quaternion
-	from_rotation = goal_rotation
-	view.quaternion = goal_rotation
 
-
-
-# Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
-func _process(_delta : float) -> void:
-	var k := pow(0.9, _delta * 120.0)
-	anchor.global_position = k * anchor.global_position + (1-k) * global_position
-
-	view.quaternion = from_rotation.slerp(goal_rotation, rotation_t)
 
 
 # Resolve a single input event
@@ -47,4 +32,16 @@ func _execute(event: InputEvent) -> void:
 	else:
 		return
 
-	await move_to(global_position + next_step, next_flip)
+	var next_pos = global_position + next_step
+
+	var obstacle = Grid.read(next_pos)
+	if not obstacle:
+		await move_to(next_pos, next_flip)
+		return
+
+	if obstacle is Critter and obstacle.can_move(next_pos + next_step):
+		var crit = (obstacle as Critter)
+		crit.move_to(next_pos + next_step, next_flip)
+		await move_to(next_pos, next_flip)
+	else:
+		return #todo: collision sound and fx
