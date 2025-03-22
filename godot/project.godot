@@ -34,6 +34,10 @@ window/size/viewport_height=880
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 
+[global_group]
+
+critters=""
+
 [gui]
 
 common/snap_controls_to_pixels=false

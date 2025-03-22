@@ -84,7 +84,7 @@ stream_0/stream = ExtResource("15_e1fyu")
 stream_1/stream = ExtResource("16_nid5x")
 stream_2/stream = ExtResource("17_lixqi")
 
-[node name="Critter" type="Node3D"]
+[node name="Critter" type="Node3D" groups=["critters"]]
 script = ExtResource("1_ftbhh")
 
 [node name="anchor" type="Node3D" parent="."]

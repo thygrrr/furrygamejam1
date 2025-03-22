@@ -1,5 +1,8 @@
 extends Level
 
+func blitty_debug(other: Node3D) -> void:
+	prints("Blitty faces", other)
+
 
 func _main() -> void:
 	player = %Blox
@@ -7,7 +10,7 @@ func _main() -> void:
 	#Camera.look = player
 
 	#await %Intro1.play()
-
+	%Blitty.faces.connect(blitty_debug)
 	%Step1.show()
 
 	_play()

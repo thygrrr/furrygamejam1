@@ -3,7 +3,6 @@ class_name Critter
 
 @onready var anchor : Node3D = %anchor
 @onready var offset : Node3D = %offset
-@onready var view : Node3D = %view
 
 @onready var voice : AudioStreamPlayer3D = $voice
 
@@ -88,21 +87,20 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 	parallel_b.set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(1.25, 0.9, 1.25), 0.05)
 	parallel_b.chain().set_ease(Tween.EASE_IN).tween_property(anchor, "scale", Vector3.ONE, 0.1)
 
-	# Wait for the tween here, just where we did anything with it.
-	# Nobody else needs to know and check it, because this function owns it.
 	await get_tree().create_timer(0.15).timeout
 	_flop_sound()
 	Camera.shake = 0.5
 
 	await flip.finished
-
 	moved.emit()
 
+
+func update_facing():
 	if is_vertical():
 		faces.emit(null)
 	else:
 		var node = Grid.read(global_position + view.global_basis.z)
-		if node and node != self and node.global_basis.z.dot(view.global_basis.z) < -0.5:
+		if node is Interactable and node.view.global_basis.z.dot(view.global_basis.z) < -0.5:
 			faces.emit(node)
 		else:
 			faces.emit(null)

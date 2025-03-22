@@ -2,8 +2,7 @@ extends Critter
 class_name Player
 
 func debug_faces(other: Node3D):
-	if other:
-		print(other.name)
+	print(other)
 
 func _ready() -> void:
 	super()
@@ -37,11 +36,13 @@ func _execute(event: InputEvent) -> void:
 	var obstacle = Grid.read(next_pos)
 	if not obstacle:
 		await move_to(next_pos, next_flip)
-		return
 
 	if obstacle is Critter and obstacle.can_move(next_pos + next_step):
 		var crit = (obstacle as Critter)
 		crit.move_to(next_pos + next_step, next_flip)
 		await move_to(next_pos, next_flip)
+		await get_tree().process_frame
 	else:
-		return #todo: collision sound and fx
+		pass # play collision fx
+
+	get_tree().call_group("critters", "update_facing")
