@@ -1,6 +1,4 @@
-[gd_resource type="Theme" load_steps=24 format=3 uid="uid://d22mpqutkotsu"]
-
-[ext_resource type="FontFile" uid="uid://gg0i6831qui1" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="1_rqugq"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://d22mpqutkotsu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo7pd"]
 content_margin_left = 4.0
@@ -205,7 +203,6 @@ CheckButton/colors/font_pressed_color = Color(1, 1, 1, 1)
 CheckButton/constants/check_v_offset = 0
 CheckButton/constants/h_separation = 4
 CheckButton/constants/outline_size = 0
-CheckButton/fonts/font = ExtResource("1_rqugq")
 CheckButton/icons/checked = SubResource("ImageTexture_m5vsb")
 CheckButton/icons/checked_disabled = SubResource("ImageTexture_0cw5i")
 CheckButton/icons/checked_disabled_mirrored = SubResource("ImageTexture_2lrhe")

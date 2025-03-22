@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b703fb8a1jueq" path="res://code/level_test.gd" id="1_ca4i1"]
 [ext_resource type="Texture2D" uid="uid://b4jlx6pbus1q4" path="res://characters/blox-portrait.png" id="2_41qk1"]
-[ext_resource type="FontFile" uid="uid://gg0i6831qui1" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="4_8sp67"]
+[ext_resource type="FontFile" uid="uid://7oyh6wfa8tfg" path="res://fonts/Nope 8.ttf" id="4_8sp67"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="5_qyf36"]
 [ext_resource type="Script" uid="uid://nfe45hfgghg0" path="res://code/player.gd" id="6_f33k1"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="7_6hwsd"]
