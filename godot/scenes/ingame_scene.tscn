@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=8 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" uid="uid://cfl4c4qq5x0jt" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_y6ebv"]
-[ext_resource type="PackedScene" uid="uid://m7dutl3kt23p" path="res://levels/level_1.tscn" id="2_5jhce"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="3_8o178"]
 [ext_resource type="Script" uid="uid://biw0dyhb42sar" path="res://code/smooth_follow.gd" id="4_hysgw"]
-[ext_resource type="AudioStream" uid="uid://ndi3nvqd3m3g" path="res://sfx/draper_sfx_north_wales_dawn_country_lane_slight_breeze_blackcap_garden_warblers_sheep_dogs_and_sheep_in_distance.mp3" id="20_hysgw"]
-[ext_resource type="AudioStream" uid="uid://bxopboy8aq5mo" path="res://music/FGJ25_BlockPartyTrack01_V1_loop.mp3" id="23_6ywyt"]
+[ext_resource type="PackedScene" uid="uid://bo6gr2w24mxr1" path="res://levels/level_test.tscn" id="10_2vs8u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etwux"]
 albedo_color = Color(0.201303, 0.487727, 0.390602, 1)
@@ -19,8 +17,6 @@ size = Vector2(100, 100)
 
 [node name="IngameScene" type="Node3D"]
 script = ExtResource("1_objyc")
-
-[node name="Level" parent="." instance=ExtResource("2_5jhce")]
 
 [node name="App UI" type="CanvasLayer" parent="."]
 
@@ -65,19 +61,9 @@ directional_shadow_blend_splits = true
 [node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_1sh3m")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_6ywyt")
-autoplay = true
-bus = &"Music"
-parameters/looping = true
-
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_hysgw")
-volume_db = -12.0
-autoplay = true
-bus = &"Sound"
-parameters/looping = true
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Level" parent="." instance=ExtResource("10_2vs8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)

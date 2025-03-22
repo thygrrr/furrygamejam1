@@ -26,54 +26,67 @@ func _ready() -> void:
 	super()
 
 func _move_sound() -> void:
-	$AudioStreamPlayer3D.play()
+	$MoveSound.play(0.05)
+
+func _flop_sound() -> void:
+	$FlopSound.play()
+
+func _block_sound() -> void:
+	$BlockSound.play()
 
 func _in_view_space(rot : Quaternion):
 	return view.quaternion.inverse() * rot * view.quaternion
 
-func move_to(destination: Vector3, next_flip : Quaternion):
-	if Grid.write(destination, self):
-		_move_sound()
 
-		Grid.clear(global_position)
-		global_position = destination
+func move_to(destination: Vector3, next_flip : Quaternion) -> bool:
+	if !Grid.write(destination, self):
+		_block_sound()
+		return false
 
-		from_rotation = goal_rotation
-		goal_rotation *= _in_view_space(next_flip)
+	_move_sound()
 
-		rotation_t = 0.0
+	Grid.clear(global_position)
+	global_position = destination
 
-		flip = create_tween()
-		flip.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(self, "rotation_t", 1.0, 0.2).set_delay(0.05)
+	from_rotation = goal_rotation
+	goal_rotation *= _in_view_space(next_flip)
 
-		var bounce := create_tween()
-		var parallel_a = bounce.parallel()
-		var parallel_b = bounce.parallel()
+	rotation_t = 0.0
 
-		parallel_a.set_ease(Tween.EASE_OUT).tween_property(offset, "position", Vector3(0, 0.7, 0), 0.15)
-		parallel_a.parallel().set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(0.9, 1.3, 0.9), 0.1)
-		parallel_a.chain().set_ease(Tween.EASE_IN).tween_property(offset, "position", Vector3.ZERO, 0.05)
+	flip = create_tween()
+	flip.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(self, "rotation_t", 1.0, 0.2).set_delay(0.05)
 
-		parallel_b.set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(1.25, 0.9, 1.25), 0.05)
-		parallel_b.chain().set_ease(Tween.EASE_IN).tween_property(anchor, "scale", Vector3.ONE, 0.1)
+	var bounce := create_tween()
+	var parallel_a = bounce.parallel()
+	var parallel_b = bounce.parallel()
 
-		# Wait for the tween here, just where we did anything with it.
-		# Nobody else needs to know and check it, because this function owns it.
-		await get_tree().create_timer(0.15).timeout
-		Camera.shake = 0.5
+	parallel_a.set_ease(Tween.EASE_OUT).tween_property(offset, "position", Vector3(0, 0.7, 0), 0.15)
+	parallel_a.parallel().set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(0.9, 1.3, 0.9), 0.1)
+	parallel_a.chain().set_ease(Tween.EASE_IN).tween_property(offset, "position", Vector3.ZERO, 0.05)
 
-		await flip.finished
+	parallel_b.set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(1.25, 0.9, 1.25), 0.05)
+	parallel_b.chain().set_ease(Tween.EASE_IN).tween_property(anchor, "scale", Vector3.ONE, 0.1)
 
-		moved.emit()
+	# Wait for the tween here, just where we did anything with it.
+	# Nobody else needs to know and check it, because this function owns it.
+	await get_tree().create_timer(0.15).timeout
+	_flop_sound()
+	Camera.shake = 0.5
 
-		if is_vertical():
-			faces.emit(null)
+	await flip.finished
+
+	moved.emit()
+
+	if is_vertical():
+		faces.emit(null)
+	else:
+		var node = Grid.read(global_position + view.global_basis.z)
+		if node and node != self and node.global_basis.z.dot(view.global_basis.z) < -0.5:
+			faces.emit(node)
 		else:
-			var node = Grid.read(global_position + view.global_basis.z)
-			if node and node != self and node.global_basis.z.dot(view.global_basis.z) < -0.5:
-				faces.emit(node)
-			else:
-				faces.emit(null)
+			faces.emit(null)
+
+	return true
 
 
 func is_vertical():

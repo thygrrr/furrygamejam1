@@ -1,7 +1,6 @@
 extends Level
 
 
-# Main event loop, currently dummy condition and processes input indefinitely
 func _main() -> void:
 	player = %Blox
 	Camera.follow = player
@@ -24,7 +23,9 @@ func _main() -> void:
 	%Arrow0.hide()
 	%Arrow1.show()
 	%Step2.show()
+
 	await until(player.faces, %Mailbox)
+
 	%Mailbox.highlight.play()
 	%Arrow1.hide()
 	%Arrow2.show()
