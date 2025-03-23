@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/pause_overlay.tscn" id="2_rrhq0"]
 
 [node name="App UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_rrhq0")
-
-[node name="fade_overlay" parent="." instance=ExtResource("1_c53k7")]
-visible = false
 
 [node name="pause_overlay" parent="." instance=ExtResource("2_rrhq0")]
 process_mode = 2
+visible = false
+
+[node name="fade_overlay" parent="." instance=ExtResource("1_c53k7")]
 visible = false

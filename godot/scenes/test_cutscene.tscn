@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://k232rcmsn6ls"]
+
+[ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="1_x6vna"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_x6vna")
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 208.0
+offset_right = 288.0
+offset_bottom = 344.0
+color = Color(0.279334, 0.06, 1, 1)
+script = ExtResource("1_x6vna")
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 72.0
+offset_right = 424.0
+offset_bottom = 200.0
+color = Color(0, 1, 1, 1)
+script = ExtResource("1_x6vna")
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 88.0
+offset_right = 256.0
+offset_bottom = 176.0
+color = Color(1, 0, 0, 1)
+script = ExtResource("1_x6vna")

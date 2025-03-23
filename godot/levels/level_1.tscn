@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=4 uid="uid://m7dutl3kt23p"]
+[gd_scene load_steps=28 format=4 uid="uid://m7dutl3kt23p"]
 
 [ext_resource type="Script" uid="uid://d2hhb3ftcjvyg" path="res://levels/level_1.gd" id="1_lrvbd"]
 [ext_resource type="Texture2D" uid="uid://b4jlx6pbus1q4" path="res://characters/blox-portrait.png" id="2_vjtdm"]
 [ext_resource type="Script" uid="uid://j2e33yr53486" path="res://code/ui_follow.gd" id="3_bgw3c"]
+[ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="4_jkxa6"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="5_oqlok"]
 [ext_resource type="Texture2D" uid="uid://y3joqtcj7fi6" path="res://sprites/bloxthingy.png" id="5_w75he"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="7_jkxa6"]
@@ -358,6 +359,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+script = ExtResource("4_jkxa6")
 
 [node name="Panel3" type="Panel" parent="UI/Intro"]
 layout_mode = 0
