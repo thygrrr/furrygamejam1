@@ -8,6 +8,14 @@ var moves : int = 0
 func count_move() -> void:
 	moves += 1
 
+var blox_complete : bool = false
+func blox_faces(other: Node3D):
+	blox_complete = other == %Drinks
+
+var blitty_complete : bool = false
+func blitty_faces(other: Node3D):
+	blitty_complete = other == %Drinks
+
 func _main() -> void:
 	Music.fade_main()
 	player = %Blitty
@@ -18,6 +26,9 @@ func _main() -> void:
 
 	player.moved.connect(count_move)
 	_play()
+	%Blox.faces.connect(blox_faces)
+	%Blitty.faces.connect(blitty_faces)
+
 	await player.moved
 	%Step1.show()
 	await player.moved
@@ -27,8 +38,9 @@ func _main() -> void:
 	await player.moved
 	%Intro.hide()
 
-	await until(%Blox.faces, %Drinks)
-	await until(player.faces, %Drinks)
+	while not blox_complete or not blitty_complete:
+		await process
+
 	%Step1.hide()
 	%Drinks.highlight.play()
 	playing = false

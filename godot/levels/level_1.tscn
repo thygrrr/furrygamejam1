@@ -604,10 +604,10 @@ expand_mode = 2
 
 [node name="DialogLine2" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
-offset_left = -163.5
-offset_top = 43.5
-offset_right = 290.5
-offset_bottom = 171.5
+offset_left = -11.5
+offset_top = 123.5
+offset_right = 442.5
+offset_bottom = 251.5
 script = ExtResource("4_jkxa6")
 
 [node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2"]
@@ -644,10 +644,10 @@ vertical_alignment = 1
 
 [node name="DialogLine3" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
-offset_left = 12.5
-offset_top = 187.5
-offset_right = 466.5
-offset_bottom = 315.5
+offset_left = 28.5
+offset_top = 259.5
+offset_right = 482.5
+offset_bottom = 387.5
 script = ExtResource("4_jkxa6")
 
 [node name="Portrait" type="Panel" parent="UI/Outro/DialogLine3"]
@@ -701,7 +701,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "No can do, silly fox."
+text = "No can do, silly blox."
 label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
