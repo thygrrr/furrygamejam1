@@ -9,6 +9,8 @@ var l3 : PackedScene = preload("res://levels/level_3.tscn")
 var current : Node3D
 var current_index : int
 
+var loading: bool
+
 func _ready() -> void:
 	levels = [l0, l1, l2, l3]
 
@@ -17,6 +19,9 @@ func retry():
 	self.load(current_index)
 
 func load(choice: int) -> void:
+	if loading:
+		return
+	loading = true
 	if (choice >= 0 and choice < levels.size()):
 		await AppUi.fade_overlay.fade_out()
 		prints("Loading level", choice)
@@ -27,3 +32,4 @@ func load(choice: int) -> void:
 		current = levels[choice].instantiate()
 		get_tree().root.add_child(current)
 		AppUi.fade_overlay.fade_in()
+	loading = false
