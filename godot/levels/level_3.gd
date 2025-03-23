@@ -38,7 +38,7 @@ func _main() -> void:
 	await player.moved
 	%Intro.hide()
 
-	while not blox_complete or not blitty_complete:
+	while (not blox_complete) or (not blitty_complete):
 		await process
 
 	%Step1.hide()

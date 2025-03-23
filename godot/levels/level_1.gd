@@ -35,6 +35,7 @@ func _main() -> void:
 
 	await player.moved
 	await player.moved
+	await player.moved
 	%Intro.hide()
 
 

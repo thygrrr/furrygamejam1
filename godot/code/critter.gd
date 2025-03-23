@@ -108,7 +108,7 @@ func update_facing():
 	if node == self:
 		return
 
-	if node is Interactable:
+	if node is Interactable and not is_vertical():
 		sees.emit(node)
 		if node.omni or node.view.global_basis.z.dot(view.global_basis.z) < -0.7:
 			if node.view.global_basis.y.dot(view.global_basis.y) > 0.7:
