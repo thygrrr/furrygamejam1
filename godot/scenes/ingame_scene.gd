@@ -6,8 +6,6 @@ func _ready() -> void:
 	if SaveGame.has_save():
 		SaveGame.load_game(get_tree())
 
-	AppUi.pause_overlay.game_exited.connect(_save_game)
-
 	LevelManager.load.call_deferred(1)
 
 func _input(event) -> void:

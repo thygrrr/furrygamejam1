@@ -27,4 +27,4 @@ func _cutscene():
 	%Outro.show()
 	await AppUi.fade_overlay.fade_out()
 	LevelManager.load(0)
-	await AppUi.fade_overlay.fade_in()
+	AppUi.fade_overlay.fade_in()

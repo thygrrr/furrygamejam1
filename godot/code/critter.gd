@@ -1,6 +1,7 @@
 extends Interactable
 class_name Critter
 
+var material = preload("res://characters/mat_impact.tres")
 @onready var anchor : Node3D = %anchor
 @onready var offset : Node3D = %offset
 
@@ -30,6 +31,8 @@ func _ready() -> void:
 	goal_rotation = old_quaternion
 	from_rotation = goal_rotation
 	view.quaternion = goal_rotation
+	$anchor/Particles.emitting = true
+
 
 
 # Smoothly LERP position (TODO: use SmoothRemoteTransform to do this work)
@@ -90,7 +93,9 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 
 	await get_tree().create_timer(0.15).timeout
 	_flop_sound()
-	Camera.shake = 0.5
+	if self is Player: # hack, ain't got time for this
+		Camera.shake = 0.5
+	$anchor/Particles.emitting = true
 
 	await flip.finished
 	moved.emit()

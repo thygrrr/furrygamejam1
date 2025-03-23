@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://jyv4g54adkmo"]
+[gd_scene load_steps=4 format=3 uid="uid://jyv4g54adkmo"]
 
 [ext_resource type="Script" uid="uid://c212smgjd0j4i" path="res://ui/overlays/pause_overlay.gd" id="1_q2yda"]
 [ext_resource type="PackedScene" uid="uid://nbaodrlopo7y" path="res://ui/components/game_settings.tscn" id="2_n78uc"]
+[ext_resource type="Script" uid="uid://d3271nc16u7gb" path="res://code/quick_level_button.gd" id="3_nk86g"]
 
-[node name="PauseOverlay" type="CenterContainer"]
+[node name="PauseOverlay" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,44 +13,105 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2yda")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
-layout_mode = 2
+[node name="Control" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer3"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 240.0
+offset_top = 272.0
+offset_right = 377.0
+offset_bottom = 414.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="Control/VBoxContainer3"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "game_paused"
 horizontal_alignment = 1
 
-[node name="SettingsContainer" type="VBoxContainer" parent="VBoxContainer3"]
+[node name="SettingsContainer" type="VBoxContainer" parent="Control/VBoxContainer3"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="GameSettings" parent="VBoxContainer3/SettingsContainer" instance=ExtResource("2_n78uc")]
+[node name="GameSettings" parent="Control/VBoxContainer3/SettingsContainer" instance=ExtResource("2_n78uc")]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="VBoxContainer3/SettingsContainer"]
+[node name="BackButton" type="Button" parent="Control/VBoxContainer3/SettingsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "return_to_menu"
 
-[node name="MenuContainer" type="VBoxContainer" parent="VBoxContainer3"]
+[node name="MenuContainer" type="VBoxContainer" parent="Control/VBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="ResumeButton" type="Button" parent="VBoxContainer3/MenuContainer"]
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer3/MenuContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "resume_game"
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer3/MenuContainer"]
+[node name="RetryButton" type="Button" parent="Control/VBoxContainer3/MenuContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "retry_level"
+
+[node name="QuickSelect" type="HBoxContainer" parent="Control/VBoxContainer3/MenuContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Level1" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+script = ExtResource("3_nk86g")
+level = 1
+metadata/level = 1
+
+[node name="Level2" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "2"
+script = ExtResource("3_nk86g")
+level = 2
+metadata/level = 2
+
+[node name="Level3" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "3"
+script = ExtResource("3_nk86g")
+level = 3
+metadata/level = 3
+
+[node name="Level4" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "4"
+script = ExtResource("3_nk86g")
+level = 4
+metadata/level = 4
+
+[node name="Level5" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+script = ExtResource("3_nk86g")
+level = 5
+metadata/level = 5
+
+[node name="SettingsButton" type="Button" parent="Control/VBoxContainer3/MenuContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "settings"
-
-[node name="ExitButton" type="Button" parent="VBoxContainer3/MenuContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "leave_game"

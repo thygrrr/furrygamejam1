@@ -20,6 +20,7 @@ func _ready() -> void:
 		child.hide()
 
 	_main.call_deferred() # run in background
+	LevelManager.current = self
 
 
 func _main():

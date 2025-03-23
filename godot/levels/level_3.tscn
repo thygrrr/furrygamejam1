@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dod7vdgcc64td"]
+[gd_scene load_steps=33 format=4 uid="uid://dod7vdgcc64td"]
 
 [ext_resource type="Script" uid="uid://16mgj2rlxhd4" path="res://levels/level_3.gd" id="1_yafm2"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="3_t5hu4"]
@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="11_tv8m3"]
 [ext_resource type="Material" uid="uid://c08aipotjgscs" path="res://characters/props/dark_wall.tres" id="12_8nkwk"]
 [ext_resource type="PackedScene" uid="uid://c2m8uuse6vbu3" path="res://characters/props/table_small.tscn" id="13_kyq6o"]
+[ext_resource type="PackedScene" uid="uid://ctfigr0jnqf05" path="res://models/props/drinkblue.obj" id="13_svivd"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_s3q8p"]
 [ext_resource type="PackedScene" uid="uid://d1ttbxhafr6ay" path="res://models/props/drinkred.obj" id="16_q26s8"]
+[ext_resource type="PackedScene" uid="uid://plipgykjfsec" path="res://models/props/bowlofchips.obj" id="16_u4kh1"]
 [ext_resource type="PackedScene" uid="uid://d0g3lhg4l6vfk" path="res://characters/bleep.tscn" id="18_h3b7p"]
 
 [sub_resource type="FontFile" id="FontFile_o7ls4"]
@@ -757,7 +759,10 @@ include_children = true
 [node name="door" parent="Environment/outer_wall" instance=ExtResource("15_s3q8p")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 2, 0, -1.25, 0, -5.46392e-08, 2, 0, -7.5)
 
-[node name="floor-thick" parent="Environment/outer_wall" index="1"]
+[node name="door2" parent="Environment/outer_wall" instance=ExtResource("15_s3q8p")]
+transform = Transform3D(-1.25, 0, -9.83506e-08, 0, 2, 0, 9.83506e-08, 0, -1, 5, 0, -3.75)
+
+[node name="floor-thick" parent="Environment/outer_wall" index="2"]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 11, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 
@@ -875,12 +880,6 @@ material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
-[node name="floor-thick26" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 5, 0, -3.75)
-material_override = ExtResource("12_8nkwk")
-mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
-
 [node name="floor-thick27" type="MeshInstance3D" parent="Environment/outer_wall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 4, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
@@ -956,6 +955,9 @@ skeleton = NodePath("")
 [node name="ground" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
 mesh = SubResource("PlaneMesh_w75he")
+
+[node name="drinkblue" parent="Environment/ground" instance=ExtResource("13_svivd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 0.5, -7.1)
 
 [node name="Obstacle3" parent="Environment" instance=ExtResource("13_kyq6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -13)
@@ -1052,5 +1054,11 @@ transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, 5, 0, 
 
 [node name="Bleep24" parent="Environment" instance=ExtResource("18_h3b7p")]
 transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 3, 0, -10)
+
+[node name="bowlofchips" parent="." instance=ExtResource("16_u4kh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 0.4, -1.2)
+
+[node name="bowlofchips2" parent="." instance=ExtResource("16_u4kh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.4, -1)
 
 [editable path="Environment/outer_wall"]

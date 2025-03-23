@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://o760msijykqa"]
+[gd_scene load_steps=39 format=3 uid="uid://o760msijykqa"]
 
 [ext_resource type="Script" uid="uid://d7jtgn1llo46" path="res://code/critter.gd" id="1_ftbhh"]
 [ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="2_wrh6k"]
+[ext_resource type="Material" uid="uid://miqmtpr1nwjm" path="res://characters/mat_impact.tres" id="3_7ou5g"]
 [ext_resource type="AudioStream" uid="uid://co2yrt8gdd44s" path="res://sfx/flops/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_005_75680.mp3" id="3_ijayo"]
 [ext_resource type="AudioStream" uid="uid://bkyx6wby54mgo" path="res://sfx/flops/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_004_75679.mp3" id="3_lhthu"]
 [ext_resource type="AudioStream" uid="uid://3kcfd1w6p6vm" path="res://sfx/flops/zapsplat_foley_footstep_single_flip_flop_stamp_on_ground_dirt_006_75681.mp3" id="5_wnex8"]
@@ -26,6 +27,23 @@
 [ext_resource type="AudioStream" uid="uid://bibuj2a6etg2c" path="res://sfx/pops/zapsplat_cartoon_pop_mouth_002_46665.mp3" id="20_81ot8"]
 [ext_resource type="AudioStream" uid="uid://7ul2580hpty3" path="res://sfx/pops/zapsplat_cartoon_pop_mouth_003_46666.mp3" id="21_c7wh7"]
 [ext_resource type="AudioStream" uid="uid://cm61e7yrbyhva" path="res://sfx/pops/zapsplat_cartoon_pop_mouth_004_46667.mp3" id="22_unobx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f1fed"]
+material = ExtResource("3_7ou5g")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Curve" id="Curve_7ou5g"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.898704, 0.863789), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_f1fed"]
+offsets = PackedFloat32Array(0.26853, 0.998785, 1)
+colors = PackedColorArray(1, 1, 1, 0.627451, 0.0132891, 0.0132891, 0.0132891, 0.00833827, 0, 0, 0, 0)
+
+[sub_resource type="Curve" id="Curve_81ot8"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.21437, 98.114), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0oab4"]
 radius = 0.7
@@ -97,6 +115,32 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39, 0)
 script = ExtResource("2_wrh6k")
+
+[node name="Particles" type="CPUParticles3D" parent="anchor"]
+emitting = false
+amount = 20
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.9
+randomness = 0.5
+lifetime_randomness = 0.2
+mesh = SubResource("BoxMesh_f1fed")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.2
+emission_ring_radius = 0.2
+emission_ring_inner_radius = 0.1
+emission_ring_cone_angle = 90.0
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_7ou5g")
+color_ramp = SubResource("Gradient_f1fed")
+anim_speed_curve = SubResource("Curve_81ot8")
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)

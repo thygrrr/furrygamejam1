@@ -106,7 +106,7 @@ pause={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://i18n/translation.de.translation", "res://i18n/translation.en.translation")
+locale/translations=PackedStringArray("res://i18n/translation.en.translation", "res://i18n/translation.de.translation")
 
 [rendering]
 
