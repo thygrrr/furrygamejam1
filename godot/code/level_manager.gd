@@ -23,7 +23,6 @@ func load(choice: int) -> void:
 		return
 	loading = true
 	if (choice >= 0 and choice < levels.size()):
-		await AppUi.fade_overlay.fade_out()
 		prints("Loading level", choice)
 		current_index = choice
 		if current:
@@ -31,5 +30,6 @@ func load(choice: int) -> void:
 			current = null
 		current = levels[choice].instantiate()
 		get_tree().root.add_child(current)
+		await get_tree().process_frame
 		AppUi.fade_overlay.fade_in()
 	loading = false

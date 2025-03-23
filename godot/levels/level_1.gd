@@ -56,5 +56,6 @@ func _main() -> void:
 func _cutscene():
 	Music.victory.play()
 	await %Outro.play()
-	await LevelManager.load(2)
 	Music.fade_main()
+	await AppUi.fade_overlay.fade_out()
+	await LevelManager.load(2)
