@@ -27,3 +27,4 @@ func _cutscene():
 	await AppUi.fade_overlay.fade_out()
 	LevelManager.load(0)
 	await AppUi.fade_overlay.fade_in()
+"res://characters/blox-portrait.png"

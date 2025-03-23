@@ -47,12 +47,18 @@ script = ExtResource("5_i8x6x")
 script = ExtResource("6_um7uo")
 target = NodePath("../../CameraOffset/CameraPosition")
 motion_smooth_time = 0.5
+angular_smooth_time = null
 scaling = Vector3(1.2, 1, 1.2)
+follow_position = null
+follow_rotation = null
 metadata/_custom_type_script = "uid://bob5guqytrpmh"
 
 [node name="CameraLookMover" type="Node3D" parent="CameraFollow" node_paths=PackedStringArray("target")]
 script = ExtResource("6_um7uo")
 target = NodePath("../../CameraLookTarget")
 motion_smooth_time = 0.3
+angular_smooth_time = null
 scaling = Vector3(1, 0.8, 1)
+follow_position = null
+follow_rotation = null
 metadata/_custom_type_script = "uid://bob5guqytrpmh"

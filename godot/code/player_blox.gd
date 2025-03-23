@@ -41,8 +41,8 @@ func execute(event: InputEvent) -> void:
 	if obstacle is Critter and obstacle.can_move(next_pos + next_step):
 		var crit = (obstacle as Critter)
 		crit.move_to(next_pos + next_step, next_flip)
-		await await get_tree().create_timer(0.05).timeout
-		await await move_to(next_pos, next_flip)
+		await get_tree().create_timer(0.05).timeout
+		await move_to(next_pos, next_flip)
 	else:
 		pass # play collision fx
 

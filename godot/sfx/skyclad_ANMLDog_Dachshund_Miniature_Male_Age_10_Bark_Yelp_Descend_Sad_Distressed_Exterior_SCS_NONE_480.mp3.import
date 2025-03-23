@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/skyclad_ANMLDog_Dachshund_Miniature_Male_Age_
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

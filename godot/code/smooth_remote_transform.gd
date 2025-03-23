@@ -38,3 +38,11 @@ func _look_rotation(from : Vector3, dir : Vector3, up : Vector3) -> Quaternion:
 
 	var angle = from.signed_angle_to(dir.normalized(), up)
 	return Quaternion(up, angle);
+
+func warp() -> void:
+	if follow_position:
+		linear_velocity = [Vector3.ZERO]
+		target.position = global_position * scaling
+	if follow_rotation:
+		angular_velocity = [Vector3.ZERO]
+		target.rotation = global_rotation

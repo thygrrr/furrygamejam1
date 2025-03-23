@@ -10,3 +10,8 @@ func _process(_delta: float) -> void:
 			global_position = target.global_position
 		if follow_rotation:
 			global_rotation = target.global_rotation
+
+func warp():
+	_process(0)
+	$CameraLookMover.warp()
+	$CameraPositionMover.warp()

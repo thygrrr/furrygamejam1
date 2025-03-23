@@ -65,7 +65,6 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 	_pop_sound()
 	_move_sound()
 
-	Grid.clear(global_position)
 	Grid.write(destination, self)
 
 	global_position = destination

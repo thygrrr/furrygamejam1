@@ -11,6 +11,7 @@ func count_move() -> void:
 func _main() -> void:
 	player = %Blitty
 	Camera.follow = player
+	Camera.warp()
 
 	player.moved.connect(count_move)
 	_play()

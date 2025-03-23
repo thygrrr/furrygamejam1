@@ -21,3 +21,6 @@ var shake : float:
 		return %CameraShake.trauma
 	set(value):
 		%CameraShake.trauma = value
+
+func warp():
+	%CameraFollow.warp()
