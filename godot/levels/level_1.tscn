@@ -629,72 +629,6 @@ label_settings = SubResource("LabelSettings_2vs8u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Blox" parent="." instance=ExtResource("5_oqlok")]
-unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -3)
-
-[node name="Blitty" parent="." instance=ExtResource("7_jkxa6")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -11)
-
-[node name="Chip" parent="." instance=ExtResource("8_w75he")]
-unique_name_in_owner = true
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -3, 0.2, -6)
-
-[node name="Dado" parent="." instance=ExtResource("8_w75he")]
-unique_name_in_owner = true
-transform = Transform3D(-0.258819, 0, -0.965925, 0, 1, 0, 0.965925, 0, -0.258819, -3, 0.2, -7)
-
-[node name="Mailbox" parent="." instance=ExtResource("9_udfhf")]
-unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -5)
-
-[node name="Arrow0" type="MeshInstance3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -5, 0, -3)
-mesh = SubResource("TextMesh_hr6f0")
-
-[node name="Arrow1" type="MeshInstance3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, 0, -5)
-visible = false
-mesh = SubResource("TextMesh_hr6f0")
-
-[node name="Arrow" type="MeshInstance3D" parent="Arrow1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-mesh = SubResource("TextMesh_hr6f0")
-skeleton = NodePath("../..")
-
-[node name="Arrow2" type="MeshInstance3D" parent="Arrow1"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -1, -1, -4.37114e-08)
-mesh = SubResource("TextMesh_hr6f0")
-skeleton = NodePath("../..")
-
-[node name="Arrow2" type="MeshInstance3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 0, -4, 0, -8)
-visible = false
-mesh = SubResource("TextMesh_hr6f0")
-
-[node name="Arrow5" type="MeshInstance3D" parent="Arrow2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, 1, 0, -1.42109e-14)
-mesh = SubResource("TextMesh_hr6f0")
-skeleton = NodePath("../..")
-
-[node name="Arrow6" type="MeshInstance3D" parent="Arrow2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, -2, 0, -1.42109e-14)
-mesh = SubResource("TextMesh_hr6f0")
-skeleton = NodePath("../..")
-
-[node name="Arrow7" type="MeshInstance3D" parent="Arrow2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, -1, 0, -1.42109e-14)
-mesh = SubResource("TextMesh_hr6f0")
-skeleton = NodePath("../..")
-
-[node name="ground" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_w75he")
-skeleton = NodePath("../Environment")
-
 [node name="Environment" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
 
@@ -900,3 +834,69 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_range = 50.0
 omni_attenuation = 0.5
+
+[node name="Blox" parent="." instance=ExtResource("5_oqlok")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -3)
+
+[node name="Blitty" parent="." instance=ExtResource("7_jkxa6")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -11)
+
+[node name="Chip" parent="." instance=ExtResource("8_w75he")]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -3, 0.2, -6)
+
+[node name="Dado" parent="." instance=ExtResource("8_w75he")]
+unique_name_in_owner = true
+transform = Transform3D(-0.258819, 0, -0.965925, 0, 1, 0, 0.965925, 0, -0.258819, -3, 0.2, -7)
+
+[node name="Mailbox" parent="." instance=ExtResource("9_udfhf")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -5)
+
+[node name="Arrow0" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -5, 0, -3)
+mesh = SubResource("TextMesh_hr6f0")
+
+[node name="Arrow1" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4, 0, -5)
+visible = false
+mesh = SubResource("TextMesh_hr6f0")
+
+[node name="Arrow" type="MeshInstance3D" parent="Arrow1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="Arrow2" type="MeshInstance3D" parent="Arrow1"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -1, -1, -4.37114e-08)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="Arrow2" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 0, -4, 0, -8)
+visible = false
+mesh = SubResource("TextMesh_hr6f0")
+
+[node name="Arrow5" type="MeshInstance3D" parent="Arrow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, 1, 0, -1.42109e-14)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="Arrow6" type="MeshInstance3D" parent="Arrow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, -2, 0, -1.42109e-14)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="Arrow7" type="MeshInstance3D" parent="Arrow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 8.35187e-23, 1, -1, 0, -1.42109e-14)
+mesh = SubResource("TextMesh_hr6f0")
+skeleton = NodePath("../..")
+
+[node name="ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_w75he")
+skeleton = NodePath("../Environment")

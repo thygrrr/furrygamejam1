@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://daerjedkawvnf"]
+
+[ext_resource type="Texture2D" uid="uid://dgvra8wbn2qo7" path="res://models/calico/calico.png" id="1_y6mt7"]
+[ext_resource type="Texture2D" uid="uid://bm26uptpdh5xc" path="res://models/calico/calico_glow.png" id="2_5dk00"]
+
+[resource]
+albedo_texture = ExtResource("1_y6mt7")
+metallic = 0.25
+roughness = 0.7
+emission_enabled = true
+emission_energy_multiplier = 0.7
+emission_texture = ExtResource("2_5dk00")

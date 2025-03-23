@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cvwwtjj8bl1a4"]
+
+[ext_resource type="Texture2D" uid="uid://bynfoauk15724" path="res://models/fox/foxfox.png" id="1_4w24y"]
+[ext_resource type="Texture2D" uid="uid://d2t6n5fcnag5g" path="res://models/fox/foxfox_glow.png" id="2_swqna"]
+
+[resource]
+albedo_texture = ExtResource("1_4w24y")
+metallic = 0.25
+emission_enabled = true
+emission_energy_multiplier = 0.7
+emission_texture = ExtResource("2_swqna")

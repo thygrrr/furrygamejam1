@@ -356,7 +356,7 @@ directional_shadow_blend_splits = true
 
 [node name="Fill Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.263889, -0.659044, -0.704289, 0.00303337, 0.730735, -0.682654, 0.964548, 0.178009, 0.194832, 4.48519, -1.71708, -9.255)
-light_energy = 0.2
+light_energy = 0.1
 
 [node name="Permanent UI" type="CanvasLayer" parent="."]
 visible = false

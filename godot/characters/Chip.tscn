@@ -14,17 +14,17 @@ stream_0/stream = ExtResource("4_gkr7h")
 [node name="Chip" instance=ExtResource("1_l6cbk")]
 script = ExtResource("2_qgd4y")
 
-[node name="Mesh" parent="." index="0"]
+[node name="view" type="Node3D" parent="." index="0"]
+unique_name_in_owner = true
+
+[node name="Mesh" parent="." index="1"]
 script = ExtResource("2_plj7h")
 excitement = 15.0
 
-[node name="view" type="Node3D" parent="Mesh" index="0"]
-unique_name_in_owner = true
+[node name="Blink" type="Node3D" parent="Mesh" index="0"]
 
-[node name="Blink" type="Node3D" parent="Mesh" index="1"]
+[node name="Normal" type="Node3D" parent="Mesh" index="1"]
 
-[node name="Normal" type="Node3D" parent="Mesh" index="2"]
-
-[node name="highlight" type="AudioStreamPlayer3D" parent="." index="1"]
+[node name="highlight" type="AudioStreamPlayer3D" parent="." index="2"]
 stream = SubResource("AudioStreamRandomizer_pqtcg")
 volume_db = -8.0

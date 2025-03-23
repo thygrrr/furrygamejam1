@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cvpb7nwuksgeo"]
+
+[ext_resource type="Texture2D" uid="uid://7lbdcxkfgdcy" path="res://models/ocelot/ocelot.png" id="1_y0khf"]
+[ext_resource type="Texture2D" uid="uid://b3mm1mquiej25" path="res://models/ocelot/ocelot_glow.png" id="2_hesb4"]
+
+[resource]
+albedo_texture = ExtResource("1_y0khf")
+metallic = 0.25
+emission_enabled = true
+emission_energy_multiplier = 0.7
+emission_texture = ExtResource("2_hesb4")
