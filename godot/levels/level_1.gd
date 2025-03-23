@@ -31,6 +31,7 @@ func _main() -> void:
 	await until(player.faces, %Mailbox)
 
 	%Mailbox.highlight.play()
+	Music.success.play()
 	%Arrow1.hide()
 	%Arrow2.show()
 	%Step2.hide()
@@ -49,4 +50,5 @@ func _main() -> void:
 func _cutscene():
 	%Outro.show()
 	await seconds(3)
+	Music.victory.play()
 	await LevelManager.load(2)

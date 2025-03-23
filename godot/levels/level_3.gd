@@ -20,14 +20,12 @@ func _main() -> void:
 	await until(player.faces, %Drinks)
 	%Drinks.highlight.play()
 	playing = false
-	#%Arrow2.hide()
-
-	#await _cutscene()
-	#prints("Moves taken:", moves)
+	await _cutscene()
+	prints("Moves taken:", moves)
 
 
 func _cutscene():
 	%Outro.show()
-	await AppUi.fade_overlay.fade_out()
-	LevelManager.load(0)
-	AppUi.fade_overlay.fade_in()
+	await seconds(3)
+	Music.victory.play()
+	await LevelManager.load(4)

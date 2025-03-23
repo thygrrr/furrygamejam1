@@ -18,15 +18,13 @@ func _main() -> void:
 
 	playing = await until(player.faces, %BilliardTable)
 	%BilliardTable.highlight.play()
-	await seconds(3)
-	LevelManager.load(3)
-	#await _cutscene()
-	#prints("Moves taken:", moves)
+
+	await _cutscene()
+	prints("Moves taken:", moves)
 
 
 func _cutscene():
 	%Outro.show()
-	await AppUi.fade_overlay.fade_out()
-	LevelManager.load(0)
-	await AppUi.fade_overlay.fade_in()
-"res://characters/blox-portrait.png"
+	await seconds(3)
+	Music.victory.play()
+	await LevelManager.load(3)
