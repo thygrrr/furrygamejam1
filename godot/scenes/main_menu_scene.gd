@@ -24,11 +24,11 @@ func _on_settings_button_pressed() -> void:
 	new_game = false
 	next_scene = settings_scene
 	await AppUi.fade_overlay.fade_out()
-	get_tree().change_scene_to_packed(next_scene)
+	get_tree().change_scene_to_packed.call_deferred(next_scene)
 
 func _on_play_button_pressed() -> void:
 	new_game_button.disabled = true
 	new_game = true
 	next_scene = game_scene
 	await AppUi.fade_overlay.fade_out()
-	get_tree().change_scene_to_packed(next_scene)
+	get_tree().change_scene_to_packed.call_deferred(next_scene)

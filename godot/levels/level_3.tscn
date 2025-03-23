@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dod7vdgcc64td"]
+[gd_scene load_steps=32 format=4 uid="uid://dod7vdgcc64td"]
 
 [ext_resource type="Script" uid="uid://16mgj2rlxhd4" path="res://levels/level_3.gd" id="1_yafm2"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="3_t5hu4"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="11_tv8m3"]
 [ext_resource type="Material" uid="uid://c08aipotjgscs" path="res://characters/props/dark_wall.tres" id="12_8nkwk"]
 [ext_resource type="PackedScene" uid="uid://c2m8uuse6vbu3" path="res://characters/props/table_small.tscn" id="13_kyq6o"]
-[ext_resource type="PackedScene" uid="uid://ctfigr0jnqf05" path="res://models/props/drinkblue.obj" id="13_svivd"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_s3q8p"]
 [ext_resource type="PackedScene" uid="uid://plipgykjfsec" path="res://models/props/bowlofchips.obj" id="16_u4kh1"]
 [ext_resource type="PackedScene" uid="uid://d0g3lhg4l6vfk" path="res://characters/bleep.tscn" id="18_h3b7p"]
@@ -174,6 +173,7 @@ size_flags_horizontal = 4
 script = ExtResource("5_yafm2")
 
 [node name="Title Label" type="Label" parent="UI/Intro"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -455,6 +455,7 @@ size_flags_horizontal = 4
 script = ExtResource("5_yafm2")
 
 [node name="DialogLine1" type="HBoxContainer" parent="UI/Outro"]
+visible = false
 layout_mode = 0
 offset_left = -379.5
 offset_top = -404.5
@@ -496,9 +497,9 @@ vertical_alignment = 1
 
 [node name="DialogLine5" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
-offset_left = 28.5
+offset_left = 12.5
 offset_top = 59.5
-offset_right = 482.5
+offset_right = 466.5
 offset_bottom = 187.5
 script = ExtResource("5_yafm2")
 
@@ -537,6 +538,7 @@ texture = ExtResource("6_46211")
 expand_mode = 2
 
 [node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
+visible = false
 layout_mode = 0
 offset_left = -19.5
 offset_top = 203.5
@@ -598,14 +600,17 @@ size_flags_horizontal = 4
 script = ExtResource("5_yafm2")
 
 [node name="Title Label" type="Label" parent="UI/ThankYou"]
+self_modulate = Color(0.95, 1, 0, 1)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -275.5
-offset_top = -60.5
-offset_right = 331.5
-offset_bottom = 36.5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -48.0
+offset_right = 303.0
+offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "BLOCK PARTY"
@@ -616,22 +621,25 @@ script = ExtResource("5_yafm2")
 
 [node name="Title Label2" type="Label" parent="UI/ThankYou/Title Label"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -328.0
-offset_top = 32.0
-offset_right = 279.0
-offset_bottom = 129.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 52.0
+offset_right = 307.0
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "A silly game about
-a Blox and a Blat"
+a Blox and a Blitty"
 label_settings = SubResource("LabelSettings_yafm2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Title Label4" type="Label" parent="UI/ThankYou"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -660,31 +668,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_yafm2")
 
-[node name="Control3" type="Control" parent="UI/ThankYou"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_yafm2")
-
-[node name="Control4" type="Control" parent="UI/ThankYou"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_yafm2")
-
 [node name="Title Label3" type="Label" parent="UI/ThankYou"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -283.5
-offset_top = -28.5
-offset_right = 323.5
-offset_bottom = 131.5
+offset_left = -299.5
+offset_top = -92.5
+offset_right = 307.5
+offset_bottom = 67.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Thank you
-for playing."
+for playing"
 label_settings = SubResource("LabelSettings_eg35p")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -947,9 +943,6 @@ skeleton = NodePath("")
 [node name="ground" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
 mesh = SubResource("PlaneMesh_w75he")
-
-[node name="drinkblue" parent="Environment/ground" instance=ExtResource("13_svivd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 0.5, -7.1)
 
 [node name="Obstacle3" parent="Environment" instance=ExtResource("13_kyq6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -13)

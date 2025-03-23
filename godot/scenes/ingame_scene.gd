@@ -2,7 +2,7 @@ extends Node
 
 func _ready() -> void:
 	AppUi.fade_overlay.visible = true
-	LevelManager.load.call_deferred(1)
+	await LevelManager.load(1)
 
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not AppUi.pause_overlay.visible:
