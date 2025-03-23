@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dod7vdgcc64td"]
+[gd_scene load_steps=31 format=4 uid="uid://dod7vdgcc64td"]
 
 [ext_resource type="Script" uid="uid://16mgj2rlxhd4" path="res://levels/level_3.gd" id="1_yafm2"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="3_t5hu4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="11_tv8m3"]
 [ext_resource type="Material" uid="uid://c08aipotjgscs" path="res://characters/props/dark_wall.tres" id="12_8nkwk"]
 [ext_resource type="PackedScene" uid="uid://c2m8uuse6vbu3" path="res://characters/props/table_small.tscn" id="13_kyq6o"]
+[ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_s3q8p"]
 [ext_resource type="PackedScene" uid="uid://d1ttbxhafr6ay" path="res://models/props/drinkred.obj" id="16_q26s8"]
 [ext_resource type="PackedScene" uid="uid://d0g3lhg4l6vfk" path="res://characters/bleep.tscn" id="18_h3b7p"]
 
@@ -316,8 +317,8 @@ size = Vector2(100, 100)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_yafm2")
-moves_par = 14
-moves_record = 8
+moves_par = 22
+moves_record = 20
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_t5hu4")
@@ -351,7 +352,7 @@ directional_shadow_split_3 = 0.3
 directional_shadow_blend_splits = true
 
 [node name="Fill Light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.494737, -0.196262, -0.846591, 0, 0.974165, -0.225837, 0.869043, -0.11173, -0.481955, 4.48519, -1.71708, -6.255)
+transform = Transform3D(-0.494737, -0.196262, -0.846591, 0, 0.974165, -0.225837, 0.869043, -0.11173, -0.481955, 4.48519, -1.71708, -9.255)
 light_color = Color(6.73831e-06, 0.932929, 0.932929, 1)
 light_energy = 0.5
 
@@ -698,36 +699,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Blox" parent="." instance=ExtResource("7_8swdu")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1, 0, -2)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1, 0, -5)
 
 [node name="Blitty" parent="." instance=ExtResource("9_6anhs")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, 1)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, -2)
 
 [node name="Environment" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 9)
 
 [node name="Neon Sign3" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 2.1, 1.7, -11.5277)
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 2.1, 1.7, -14.5277)
 cast_shadow = 0
 mesh = SubResource("TextMesh_svivd")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign3"]
 transform = Transform3D(0.133213, 0.858634, -0.494976, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
 light_color = Color(3.7542e-06, 0.61634, 0.823552, 1)
-light_energy = 0.5
+light_energy = 0.3
 shadow_enabled = true
 shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_attenuation = 0.2
 
 [node name="Neon Sign" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 3.7, 1.5, -11.5277)
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 3.7, 1.5, -14.5277)
 cast_shadow = 0
 mesh = SubResource("TextMesh_46211")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign"]
-transform = Transform3D(0.133213, 0.858634, -0.494976, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -1.17799, 0.225411, 0.0826721)
+transform = Transform3D(0.133213, 0.858634, -0.494976, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, 0.791622, -0.121885, 0.0826721)
 light_color = Color(3.7542e-06, 0.61634, 0.823552, 1)
 light_energy = 0.5
 shadow_enabled = true
@@ -736,14 +737,14 @@ shadow_blur = 3.0
 omni_attenuation = 0.2
 
 [node name="Neon Sign2" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 5.5, 1.2, -11.5277)
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 5.5, 1.2, -14.5277)
 cast_shadow = 0
 mesh = SubResource("TextMesh_eg35p")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign2"]
-transform = Transform3D(0.133213, 0.858634, -0.494976, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -1.17799, 0.225411, 0.0826721)
+transform = Transform3D(0.133213, 0.858634, -0.494976, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, 0.791622, -0.121885, 0.0826721)
 light_color = Color(3.7542e-06, 0.61634, 0.823552, 1)
-light_energy = 0.5
+light_energy = 0.3
 shadow_enabled = true
 shadow_opacity = 0.8
 shadow_blur = 3.0
@@ -753,156 +754,201 @@ omni_attenuation = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.8, -3, 0, -6)
 include_children = true
 
-[node name="floor-thick" parent="Environment/outer_wall" index="0"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 11, 0, -7.5)
+[node name="door" parent="Environment/outer_wall" instance=ExtResource("15_s3q8p")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 2, 0, -1.25, 0, -5.46392e-08, 2, 0, -7.5)
+
+[node name="floor-thick" parent="Environment/outer_wall" index="1"]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 11, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 
 [node name="floor-thick37" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 10, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 10, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick10" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 12, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 12, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick11" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 12, 0, -6.25)
+transform = Transform3D(1, 0, 0, 0, 9, 0, 0, 0, 1, 12, 0, -10)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick12" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 12, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 12, 0, -8.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick13" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 12, 0, -3.75)
+transform = Transform3D(1, 0, 0, 0, 7, 0, 0, 0, 1, 12, 0, -7.5)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick14" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 12, 0, -2.5)
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 12, 0, -6.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick15" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 12, 0, -1.25)
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 12, 0, -5)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick32" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 7, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 7, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick33" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 6, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 6, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick34" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 5, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 5, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick35" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 4, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 4, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick36" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 6, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 6, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick19" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 12, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 12, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick20" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 11, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 11, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick21" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 10, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 10, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick22" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 9, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 9, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick23" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 8, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 8, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick24" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 7, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 5, 0, 1, 0, -4.37114e-08, 7, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick25" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 6, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 6, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick26" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 5, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 5, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick27" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 4, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 4, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick28" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 3, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 3, 0, -3.75)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick30" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 9, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 9, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick31" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 8, 0, -7.5)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 8, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
 [node name="floor-thick29" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 2, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -3.75)
+material_override = ExtResource("12_8nkwk")
+mesh = SubResource("ArrayMesh_wl2bs")
+skeleton = NodePath("")
+
+[node name="floor-thick38" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -5)
+material_override = ExtResource("12_8nkwk")
+mesh = SubResource("ArrayMesh_wl2bs")
+skeleton = NodePath("")
+
+[node name="floor-thick39" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -6.25)
+material_override = ExtResource("12_8nkwk")
+mesh = SubResource("ArrayMesh_wl2bs")
+skeleton = NodePath("")
+
+[node name="floor-thick40" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-2.18557e-07, 0, -0.5, 0, 10, 0, 5, 0, -2.18557e-08, 2, 2, -7.5)
+material_override = ExtResource("12_8nkwk")
+mesh = SubResource("ArrayMesh_wl2bs")
+skeleton = NodePath("")
+
+[node name="floor-thick41" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -8.75)
+material_override = ExtResource("12_8nkwk")
+mesh = SubResource("ArrayMesh_wl2bs")
+skeleton = NodePath("")
+
+[node name="floor-thick42" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -10)
+material_override = ExtResource("12_8nkwk")
+mesh = SubResource("ArrayMesh_wl2bs")
+skeleton = NodePath("")
+
+[node name="floor-thick43" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -11.25)
+material_override = ExtResource("12_8nkwk")
+mesh = SubResource("ArrayMesh_wl2bs")
+skeleton = NodePath("")
+
+[node name="floor-thick44" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 3, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
@@ -912,63 +958,99 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
 mesh = SubResource("PlaneMesh_w75he")
 
 [node name="Obstacle3" parent="Environment" instance=ExtResource("13_kyq6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -13)
+
+[node name="Obstacle5" parent="Environment" instance=ExtResource("13_kyq6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -10)
 
 [node name="Obstacle4" parent="Environment" instance=ExtResource("13_kyq6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -13)
 
 [node name="drinkred" parent="Environment" instance=ExtResource("16_q26s8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0.5, -10.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0.5, -13.1)
 
 [node name="drinkred2" parent="Environment" instance=ExtResource("16_q26s8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0.5, -9.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0.5, -12.9)
 
 [node name="Bleep3" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 7, 0, -11)
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 7, 0, -14)
+
+[node name="Bleep5" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 8, 0, -14)
 
 [node name="Bleep4" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(9.92092e-10, 0, -1, 0, 1, 0, 1, 0, 9.92092e-10, 6, 0, -11)
+transform = Transform3D(9.92092e-10, 0, -1, 0, 1, 0, 1, 0, 9.92092e-10, 6, 0, -14)
 
 [node name="Bleep13" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 7, 0, -8)
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 7, 0, -11)
 
 [node name="Bleep14" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(9.92092e-10, 0, -1, 0, 1, 0, 1, 0, 9.92092e-10, 4, 0, -10)
+transform = Transform3D(9.92092e-10, 0, -1, 0, 1, 0, 1, 0, 9.92092e-10, 4, 0, -13)
 
 [node name="Bleep15" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(9.92092e-10, 0, -1, 0, 1, 0, 1, 0, 9.92092e-10, 3, 0, -8)
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 3, 0, -11)
 
 [node name="Bleep16" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(9.92092e-10, 0, -1, 0, 1, 0, 1, 0, 9.92092e-10, 3, 0, -9)
+transform = Transform3D(9.92092e-10, 0, -1, 0, 1, 0, 1, 0, 9.92092e-10, 3, 0, -12)
+
+[node name="Bleep22" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(9.92092e-10, 0, -1, 0, 1, 0, 1, 0, 9.92092e-10, 2, 0, -14)
 
 [node name="Bleep18" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(-8.84149e-08, 0, 1, 0, 1, 0, -1, 0, -8.84149e-08, 3, 0, -10)
+transform = Transform3D(-8.84149e-08, 0, 1, 0, 1, 0, -1, 0, -8.84149e-08, 3, 0, -13)
 
 [node name="Bleep19" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(-8.84149e-08, 0, 1, 0, 1, 0, -1, 0, -8.84149e-08, 5, 0, -11)
+transform = Transform3D(-8.84149e-08, 0, 1, 0, 1, 0, -1, 0, -8.84149e-08, 5, 0, -14)
 
 [node name="Bleep2" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(-1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, -1, 6, 0, -10)
+transform = Transform3D(-1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, -1, 6, 0, -13)
 
 [node name="Bleep8" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 7, 0, -9)
+transform = Transform3D(-4.27193e-08, 0, 1, 0, 1, 0, -1, 0, -4.27193e-08, 6, 0, -12)
+
+[node name="Bleep20" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 8, 0, -13)
+
+[node name="Bleep23" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 7, 0, -12)
+
+[node name="Bleep29" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 8, 0, -12)
+
+[node name="Bleep21" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 8, 0, -10)
 
 [node name="Bleep7" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 6, 0, -9)
+transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 6, 0, -11)
 
 [node name="Bleep9" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(1, 0, 9.92092e-10, 0, 1, 0, -9.92092e-10, 0, 1, 4, 0, -9)
+transform = Transform3D(1, 0, 9.92092e-10, 0, 1, 0, -9.92092e-10, 0, 1, 4, 0, -12)
 
 [node name="Bleep17" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(1, 0, 9.92092e-10, 0, 1, 0, -9.92092e-10, 0, 1, 3, 0, -11)
+transform = Transform3D(1, 0, 9.92092e-10, 0, 1, 0, -9.92092e-10, 0, 1, 3, 0, -14)
+
+[node name="Bleep25" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(-8.84149e-08, 0, 1, 0, 1, 0, -1, 0, -8.84149e-08, 1, 0, -13)
+
+[node name="Bleep26" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(1, 0, 9.92092e-10, 0, 1, 0, -9.92092e-10, 0, 1, 1, 0, -14)
+
+[node name="Bleep27" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(-8.84149e-08, 0, 1, 0, 1, 0, -1, 0, -8.84149e-08, 0, 0, -10)
+
+[node name="Bleep28" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(1, 0, 9.92092e-10, 0, 1, 0, -9.92092e-10, 0, 1, 0, 0, -11)
 
 [node name="Bleep10" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(-1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, -1, 6, 0, -8)
+transform = Transform3D(-1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, -1, 6, 0, -10)
 
 [node name="Bleep11" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(2.98023e-07, 0, 1, 0, 1, 0, -1, 0, 2.98023e-07, 4, 0, -8)
+transform = Transform3D(2.98023e-07, 0, 1, 0, 1, 0, -1, 0, 2.98023e-07, 4, 0, -11)
 
 [node name="Bleep12" parent="Environment" instance=ExtResource("18_h3b7p")]
-transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, 5, 0, -8)
+transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, 5, 0, -11)
+
+[node name="Bleep24" parent="Environment" instance=ExtResource("18_h3b7p")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 3, 0, -10)
 
 [editable path="Environment/outer_wall"]

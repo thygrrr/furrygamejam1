@@ -6,11 +6,10 @@ extends Node3D
 func _ready() -> void:
 	if group_as_parent:
 		Grid.write(global_position, get_parent_node_3d())
-	else:
-		Grid.write(global_position, self)
-
-	if include_children:
+	elif include_children:
 		for child in get_children():
 			if child is not Node3D:
 				continue
 			Grid.write(child.global_position, self)
+	else:
+		Grid.write(global_position, self)

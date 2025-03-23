@@ -13,7 +13,7 @@ var blink_time : float
 func _ready() -> void:
 	noise = FastNoiseLite.new()
 	age = randf() * 100.0
-	excitement += randf()
+	excitement *= randf_range(0.5,2.0)
 	if blink:
 		blink.hide()
 

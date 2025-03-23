@@ -1,6 +1,6 @@
 extends Node
 
-@export var size : int = 101
+@export var size : int = 31
 
 var grid : Array[Array] = []
 
