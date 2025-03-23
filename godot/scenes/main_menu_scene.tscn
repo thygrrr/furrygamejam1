@@ -49,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -120.0
-offset_right = 24.0
-offset_bottom = -80.0
+offset_left = -56.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -76,13 +76,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 5
 
-[node name="ContinueButton" type="Button" parent="UI/Control/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "continue"
-
 [node name="NewGameButton" type="Button" parent="UI/Control/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
@@ -99,37 +92,46 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "settings"
 
-[node name="ExitButton" type="Button" parent="UI/Control/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "leave_game"
-
 [node name="Label" type="RichTextLabel" parent="UI"]
+modulate = Color(0, 0, 0, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = 112.0
-offset_right = 348.0
-offset_bottom = 432.0
+offset_left = -15.0
+offset_top = 254.0
+offset_right = 501.0
+offset_bottom = 574.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 text = "A tiny tricky Puzzle Game made for
 [font size=64]Furry Game Jam #1[/font]
-
 code:       3 Tigers in a Trenchcoat
 music:      CoVahr of AudioCreatures
 graphics:  someone404 and Mobropro
+"
 
-[font size=24]Sound effects from Zapsplat.com
-Additional Graphics by Kenney.nl
-Pixel Fonts by Eeve Somepx[/font]"
+[node name="Label-FG" type="RichTextLabel" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 256.0
+offset_right = 500.0
+offset_bottom = 576.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "A tiny tricky Puzzle Game made for
+[font size=64]Furry Game Jam #1[/font]
+code:       3 Tigers in a Trenchcoat
+music:      CoVahr of AudioCreatures
+graphics:  someone404 and Mobropro
+"
 
 [node name="FadeOverlay" parent="UI" instance=ExtResource("3_kf1us")]
 unique_name_in_owner = true

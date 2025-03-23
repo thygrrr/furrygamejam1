@@ -16,7 +16,7 @@ func fade_main() -> void:
 	mtween = create_tween()
 	mtween.tween_property(main, "volume_db", 0, 1)
 	ctween = create_tween()
-	ctween.tween_property(calm, "volume_db", -80, 4)
+	ctween.tween_property(calm, "volume_db", -80, 5)
 
 func fade_calm() -> void:
 	if mtween:
@@ -26,4 +26,4 @@ func fade_calm() -> void:
 	ctween = create_tween()
 	ctween.tween_property(calm, "volume_db", 0, 1)
 	mtween = create_tween()
-	mtween.tween_property(main, "volume_db", -80, 4)
+	mtween.tween_property(main, "volume_db", -80, 5)

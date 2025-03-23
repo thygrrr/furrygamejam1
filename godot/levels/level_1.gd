@@ -23,15 +23,15 @@ func _main() -> void:
 	await player.moved
 
 	#await any2(player.moved, player.faces, %Blitty.faces)
-	await player.moved
-	await player.moved
-
-	%Intro.hide()
-
 	%Step1.hide()
 	%Arrow0.hide()
 	%Arrow1.show()
 	%Step2.show()
+
+	await player.moved
+	await player.moved
+	%Intro.hide()
+
 
 	await until(player.faces, %Mailbox)
 	%Mail.play()
