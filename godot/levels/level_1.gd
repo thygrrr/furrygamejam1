@@ -8,11 +8,16 @@ var moves : int = 0
 func count_move() -> void:
 	moves += 1
 
+func blitty_sees(other: Interactable):
+	if other == %Dado:
+		%BlittySees.play()
+
 func _main() -> void:
 	player = %Blox
 	Camera.follow = player
 	Camera.warp()
 
+	player.sees.connect(blitty_sees)
 	player.moved.connect(count_move)
 
 	%Intro.play()

@@ -12,11 +12,21 @@ func _main() -> void:
 	player = %Blox
 	Camera.follow = player
 	Camera.warp()
+	%Intro.play()
 
 	player.moved.connect(count_move)
 	_play()
 
+	await player.moved
+	%Step1.show()
+	await player.moved
+	await player.moved
+	await player.moved
+	await player.moved
+	%Intro.hide()
+
 	playing = await until(player.faces, %BilliardTable)
+	%Step1.hide()
 	%BilliardTable.highlight.play()
 
 	await _cutscene()
