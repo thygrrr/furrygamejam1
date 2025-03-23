@@ -613,9 +613,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DialogLine4" type="HBoxContainer" parent="UI/Outro"]
-offset_left = 28.5
+offset_left = -27.5
 offset_top = -396.5
-offset_right = 482.5
+offset_right = 426.5
 offset_bottom = -268.5
 script = ExtResource("4_jkxa6")
 
@@ -645,26 +645,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "No can do, silly fox.
-You know the rules,
-and so do I!"
+text = "No can do, silly fox."
 label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine5" type="HBoxContainer" parent="UI/Outro"]
-offset_left = -339.5
-offset_top = 75.5
-offset_right = 114.5
-offset_bottom = 203.5
+[node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
+offset_left = 148.5
+offset_top = -252.5
+offset_right = 602.5
+offset_bottom = -124.5
 script = ExtResource("4_jkxa6")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine5"]
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine6"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine5/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine6/Portrait"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -674,11 +673,50 @@ grow_vertical = 2
 texture = ExtResource("5_w75he")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine5"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine6"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine5/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine6/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "... you know the rules,
+and so do I!"
+label_settings = SubResource("LabelSettings_w75he")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogLine7" type="HBoxContainer" parent="UI/Outro"]
+offset_left = -339.5
+offset_top = 75.5
+offset_right = 114.5
+offset_bottom = 203.5
+script = ExtResource("4_jkxa6")
+
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine7"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine7/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_w75he")
+expand_mode = 2
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine7"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine7/Text"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

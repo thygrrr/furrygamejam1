@@ -58,4 +58,5 @@ func _cutscene():
 	await %Outro.play()
 	Music.fade_main()
 	await AppUi.fade_overlay.fade_out()
+	await seconds(2)
 	await LevelManager.load(2)

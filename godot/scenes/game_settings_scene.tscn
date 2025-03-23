@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://g4qhvbvdm62w"]
+[gd_scene load_steps=7 format=3 uid="uid://g4qhvbvdm62w"]
 
 [ext_resource type="Script" uid="uid://beiufp2fwnabw" path="res://scenes/game_settings_scene.gd" id="1_3764u"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_w6tmj"]
-[ext_resource type="Texture2D" uid="uid://bkyxb6cvyxemx" path="res://sprites/New_Piskel-1.png_40.webp" id="2_3hjmb"]
+[ext_resource type="Texture2D" uid="uid://bw22etf6ar1ji" path="res://sprites/New_Piskel-1.png_40.png" id="2_3hjmb"]
 [ext_resource type="PackedScene" uid="uid://nbaodrlopo7y" path="res://ui/components/game_settings.tscn" id="2_qsqie"]
+[ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="3_1ykg1"]
 [ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="3_unbh4"]
 
 [node name="GameSettingsScene" type="Control"]
@@ -16,6 +17,62 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_3hjmb")
+
+[node name="GameLogo" parent="TextureRect" instance=ExtResource("3_1ykg1")]
+modulate = Color(0, 0, 0, 0.7)
+offset_left = -16.0
+offset_top = 24.0
+offset_right = 904.0
+offset_bottom = 284.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameLogo-FG" parent="TextureRect" instance=ExtResource("3_1ykg1")]
+offset_left = -8.0
+offset_top = 40.0
+offset_right = 912.0
+offset_bottom = 300.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="RichTextLabel" parent="TextureRect"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 312.0
+offset_right = 501.0
+offset_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Additional Artwork by Kenney.nl
+Additional Sound Effects by Zapsplat
+Pixel Font by Eeve Somepx
+Made with love in Godot 4.4"
+
+[node name="Label-FG" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 314.0
+offset_right = 500.0
+offset_bottom = 634.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Additional Artwork by Kenney.nl
+Additional Sound Effects by Zapsplat
+Pixel Font by Eeve Somepx
+Made with love in Godot 4.4"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
