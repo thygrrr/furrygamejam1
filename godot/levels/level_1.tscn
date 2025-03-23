@@ -361,12 +361,52 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("4_jkxa6")
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Intro"]
+offset_left = -19.5
+offset_top = 315.5
+offset_right = 434.5
+offset_bottom = 443.5
+script = ExtResource("4_jkxa6")
+
+[node name="Panel2" type="Panel" parent="UI/Intro/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/HBoxContainer2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_w75he")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="UI/Intro/HBoxContainer2"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Intro/HBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/bold_font = SubResource("FontFile_o7ls4")
+text = "Spring break!
+Let's enjoy the sun!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Panel3" type="Panel" parent="UI/Intro"]
 layout_mode = 0
 offset_left = -77.5
 offset_top = -64.5
 offset_right = 171.5
 offset_bottom = 16.5
+script = ExtResource("4_jkxa6")
 
 [node name="Label" type="RichTextLabel" parent="UI/Intro/Panel3"]
 layout_mode = 1
@@ -382,8 +422,114 @@ Springtime."
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Panel4" type="Panel" parent="UI/Intro"]
+layout_mode = 0
+offset_left = 100.5
+offset_top = 59.5
+offset_right = 349.5
+offset_bottom = 140.5
+script = ExtResource("4_jkxa6")
+
+[node name="Label" type="RichTextLabel" parent="UI/Intro/Panel4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Somewhere in Blocklahoma.
+Springtime."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Intro"]
+offset_left = -411.5
+offset_top = 171.5
+offset_right = 42.5
+offset_bottom = 299.5
+script = ExtResource("4_jkxa6")
+
+[node name="Panel2" type="Panel" parent="UI/Intro/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_w75he")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="UI/Intro/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Intro/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/bold_font = SubResource("FontFile_o7ls4")
+text = "Spring break!
+Let's enjoy the sun!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel5" type="Panel" parent="UI/Intro"]
+layout_mode = 0
+offset_left = 196.5
+offset_top = -148.5
+offset_right = 445.5
+offset_bottom = -67.5
+script = ExtResource("4_jkxa6")
+
+[node name="Label" type="RichTextLabel" parent="UI/Intro/Panel5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Somewhere in Blocklahoma.
+Springtime."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel6" type="Panel" parent="UI/Intro"]
+layout_mode = 0
+offset_left = -115.5
+offset_top = -220.5
+offset_right = 133.5
+offset_bottom = -139.5
+script = ExtResource("4_jkxa6")
+
+[node name="Label" type="RichTextLabel" parent="UI/Intro/Panel6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Somewhere in Blocklahoma.
+Springtime."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Step1" type="Control" parent="UI"]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 8
@@ -417,54 +563,14 @@ text = "Press [color=green]LEFT[/color] to go out."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Step1"]
-layout_mode = 0
-offset_left = -456.0
-offset_top = 160.0
-offset_right = -2.0
-offset_bottom = 288.0
-
-[node name="Panel2" type="Panel" parent="UI/Step1/HBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Step1/HBoxContainer/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_w75he")
-expand_mode = 2
-
-[node name="Panel" type="Panel" parent="UI/Step1/HBoxContainer"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Step1/HBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/bold_font = SubResource("FontFile_o7ls4")
-text = "Spring break!
-Let's enjoy the sun!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Step2" type="Control" parent="UI"]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_right = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -494,6 +600,7 @@ vertical_alignment = 1
 
 [node name="Step3" type="Control" parent="UI"]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

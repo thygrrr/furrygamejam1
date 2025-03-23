@@ -15,6 +15,8 @@ func _main() -> void:
 
 	player.moved.connect(count_move)
 
+	await %Intro.play()
+
 	%Step1.show()
 
 	_play()

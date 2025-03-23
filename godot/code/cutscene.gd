@@ -6,24 +6,31 @@ func _ready():
 	for child in get_children():
 		if child is Cutscene:
 			child.visible = false
+			child.scale = Vector2.ZERO
+	if get_parent() is not Cutscene:
+		play()
 
 func play() -> void:
-	scale = Vector2.ZERO
 	visible = true
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(self, "scale", Vector2.ONE, 0.5)
+	if get_parent() is Cutscene:
+		scale = Vector2.ZERO
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+		tween.tween_property(self, "scale", Vector2.ONE, 0.5)
+		await tween.finished
 
 	for child in get_children():
 		if child is Cutscene:
 			await child.play()
 
-	await seconds(1)
+	if get_parent() is Cutscene:
+		await seconds(2)
 
-	tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(self, "scale", Vector2.ZERO, 0.5)
-	await tween
+	if get_parent() is Cutscene:
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+		tween.tween_property(self, "scale", Vector2.ZERO, 0.5).set_delay(2)
+
 
 
 func seconds(amount: float):
