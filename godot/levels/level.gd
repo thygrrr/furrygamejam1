@@ -25,6 +25,8 @@ func _ready() -> void:
 func _main():
 	printerr("Level has no _main() function.")
 
+func seconds(amount: float):
+	await get_tree().create_timer(amount).timeout
 
 func until(awaitable: Signal, whom: Node) -> bool:
 	while true:
@@ -63,7 +65,7 @@ func _play():
 	playing = true
 	while playing:
 		if input_buffer:
-			await player._execute(input_buffer.pop_front())
+			await player.execute(input_buffer.pop_front())
 		else:
 			await process
 

@@ -24,6 +24,7 @@ Grid="*res://code/grid.gd"
 Camera="*res://ui/camera.tscn"
 LevelManager="*res://scenes/level_manager.tscn"
 AppUi="*res://scenes/app_ui.tscn"
+Music="*res://scenes/music.tscn"
 
 [debug]
 

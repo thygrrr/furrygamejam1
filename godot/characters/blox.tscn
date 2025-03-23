@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://5xpof3rkouys"]
+[gd_scene load_steps=5 format=3 uid="uid://5xpof3rkouys"]
 
 [ext_resource type="PackedScene" uid="uid://o760msijykqa" path="res://characters/critter.tscn" id="1_8bkix"]
 [ext_resource type="PackedScene" uid="uid://ycbyjjgtsp6d" path="res://models/fox/foxfox.obj" id="2_74a0p"]
+[ext_resource type="Script" uid="uid://dv2trljtgvivj" path="res://code/player_blox.gd" id="2_jhmkq"]
 [ext_resource type="PackedScene" uid="uid://cv2qu72e1cjm4" path="res://models/fox/foxblinking.obj" id="3_b1v0o"]
 
 [node name="Blox" instance=ExtResource("1_8bkix")]
+script = ExtResource("2_jhmkq")
 
 [node name="Normal" parent="anchor/offset/view" index="0" instance=ExtResource("2_74a0p")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.4, -0.2)
 
 [node name="Blink" parent="anchor/offset/view" index="1" instance=ExtResource("3_b1v0o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.4, -0.2)
+visible = false
