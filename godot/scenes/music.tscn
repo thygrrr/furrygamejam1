@@ -1,17 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://7k2jkqdy1lb2"]
+[gd_scene load_steps=6 format=3 uid="uid://7k2jkqdy1lb2"]
 
 [ext_resource type="AudioStream" uid="uid://bxopboy8aq5mo" path="res://music/FGJ25_BlockPartyTrack01_V1_loop.mp3" id="1_05ggv"]
+[ext_resource type="AudioStream" uid="uid://d14n1th5udgf0" path="res://music/FGJ25_BlockPartyTrack01_V1_light_loop.mp3" id="1_ejojg"]
 [ext_resource type="AudioStream" uid="uid://bfyq0x5bmaoin" path="res://music/FGJ25_ChillTrackTiger_Success.mp3" id="2_ibx2e"]
 [ext_resource type="Script" uid="uid://db5m6fqnngt2y" path="res://code/music.gd" id="2_qnihg"]
 [ext_resource type="AudioStream" uid="uid://cv5uo2loolhys" path="res://music/FGJ25_BlockParty_Success_small.mp3" id="4_ejojg"]
 
-[node name="Music" type="AudioStreamPlayer"]
+[node name="Music" type="Node"]
 process_mode = 3
-stream = ExtResource("1_05ggv")
-volume_db = 4.0
-autoplay = true
-bus = &"Music"
-parameters/looping = true
 script = ExtResource("2_qnihg")
 
 [node name="Victory" type="AudioStreamPlayer3D" parent="."]
@@ -21,3 +17,16 @@ bus = &"Music"
 [node name="Success" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_ejojg")
 bus = &"Music"
+
+[node name="Main" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_05ggv")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="Calm" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_ejojg")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

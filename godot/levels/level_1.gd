@@ -29,7 +29,6 @@ func _main() -> void:
 	%Step2.show()
 
 	await until(player.faces, %Mailbox)
-
 	%Mailbox.highlight.play()
 	Music.success.play()
 	%Arrow1.hide()
@@ -42,6 +41,8 @@ func _main() -> void:
 
 	playing = await until(player.faces, %Blitty)
 	%Arrow2.hide()
+	Music.fade_main()
+
 
 	await _cutscene()
 	prints("Moves taken:", moves)
