@@ -111,10 +111,13 @@ func update_facing():
 		var node = Grid.read(global_position + view.global_basis.z)
 		if node is Interactable:
 			if node.omni or node.view.global_basis.z.dot(view.global_basis.z) < -0.7:
-				faces.emit(node)
-			else:
-				faces.emit(null)
-				sees.emit(null)
+				if node.view.global_basis.y.dot(view.global_basis.y) > 0.7:
+					faces.emit(node)
+				else:
+					sees.emit(node)
+		else:
+			faces.emit(null)
+			sees.emit(null)
 
 
 func is_vertical():

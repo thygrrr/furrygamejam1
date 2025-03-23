@@ -6,10 +6,14 @@ func debug_faces(other: Node3D):
 	if other:
 		prints("Blox faces", other)
 
+func debug_sees(other: Node3D):
+	if other:
+		prints("Blox sees", other)
 
 func _ready() -> void:
 	super()
 	faces.connect(debug_faces)
+	sees.connect(debug_sees)
 
 
 # Resolve a single input event
