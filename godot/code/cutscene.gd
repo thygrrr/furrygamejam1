@@ -7,8 +7,7 @@ func _ready():
 		if child is Cutscene:
 			child.visible = false
 			child.scale = Vector2.ZERO
-	if get_parent() is not Cutscene:
-		play()
+
 
 func play() -> void:
 	visible = true
