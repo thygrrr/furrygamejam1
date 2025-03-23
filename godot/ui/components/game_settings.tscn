@@ -24,12 +24,20 @@ layout_mode = 2
 [node name="Empty2" type="Label" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 
+[node name="Empty3" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Empty4" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+
 [node name="Language" type="Label" parent="MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 text = "settings_language"
 
 [node name="LanguageDropdown" type="OptionButton" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="MasterVolumeEnabled" type="Label" parent="MarginContainer/GridContainer"]

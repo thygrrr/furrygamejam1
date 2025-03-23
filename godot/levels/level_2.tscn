@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://2mcgggxjs382"]
+[gd_scene load_steps=26 format=4 uid="uid://2mcgggxjs382"]
 
 [ext_resource type="Script" uid="uid://dagd0tb2fcara" path="res://levels/level_2.gd" id="1_sd18g"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="3_k2aru"]
 [ext_resource type="AudioStream" uid="uid://b72rtmprfgx61" path="res://sfx/ambiences/344_audio_AMBRest_Fish_And_Chip_Shop_Cafe_Ambience_Blackpool,_344_Audio_UK_Seaside_Town_and_Theme_Park_1696.mp3" id="4_ndgrd"]
 [ext_resource type="Texture2D" uid="uid://b4jlx6pbus1q4" path="res://characters/blox-portrait.png" id="4_xrja0"]
 [ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="5_k2aru"]
+[ext_resource type="Texture2D" uid="uid://c84g6b6jgmd4q" path="res://sprites/catthingy.png" id="6_k2aru"]
 [ext_resource type="Texture2D" uid="uid://y3joqtcj7fi6" path="res://sprites/bloxthingy.png" id="6_ndgrd"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="7_00pa0"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_cp3aq"]
@@ -186,6 +187,7 @@ size_flags_horizontal = 4
 script = ExtResource("5_k2aru")
 
 [node name="Title Label" type="Label" parent="UI/Intro"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -203,27 +205,13 @@ vertical_alignment = 1
 script = ExtResource("5_k2aru")
 
 [node name="DialogLine1" type="HBoxContainer" parent="UI/Intro"]
+visible = false
 layout_mode = 0
 offset_left = 12.5
 offset_top = -412.5
 offset_right = 466.5
 offset_bottom = -284.5
 script = ExtResource("5_k2aru")
-
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_ndgrd")
-expand_mode = 2
 
 [node name="Text" type="Panel" parent="UI/Intro/DialogLine1"]
 custom_minimum_size = Vector2(320, 0)
@@ -242,7 +230,26 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("6_k2aru")
+expand_mode = 2
+
 [node name="DialogLine2" type="HBoxContainer" parent="UI/Intro"]
+visible = false
 layout_mode = 0
 offset_left = -379.5
 offset_top = -228.5
@@ -283,6 +290,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DialogLine3" type="HBoxContainer" parent="UI/Intro"]
+visible = false
 layout_mode = 0
 offset_left = -323.5
 offset_top = -92.5
@@ -323,27 +331,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DialogLine4" type="HBoxContainer" parent="UI/Intro"]
+visible = false
 layout_mode = 0
 offset_left = -99.5
 offset_top = 155.5
 offset_right = 354.5
 offset_bottom = 283.5
 script = ExtResource("5_k2aru")
-
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine4"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine4/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_ndgrd")
-expand_mode = 2
 
 [node name="Text" type="Panel" parent="UI/Intro/DialogLine4"]
 custom_minimum_size = Vector2(320, 0)
@@ -361,6 +355,24 @@ play pool on your back!"
 label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine4"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine4/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("6_k2aru")
+expand_mode = 2
 
 [node name="Step1" type="Control" parent="UI"]
 unique_name_in_owner = true
@@ -416,7 +428,6 @@ size_flags_horizontal = 4
 script = ExtResource("5_k2aru")
 
 [node name="DialogLine1" type="HBoxContainer" parent="UI/Outro"]
-visible = false
 layout_mode = 0
 offset_left = -363.5
 offset_top = -404.5
@@ -450,22 +461,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Hey Blox! You're off
-work early. Ready to go?"
+text = "Eight new balls
+comin' right up!"
 label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DialogLine2" type="HBoxContainer" parent="UI/Outro"]
-visible = false
 layout_mode = 0
 offset_left = -163.5
-offset_top = 43.5
+offset_top = -268.5
 offset_right = 290.5
-offset_bottom = 171.5
+offset_bottom = -140.5
 script = ExtResource("5_k2aru")
 
 [node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
@@ -491,8 +502,133 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Am I ever!
-Let's go play some pool!"
+text = "... I love this sound."
+label_settings = SubResource("LabelSettings_dpc8t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogLine5" type="HBoxContainer" parent="UI/Outro"]
+layout_mode = 0
+offset_left = 20.5
+offset_top = 115.5
+offset_right = 474.5
+offset_bottom = 243.5
+script = ExtResource("5_k2aru")
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine5"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine5/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game On!
+Your break."
+label_settings = SubResource("LabelSettings_dpc8t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine5"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine5/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("6_k2aru")
+expand_mode = 2
+
+[node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
+layout_mode = 0
+offset_left = 100.5
+offset_top = 251.5
+offset_right = 554.5
+offset_bottom = 379.5
+script = ExtResource("5_k2aru")
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine6"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine6/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "...care for a milk
+shake after this one?"
+label_settings = SubResource("LabelSettings_dpc8t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine6"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine6/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("6_k2aru")
+expand_mode = 2
+
+[node name="DialogLine3" type="HBoxContainer" parent="UI/Outro"]
+layout_mode = 0
+offset_left = -387.5
+offset_top = -236.5
+offset_right = 66.5
+offset_bottom = -108.5
+script = ExtResource("5_k2aru")
+
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine3"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine3/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ndgrd")
+expand_mode = 2
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine3"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine3/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You read my mind!"
 label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -16,9 +16,9 @@ func _main() -> void:
 
 	player.moved.connect(count_move)
 	_play()
-
 	await player.moved
 	%Step1.show()
+	await player.moved
 	await player.moved
 	await player.moved
 	await player.moved
@@ -27,14 +27,15 @@ func _main() -> void:
 
 	playing = await until(player.faces, %BilliardTable)
 	%Step1.hide()
-	%BilliardTable.highlight.play()
 
 	await _cutscene()
 	prints("Moves taken:", moves)
 
 
 func _cutscene():
-	%Outro.show()
-	await seconds(3)
 	Music.victory.play()
+	await seconds(1)
+	%BilliardTable.highlight.play()
+	await %Outro.play()
+	await seconds(3)
 	await LevelManager.load(3)

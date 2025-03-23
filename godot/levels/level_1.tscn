@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://m7dutl3kt23p"]
+[gd_scene load_steps=30 format=4 uid="uid://m7dutl3kt23p"]
 
 [ext_resource type="Script" uid="uid://d2hhb3ftcjvyg" path="res://levels/level_1.gd" id="1_lrvbd"]
 [ext_resource type="Texture2D" uid="uid://b4jlx6pbus1q4" path="res://characters/blox-portrait.png" id="2_vjtdm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="4_jkxa6"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="5_oqlok"]
 [ext_resource type="Texture2D" uid="uid://y3joqtcj7fi6" path="res://sprites/bloxthingy.png" id="5_w75he"]
+[ext_resource type="Texture2D" uid="uid://c84g6b6jgmd4q" path="res://sprites/catthingy.png" id="6_w75he"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="7_jkxa6"]
 [ext_resource type="PackedScene" uid="uid://dkl6ot2pjoo3n" path="res://characters/chip.tscn" id="8_w75he"]
 [ext_resource type="PackedScene" uid="uid://b2mrudvpj2lof" path="res://characters/tiles/mailbox.tscn" id="9_udfhf"]
@@ -505,21 +506,6 @@ offset_right = 258.5
 offset_bottom = -252.5
 script = ExtResource("4_jkxa6")
 
-[node name="Portrait" type="Panel" parent="UI/BlittySees/DialogLine1"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/BlittySees/DialogLine1/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_w75he")
-expand_mode = 2
-
 [node name="Text" type="Panel" parent="UI/BlittySees/DialogLine1"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
@@ -536,6 +522,24 @@ I'm over here!"
 label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Portrait2" type="Panel" parent="UI/BlittySees/DialogLine1"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/BlittySees/DialogLine1/Portrait2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("6_w75he")
+expand_mode = 2
 
 [node name="Outro" type="Control" parent="UI"]
 unique_name_in_owner = true
@@ -563,21 +567,6 @@ offset_right = 90.5
 offset_bottom = -276.5
 script = ExtResource("4_jkxa6")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine1"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine1/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_w75he")
-expand_mode = 2
-
 [node name="Text" type="Panel" parent="UI/Outro/DialogLine1"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
@@ -594,6 +583,24 @@ work early. Ready to go?"
 label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine1"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine1/Portrait2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("6_w75he")
+expand_mode = 2
 
 [node name="DialogLine2" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
@@ -683,21 +690,6 @@ offset_right = 426.5
 offset_bottom = -268.5
 script = ExtResource("4_jkxa6")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine4"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine4/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_w75he")
-expand_mode = 2
-
 [node name="Text" type="Panel" parent="UI/Outro/DialogLine4"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
@@ -713,6 +705,24 @@ text = "No can do, silly fox."
 label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine4"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine4/Portrait2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("6_w75he")
+expand_mode = 2
 
 [node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
