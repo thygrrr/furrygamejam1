@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dod7vdgcc64td"]
+[gd_scene load_steps=33 format=4 uid="uid://dod7vdgcc64td"]
 
 [ext_resource type="Script" uid="uid://16mgj2rlxhd4" path="res://levels/level_3.gd" id="1_yafm2"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="3_t5hu4"]
@@ -20,12 +20,17 @@
 [ext_resource type="PackedScene" uid="uid://d0g3lhg4l6vfk" path="res://characters/bleep.tscn" id="18_h3b7p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eg35p"]
-font_size = 128
+font_size = 96
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_67vg4"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_yafm2"]
+font_size = 48
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4kh1"]
 albedo_color = Color(0, 0, 0, 1)
@@ -169,18 +174,17 @@ size_flags_horizontal = 4
 script = ExtResource("5_yafm2")
 
 [node name="Title Label" type="Label" parent="UI/Intro"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -299.5
-offset_top = 235.5
-offset_right = 307.5
-offset_bottom = 332.5
+offset_left = -275.5
+offset_top = -60.5
+offset_right = 331.5
+offset_bottom = 36.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "8 balls later..."
+text = "Bleepy hour...?"
 label_settings = SubResource("LabelSettings_eg35p")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -189,10 +193,10 @@ script = ExtResource("5_yafm2")
 [node name="DialogLine1" type="HBoxContainer" parent="UI/Intro"]
 visible = false
 layout_mode = 0
-offset_left = 12.5
-offset_top = -412.5
-offset_right = 466.5
-offset_bottom = -284.5
+offset_left = -91.5
+offset_top = 147.5
+offset_right = 362.5
+offset_bottom = 275.5
 script = ExtResource("5_yafm2")
 
 [node name="Text" type="Panel" parent="UI/Intro/DialogLine1"]
@@ -206,8 +210,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Corner Pocket!
-I win again!"
+text = "Oh no, this place is
+packed! All those bleep!"
 label_settings = SubResource("LabelSettings_67vg4")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -231,12 +235,11 @@ texture = ExtResource("6_46211")
 expand_mode = 2
 
 [node name="DialogLine2" type="HBoxContainer" parent="UI/Intro"]
-visible = false
 layout_mode = 0
-offset_left = -379.5
-offset_top = -228.5
-offset_right = 74.5
-offset_bottom = -100.5
+offset_left = -75.5
+offset_top = -404.5
+offset_right = 378.5
+offset_bottom = -276.5
 script = ExtResource("5_yafm2")
 
 [node name="Portrait" type="Panel" parent="UI/Intro/DialogLine2"]
@@ -265,8 +268,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Oof, that play knocked
- me right off my paws!"
+text = "Heeeelp! I'm stuck!
+Blocked in. Bleeeep!"
 label_settings = SubResource("LabelSettings_67vg4")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -274,10 +277,10 @@ vertical_alignment = 1
 [node name="DialogLine3" type="HBoxContainer" parent="UI/Intro"]
 visible = false
 layout_mode = 0
-offset_left = -323.5
-offset_top = -92.5
-offset_right = 130.5
-offset_bottom = 35.5
+offset_left = 140.5
+offset_top = -268.5
+offset_right = 594.5
+offset_bottom = -140.5
 script = ExtResource("5_yafm2")
 
 [node name="Portrait" type="Panel" parent="UI/Intro/DialogLine3"]
@@ -307,7 +310,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "... rematch?"
+text = "... but I got us drinks?
+... over there ..."
+label_settings = SubResource("LabelSettings_67vg4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogLine5" type="HBoxContainer" parent="UI/Intro"]
+visible = false
+layout_mode = 0
+offset_left = 108.5
+offset_top = -132.5
+offset_right = 562.5
+offset_bottom = -4.5
+script = ExtResource("5_yafm2")
+
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine5"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine5/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_t5hu4")
+expand_mode = 2
+
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine5"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine5/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "... somewhere."
 label_settings = SubResource("LabelSettings_67vg4")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -332,8 +377,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Of course. But you can't 
-play pool on your back!"
+text = "I'll get you out!"
 label_settings = SubResource("LabelSettings_67vg4")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -387,7 +431,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 bbcode_enabled = true
-text = "[color=green]TURN YOURSELF[/color] around."
+text = "Get [color=green]BLOX[/color] & [color=green]BLITTY[/color]
+to their drinks."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -411,9 +456,9 @@ script = ExtResource("5_yafm2")
 
 [node name="DialogLine1" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
-offset_left = -363.5
+offset_left = -379.5
 offset_top = -404.5
-offset_right = 90.5
+offset_right = 74.5
 offset_bottom = -276.5
 script = ExtResource("5_yafm2")
 
@@ -443,58 +488,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Eight new balls
-comin' right up!"
-label_settings = SubResource("LabelSettings_67vg4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DialogLine2" type="HBoxContainer" parent="UI/Outro"]
-layout_mode = 0
-offset_left = -163.5
-offset_top = -268.5
-offset_right = 290.5
-offset_bottom = -140.5
-script = ExtResource("5_yafm2")
-
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2"]
-visible = false
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine2/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_t5hu4")
-expand_mode = 2
-
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine2"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine2/Text"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "... I love this sound."
+text = "Hahaha.
+Bleepin' Delicious."
 label_settings = SubResource("LabelSettings_67vg4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DialogLine5" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
-offset_left = 20.5
-offset_top = 115.5
-offset_right = 474.5
-offset_bottom = 243.5
+offset_left = 28.5
+offset_top = 59.5
+offset_right = 482.5
+offset_bottom = 187.5
 script = ExtResource("5_yafm2")
 
 [node name="Text" type="Panel" parent="UI/Outro/DialogLine5"]
@@ -508,8 +513,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Game On!
-Your break."
+text = "Sweet Bleepin Success."
 label_settings = SubResource("LabelSettings_67vg4")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -534,10 +538,10 @@ expand_mode = 2
 
 [node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
-offset_left = 100.5
-offset_top = 251.5
-offset_right = 554.5
-offset_bottom = 379.5
+offset_left = -19.5
+offset_top = 203.5
+offset_right = 434.5
+offset_bottom = 331.5
 script = ExtResource("5_yafm2")
 
 [node name="Text" type="Panel" parent="UI/Outro/DialogLine6"]
@@ -551,8 +555,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "...care for a milk
-shake after this one?"
+text = "So... how was your week?"
 label_settings = SubResource("LabelSettings_67vg4")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -576,44 +579,116 @@ scale = Vector2(-1, 1)
 texture = ExtResource("6_46211")
 expand_mode = 2
 
-[node name="DialogLine3" type="HBoxContainer" parent="UI/Outro"]
-layout_mode = 0
-offset_left = -387.5
-offset_top = -236.5
-offset_right = 66.5
-offset_bottom = -108.5
+[node name="ThankYou" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("5_yafm2")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine3"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine3/Portrait"]
+[node name="Title Label" type="Label" parent="UI/ThankYou"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -275.5
+offset_top = -60.5
+offset_right = 331.5
+offset_bottom = 36.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_t5hu4")
-expand_mode = 2
-
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine3"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine3/Text"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "You read my mind!"
-label_settings = SubResource("LabelSettings_67vg4")
+text = "BLOCK PARTY"
+label_settings = SubResource("LabelSettings_eg35p")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("5_yafm2")
+
+[node name="Title Label2" type="Label" parent="UI/ThankYou/Title Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = 32.0
+offset_right = 279.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A silly game about
+a Blox and a Blat"
+label_settings = SubResource("LabelSettings_yafm2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title Label4" type="Label" parent="UI/ThankYou"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = 123.5
+offset_right = 323.5
+offset_bottom = 220.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made for Furry Game Jam #1"
+label_settings = SubResource("LabelSettings_yafm2")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_yafm2")
+
+[node name="Control" type="Control" parent="UI/ThankYou"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_yafm2")
+
+[node name="Control2" type="Control" parent="UI/ThankYou"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_yafm2")
+
+[node name="Control3" type="Control" parent="UI/ThankYou"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_yafm2")
+
+[node name="Control4" type="Control" parent="UI/ThankYou"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_yafm2")
+
+[node name="Title Label3" type="Label" parent="UI/ThankYou"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = -28.5
+offset_right = 323.5
+offset_bottom = 131.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you
+for playing."
+label_settings = SubResource("LabelSettings_eg35p")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_yafm2")
 
 [node name="Blox" parent="." instance=ExtResource("7_8swdu")]
 unique_name_in_owner = true

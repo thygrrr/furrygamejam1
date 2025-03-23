@@ -13,19 +13,36 @@ func _main() -> void:
 	Camera.follow = player
 	Camera.warp()
 
+	%Intro.play()
+
 	player.moved.connect(count_move)
 	_play()
+	await player.moved
+	%Step1.show()
+	await player.moved
+	await player.moved
+	await player.moved
+	await player.moved
+	await player.moved
+	%Intro.hide()
 
 	await until(%Blox.faces, %Drinks)
 	await until(player.faces, %Drinks)
+	%Step1.hide()
 	%Drinks.highlight.play()
 	playing = false
+
 	await _cutscene()
 	prints("Moves taken:", moves)
 
 
 func _cutscene():
-	%Outro.show()
-	await seconds(3)
 	Music.victory.play()
+	await %Outro.play()
+	await AppUi.fade_overlay.fade_out()
+	await seconds(5)
 	await LevelManager.load(4)
+	await %ThankYou.play()
+	await Music.fade_calm()
+	await seconds(2)
+	get_tree().change_scene_to_file("res://scenes/main_menu_scene.tscn")

@@ -38,7 +38,7 @@ cache/0/128/0/underline_thickness = 2.40625
 cache/0/128/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_h351q"]
-font_size = 128
+font_size = 96
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 

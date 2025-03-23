@@ -37,5 +37,6 @@ func _cutscene():
 	await seconds(1)
 	%BilliardTable.highlight.play()
 	await %Outro.play()
-	await seconds(3)
+	await AppUi.fade_overlay.fade_out()
+	await seconds(2)
 	await LevelManager.load(3)
