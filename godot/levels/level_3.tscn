@@ -8,13 +8,13 @@
 [ext_resource type="Script" uid="uid://j2e33yr53486" path="res://code/ui_follow.gd" id="6_mqvtj"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="7_8swdu"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="9_6anhs"]
+[ext_resource type="PackedScene" uid="uid://c0gvrnhrmklbf" path="res://characters/props/drinks.tscn" id="9_svivd"]
 [ext_resource type="Texture2D" uid="uid://8tml2um8cjvn" path="res://models/kenney.nl-prototyping/Textures/colormap.png" id="10_s3q8p"]
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="11_tv8m3"]
 [ext_resource type="Material" uid="uid://c08aipotjgscs" path="res://characters/props/dark_wall.tres" id="12_8nkwk"]
 [ext_resource type="PackedScene" uid="uid://c2m8uuse6vbu3" path="res://characters/props/table_small.tscn" id="13_kyq6o"]
 [ext_resource type="PackedScene" uid="uid://ctfigr0jnqf05" path="res://models/props/drinkblue.obj" id="13_svivd"]
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="15_s3q8p"]
-[ext_resource type="PackedScene" uid="uid://d1ttbxhafr6ay" path="res://models/props/drinkred.obj" id="16_q26s8"]
 [ext_resource type="PackedScene" uid="uid://plipgykjfsec" path="res://models/props/bowlofchips.obj" id="16_u4kh1"]
 [ext_resource type="PackedScene" uid="uid://d0g3lhg4l6vfk" path="res://characters/bleep.tscn" id="18_h3b7p"]
 
@@ -701,11 +701,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Blox" parent="." instance=ExtResource("7_8swdu")]
+unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1, 0, -5)
 
 [node name="Blitty" parent="." instance=ExtResource("9_6anhs")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, -2)
+
+[node name="Drinks" parent="." instance=ExtResource("9_svivd")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
 
 [node name="Environment" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 9)
@@ -961,15 +966,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -13)
 
 [node name="Obstacle5" parent="Environment" instance=ExtResource("13_kyq6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -10)
-
-[node name="Obstacle4" parent="Environment" instance=ExtResource("13_kyq6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -13)
-
-[node name="drinkred" parent="Environment" instance=ExtResource("16_q26s8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0.5, -13.1)
-
-[node name="drinkred2" parent="Environment" instance=ExtResource("16_q26s8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0.5, -12.9)
 
 [node name="Bleep3" parent="Environment" instance=ExtResource("18_h3b7p")]
 transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 7, 0, -14)

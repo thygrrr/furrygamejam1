@@ -2,6 +2,7 @@ extends Interactable
 class_name Critter
 
 var material = preload("res://characters/mat_impact.tres")
+
 @onready var anchor : Node3D = %anchor
 @onready var offset : Node3D = %offset
 
@@ -21,6 +22,7 @@ var flip : Tween
 
 signal moved(direction: Vector3)
 signal faces(whom: Critter)
+signal sees(whom: Critter)
 signal process
 
 func _ready() -> void:
@@ -104,19 +106,22 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 func update_facing():
 	if is_vertical():
 		faces.emit(null)
+		sees.emit(null)
 	else:
 		var node = Grid.read(global_position + view.global_basis.z)
-		if node is Interactable and node.view.global_basis.z.dot(view.global_basis.z) < -0.5:
-			faces.emit(node)
-		else:
-			faces.emit(null)
+		if node is Interactable:
+			if node.omni or node.view.global_basis.z.dot(view.global_basis.z) < -0.7:
+				faces.emit(node)
+			else:
+				faces.emit(null)
+				sees.emit(null)
 
 
 func is_vertical():
 	return is_up() or is_down()
 
 func is_up():
-	return Vector3.UP.dot(view.global_basis.z) > 0.9
+	return Vector3.UP.dot(view.global_basis.z) > 0.7
 
 func is_down():
-	return Vector3.DOWN.dot(view.global_basis.z) > 0.9
+	return Vector3.DOWN.dot(view.global_basis.z) > 0.7

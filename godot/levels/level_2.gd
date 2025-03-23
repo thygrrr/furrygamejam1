@@ -16,9 +16,10 @@ func _main() -> void:
 	player.moved.connect(count_move)
 	_play()
 
-	#playing = await until(player.faces, %Blitty)
-	#%Arrow2.hide()
-
+	playing = await until(player.faces, %BilliardTable)
+	%BilliardTable.highlight.play()
+	await seconds(3)
+	LevelManager.load(3)
 	#await _cutscene()
 	#prints("Moves taken:", moves)
 

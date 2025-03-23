@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0gvrnhrmklbf"]
+
+[ext_resource type="Script" uid="uid://cc3guqkshykyd" path="res://code/interactable.gd" id="1_eqt41"]
+[ext_resource type="PackedScene" uid="uid://d1ttbxhafr6ay" path="res://models/props/drinkred.obj" id="2_oeh5p"]
+[ext_resource type="PackedScene" uid="uid://cvl12r7u5nyfw" path="res://models/props/table.obj" id="3_w66hk"]
+[ext_resource type="Script" uid="uid://d0yi5hhd4qvu3" path="res://code/obstacle.gd" id="4_k7d5o"]
+[ext_resource type="AudioStream" uid="uid://dmd645a2gi7j" path="res://sfx/skyclad_sound_straw_suck_drink_thick_in_container_slurp_short_then_slurp_long_x3_last_slurp_thick_436.mp3" id="5_oeh5p"]
+
+[node name="Drinks" type="Node3D"]
+script = ExtResource("1_eqt41")
+omni = true
+
+[node name="view" parent="." instance=ExtResource("3_w66hk")]
+unique_name_in_owner = true
+
+[node name="drinkred" parent="." instance=ExtResource("2_oeh5p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.5, -0.1)
+
+[node name="drinkred2" parent="." instance=ExtResource("2_oeh5p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.5, 0.1)
+
+[node name="block1" type="Node3D" parent="."]
+script = ExtResource("4_k7d5o")
+group_as_parent = true
+
+[node name="highlight" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_oeh5p")
+bus = &"Sound"

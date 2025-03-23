@@ -16,7 +16,10 @@ func _main() -> void:
 	player.moved.connect(count_move)
 	_play()
 
-	#playing = await until(player.faces, %Blitty)
+	await until(%Blox.faces, %Drinks)
+	await until(player.faces, %Drinks)
+	%Drinks.highlight.play()
+	playing = false
 	#%Arrow2.hide()
 
 	#await _cutscene()
