@@ -9,6 +9,7 @@ func count_move() -> void:
 	moves += 1
 
 func _main() -> void:
+	Music.fade_main()
 	player = %Blox
 	Camera.follow = player
 	Camera.warp()

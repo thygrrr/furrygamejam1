@@ -9,6 +9,7 @@ func count_move() -> void:
 	moves += 1
 
 func _main() -> void:
+	Music.fade_main()
 	player = %Blitty
 	Camera.follow = player
 	Camera.warp()
@@ -40,9 +41,8 @@ func _cutscene():
 	Music.victory.play()
 	await %Outro.play()
 	await AppUi.fade_overlay.fade_out()
-	await seconds(5)
-	await LevelManager.load(4)
-	await %ThankYou.play()
+	await seconds(3)
 	await Music.fade_calm()
+	await %ThankYou.play()
 	await seconds(2)
 	get_tree().change_scene_to_file("res://scenes/main_menu_scene.tscn")
