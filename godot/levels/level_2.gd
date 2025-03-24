@@ -14,12 +14,9 @@ func _main() -> void:
 	Camera.follow = player
 	Camera.warp()
 	%Intro.play()
-
+	after(6, %Step1.show)
 	player.moved.connect(count_move)
 	_play()
-	await player.moved
-	%Step1.show()
-	await player.moved
 	await player.moved
 	await player.moved
 	await player.moved

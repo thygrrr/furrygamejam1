@@ -36,6 +36,8 @@ func until(awaitable: Signal, whom: Node) -> bool:
 			break;
 	return false # mild hack, dont have nice semantics for this yet
 
+func after(duration: float, callable: Callable):
+	get_tree().create_timer(duration).timeout.connect(callable)
 
 func bind(from: Signal, slot: String) -> void:
 	_bindings[slot] = await from

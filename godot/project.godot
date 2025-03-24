@@ -35,7 +35,7 @@ gdscript/warnings/integer_division=0
 window/size/viewport_width=880
 window/size/viewport_height=880
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/scale_mode="integer"
 
 [global_group]
 

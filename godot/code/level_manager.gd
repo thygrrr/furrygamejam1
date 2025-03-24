@@ -1,18 +1,23 @@
 extends Node
 
-var levels : Array[PackedScene] = []
-var l0 : PackedScene = preload("res://levels/level_test.tscn")
-var l1 : PackedScene = preload("res://levels/level_1.tscn")
-var l2 : PackedScene = preload("res://levels/level_2.tscn")
-var l3 : PackedScene = preload("res://levels/level_3.tscn")
+#@onready var levels : Array[PackedScene] = [
+#	preload("res://levels/level_test.tscn"),
+#	preload("res://levels/level_1.tscn"),
+#	preload("res://levels/level_2.tscn"),
+#	preload("res://levels/level_3.tscn")
+#]
+
+@onready var levels : Array[PackedScene] = [
+	preload("uid://bo6gr2w24mxr1"),
+	preload("uid://m7dutl3kt23p"),
+	preload("uid://2mcgggxjs382"),
+	preload("uid://dod7vdgcc64td")
+]
 
 var current : Node3D
 var current_index : int
 
 var loading: bool
-
-func _ready() -> void:
-	levels = [l0, l1, l2, l3]
 
 func retry():
 	await AppUi.fade_overlay.fade_out()
@@ -23,6 +28,7 @@ func load(choice: int) -> void:
 		return
 	loading = true
 	if (choice >= 0 and choice < levels.size()):
+		await AppUi.fade_overlay.fade_out()
 		prints("Loading level", choice)
 		current_index = choice
 		if current:
