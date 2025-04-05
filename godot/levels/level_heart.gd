@@ -23,10 +23,8 @@ func _main() -> void:
 	await player.moved
 	%Intro.hide()
 
-	playing = await until(player.faces, %BilliardTable)
-	%Step1.hide()
-
-	await _cutscene()
+	
+	#await _cutscene()
 	prints("Moves taken:", moves)
 
 
@@ -37,4 +35,4 @@ func _cutscene():
 	await %Outro.play()
 	await AppUi.fade_overlay.fade_out()
 	await seconds(2)
-	await LevelManager.load(3)
+	await LevelManager.load(4)

@@ -64,13 +64,13 @@ material = SubResource("StandardMaterial3D_t5hu4")
 text = "Baaaaaaar"
 font_size = 64
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0wyp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4kd3"]
 resource_name = "colormap"
 cull_mode = 2
 albedo_texture = ExtResource("10_s3q8p")
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_gmltb"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_vf475"]
 _surfaces = [{
 "aabb": AABB(-0.5, 0, -0.5, 1, 0.2, 1),
 "format": 34896613377,
@@ -92,7 +92,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
-"material": SubResource("StandardMaterial3D_o0wyp"),
+"material": SubResource("StandardMaterial3D_k4kd3"),
 "name": "colormap",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -100,7 +100,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD//wAA//8AAAAAAAD/////AAAAAP///////wAA//8AAAAA////vwAAAAAAAP+/AAD//wAA/78AAP//////vwAAAAD///+///8AAP///7///wAAAAD/vwAAAAAAAP+/////////AID//wAA//8AgAAAAAD//wCAAAD/////AID/////////v/////8AAP+///8AAAAA/7///wAA////vwAA//8AAP///////wAA/////////////wAA/////////3////9/////f////3////9/////f////3////9///8AAP9/AAD/fwAA/38AAP9//3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/+//3//v/9//7//f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_gmltb")
+shadow_mesh = SubResource("ArrayMesh_vf475")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbb88"]
 albedo_color = Color(0.266208, 0.205494, 0.426891, 1)
