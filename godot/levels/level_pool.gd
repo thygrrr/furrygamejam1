@@ -14,10 +14,10 @@ func _main() -> void:
 	Camera.follow = player
 	Camera.warp()
 	%Intro.play()
-	after(6, %Step1.show)
 	player.moved.connect(count_move)
 	_play()
 	await player.moved
+	after(2, %Step1.show)
 	await player.moved
 	await player.moved
 	await player.moved
@@ -32,7 +32,9 @@ func _main() -> void:
 
 func _cutscene():
 	Music.victory.play()
+	%Step1.hide()
 	await seconds(1)
+	%Step1.hide()
 	%BilliardTable.highlight.play()
 	await %Outro.play()
 	await AppUi.fade_overlay.fade_out()

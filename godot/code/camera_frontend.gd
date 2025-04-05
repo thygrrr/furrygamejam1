@@ -24,3 +24,11 @@ var shake : float:
 
 func warp():
 	%CameraFollow.warp()
+
+func soft():
+	%CameraPositionMover.motion_smooth_time = 2.0
+	%CameraLookMover.motion_smooth_time = 2.0
+
+func stiff():
+	%CameraPositionMover.motion_smooth_time = 0.5
+	%CameraLookMover.motion_smooth_time = 0.3

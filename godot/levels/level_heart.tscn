@@ -1008,6 +1008,9 @@ transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 
 [node name="Bleep11" parent="Environment" instance=ExtResource("17_plpww")]
 transform = Transform3D(1.64905e-07, 0, 1, 0, 1, 0, -1, 0, 1.64905e-07, 4, 0, -7)
 
+[node name="Bleep31" parent="Environment" instance=ExtResource("17_plpww")]
+transform = Transform3D(1, 0, -1.63913e-07, 0, 1, 0, 1.63913e-07, 0, 1, 11, 0, -6)
+
 [node name="Bleep12" parent="Environment" instance=ExtResource("17_plpww")]
 transform = Transform3D(1.64905e-07, 0, 1, 0, 1, 0, -1, 0, 1.64905e-07, 5, 0, -7)
 

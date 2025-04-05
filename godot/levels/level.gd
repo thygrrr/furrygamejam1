@@ -15,9 +15,11 @@ func _enter_tree() -> void:
 	_bindings.clear()
 
 
+
 func _ready() -> void:
 	for child in $UI.get_children():
 		child.hide()
+	Camera.stiff()
 
 	_main.call_deferred() # run in background
 	LevelManager.current = self

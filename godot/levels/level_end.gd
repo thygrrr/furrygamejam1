@@ -22,6 +22,7 @@ func _main() -> void:
 	player = %Blox
 	Camera.follow = player
 	Camera.warp()
+	Camera.soft()
 
 	%Blox.faces.connect(blox_faces)
 	%Blox.moved.connect(count_move)
@@ -33,11 +34,11 @@ func _main() -> void:
 	_play()
 	
 	while !solved:
-		Camera.follow = player
 		if player == %Blitty:
 			player = %Blox
 		else:
 			player = %Blitty
+		Camera.follow = player
 		await player.moved
 		await seconds(0.1)
 		%Step1.show()
