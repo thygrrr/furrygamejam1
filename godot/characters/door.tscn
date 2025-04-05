@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mpvv4ein0pvw"]
+[gd_scene load_steps=4 format=3 uid="uid://mpvv4ein0pvw"]
 
 [ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="1_ljbuf"]
 [ext_resource type="Script" uid="uid://cc3guqkshykyd" path="res://code/interactable.gd" id="2_ted3u"]
+[ext_resource type="AudioStream" uid="uid://drtsgtg17e0kh" path="res://sfx/zapsplat_household_door_open_internal_wooden.mp3" id="3_mctyp"]
 
 [node name="door" instance=ExtResource("1_ljbuf")]
 script = ExtResource("2_ted3u")
@@ -10,3 +11,4 @@ script = ExtResource("2_ted3u")
 unique_name_in_owner = true
 
 [node name="highlight" type="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_mctyp")

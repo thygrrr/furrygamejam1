@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=4 uid="uid://d2fn8v3fk3w4x"]
+[gd_scene load_steps=36 format=4 uid="uid://d2fn8v3fk3w4x"]
 
 [ext_resource type="Script" uid="uid://c24s7mlhuak7t" path="res://levels/level_heart.gd" id="1_v63gk"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="2_3b84q"]
 [ext_resource type="AudioStream" uid="uid://b72rtmprfgx61" path="res://sfx/ambiences/344_audio_AMBRest_Fish_And_Chip_Shop_Cafe_Ambience_Blackpool,_344_Audio_UK_Seaside_Town_and_Theme_Park_1696.mp3" id="3_oadvn"]
 [ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="4_k4kd3"]
+[ext_resource type="AudioStream" uid="uid://bcuwfuhhyh0wf" path="res://sfx/ambiences/zapsplat_household_music_nextdoor_heard_through_wall_booming_bass_annoying_dance_music_drums_bass_99466.mp3" id="4_rqrpm"]
 [ext_resource type="Texture2D" uid="uid://c84g6b6jgmd4q" path="res://sprites/catthingy.png" id="5_g8wl4"]
 [ext_resource type="Texture2D" uid="uid://y3joqtcj7fi6" path="res://sprites/bloxthingy.png" id="6_mfec6"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="7_f183y"]
@@ -182,6 +183,12 @@ bus = &"Sound"
 [node name="Ambience2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_oadvn")
 volume_db = -12.0
+autoplay = true
+bus = &"Sound"
+
+[node name="Ambience3" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, 9)
+stream = ExtResource("4_rqrpm")
 autoplay = true
 bus = &"Sound"
 
