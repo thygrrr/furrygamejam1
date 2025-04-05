@@ -47,14 +47,15 @@ func _main() -> void:
 	%Intro.hide()
 	%Step1.hide()
 
-	await _cutscene()
 	prints("Moves taken:", moves)
+	await _cutscene()
 
 
 func _input(event: InputEvent) -> void:
 	super(event)
 	if Input.is_key_label_pressed(KEY_P):
 		solved = true
+		pass
 		
 func _cutscene():
 	Camera.follow = null
@@ -65,7 +66,6 @@ func _cutscene():
 	await seconds(4)
 	%ThankYou.show()
 	await %ThankYou.play()
-
 	$Ambience.stop()
 	await seconds(2)
 	get_tree().change_scene_to_file.call_deferred("res://scenes/main_menu_scene.tscn")

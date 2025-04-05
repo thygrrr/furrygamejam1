@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=4 uid="uid://m7dutl3kt23p"]
+[gd_scene load_steps=29 format=4 uid="uid://m7dutl3kt23p"]
 
 [ext_resource type="Script" uid="uid://d2hhb3ftcjvyg" path="res://levels/level_home.gd" id="1_lrvbd"]
+[ext_resource type="Environment" uid="uid://dcqc2mpy0qkyy" path="res://vfx/default_environment.tres" id="2_670e3"]
 [ext_resource type="Script" uid="uid://j2e33yr53486" path="res://code/ui_follow.gd" id="3_bgw3c"]
 [ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="4_jkxa6"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="5_oqlok"]
@@ -242,6 +243,9 @@ size = Vector2(100, 100)
 script = ExtResource("1_lrvbd")
 moves_par = 21
 moves_record = 13
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_670e3")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_jkxa6")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://2mcgggxjs382"]
+[gd_scene load_steps=25 format=3 uid="uid://2mcgggxjs382"]
 
 [ext_resource type="Script" uid="uid://dagd0tb2fcara" path="res://levels/level_pool.gd" id="1_sd18g"]
+[ext_resource type="Environment" uid="uid://dcqc2mpy0qkyy" path="res://vfx/default_environment.tres" id="2_l85ig"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="3_k2aru"]
 [ext_resource type="AudioStream" uid="uid://b72rtmprfgx61" path="res://sfx/ambiences/344_audio_AMBRest_Fish_And_Chip_Shop_Cafe_Ambience_Blackpool,_344_Audio_UK_Seaside_Town_and_Theme_Park_1696.mp3" id="4_ndgrd"]
 [ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="5_k2aru"]
@@ -51,6 +52,9 @@ font_size = 64
 script = ExtResource("1_sd18g")
 moves_par = 12
 moves_record = 8
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_l85ig")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_k2aru")

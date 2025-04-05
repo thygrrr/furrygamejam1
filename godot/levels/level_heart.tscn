@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=4 uid="uid://d2fn8v3fk3w4x"]
+[gd_scene load_steps=37 format=4 uid="uid://d2fn8v3fk3w4x"]
 
 [ext_resource type="Script" uid="uid://c24s7mlhuak7t" path="res://levels/level_heart.gd" id="1_v63gk"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="2_3b84q"]
+[ext_resource type="Environment" uid="uid://dcqc2mpy0qkyy" path="res://vfx/default_environment.tres" id="2_w548r"]
 [ext_resource type="AudioStream" uid="uid://b72rtmprfgx61" path="res://sfx/ambiences/344_audio_AMBRest_Fish_And_Chip_Shop_Cafe_Ambience_Blackpool,_344_Audio_UK_Seaside_Town_and_Theme_Park_1696.mp3" id="3_oadvn"]
 [ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="4_k4kd3"]
 [ext_resource type="AudioStream" uid="uid://bcuwfuhhyh0wf" path="res://sfx/ambiences/zapsplat_household_music_nextdoor_heard_through_wall_booming_bass_annoying_dance_music_drums_bass_99466.mp3" id="4_rqrpm"]
@@ -173,6 +174,9 @@ shadow_mesh = SubResource("ArrayMesh_g8wl4")
 script = ExtResource("1_v63gk")
 moves_par = 12
 moves_record = 8
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_w548r")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_3b84q")
