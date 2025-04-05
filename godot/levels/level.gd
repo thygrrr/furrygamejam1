@@ -77,5 +77,9 @@ func _process(_delta: float):
 	process.emit()
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("axis_down") or event.is_action_pressed("axis_up") or event.is_action_pressed("axis_left") or event.is_action_pressed("axis_right"):
+		if input_buffer.size() > 0 or player.busy:
+			return
+		
 	if event.is_action_type() and event.is_pressed():
 		input_buffer.append(event)

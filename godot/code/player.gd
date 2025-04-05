@@ -2,6 +2,8 @@ extends Critter
 class_name Player
 
 
+var busy : bool
+
 func _ready() -> void:
 	super()
 

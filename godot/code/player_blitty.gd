@@ -19,24 +19,26 @@ func _ready() -> void:
 
 # Resolve a single input event
 func execute(event: InputEvent) -> void:
+	busy = true
 	var next_step : Vector3
 	var next_flip : Quaternion
 
-	if event.is_action_pressed("move_left"):
+	if event.is_action_pressed("move_left") or event.is_action_pressed("axis_left"):
 		next_step = Vector3.LEFT
 		next_flip = flip_left
-	elif event.is_action_pressed("move_right"):
+	elif event.is_action_pressed("move_right") or event.is_action_pressed("axis_right"):
 		next_step = Vector3.RIGHT
 		next_flip = flip_right
-	elif event.is_action_pressed("move_up"):
+	elif event.is_action_pressed("move_up") or event.is_action_pressed("axis_up"):
 		next_step = Vector3.FORWARD
 		next_flip = flip_up
-	elif event.is_action_pressed("move_down"):
+	elif event.is_action_pressed("move_down") or event.is_action_pressed("axis_down"):
 		next_step = Vector3.BACK
 		next_flip = flip_down
 	else:
+		busy = false
 		return
-
+		
 	var next_pos = global_position + next_step
 	var curr_pos = global_position
 
@@ -55,4 +57,5 @@ func execute(event: InputEvent) -> void:
 	else:
 		pass # play collision fx
 
+	busy = false
 	get_tree().call_group("critters", "update_facing")
