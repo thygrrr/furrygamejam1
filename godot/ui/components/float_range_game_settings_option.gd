@@ -5,7 +5,8 @@ extends HSlider
 var initialised = false
 
 func _ready():
-	value = UserSettings.get_value(property)
+	pass
+	# = UserSettings.get_value(property)
 
 func _on_float_range_game_settings_option_value_changed(val):
 	if !initialised:
