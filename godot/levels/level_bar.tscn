@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=4 uid="uid://dod7vdgcc64td"]
 
-[ext_resource type="Script" uid="uid://16mgj2rlxhd4" path="res://levels/level_3.gd" id="1_yafm2"]
+[ext_resource type="Script" uid="uid://16mgj2rlxhd4" path="res://levels/level_bar.gd" id="1_yafm2"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="3_t5hu4"]
 [ext_resource type="AudioStream" uid="uid://btsg8cfdd0d7" path="res://sfx/animals_sheep_herd_walk_close_bleating_001.mp3" id="4_s3q8p"]
 [ext_resource type="AudioStream" uid="uid://bdwm231d5nd14" path="res://sfx/animals_sheep_herd_walk_close_bleating_002.mp3" id="5_u4kh1"]
