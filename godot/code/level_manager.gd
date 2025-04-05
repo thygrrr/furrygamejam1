@@ -5,7 +5,8 @@ extends Node
 	preload("res://levels/level_home.tscn"),
 	preload("res://levels/level_pool.tscn"),
 	preload("res://levels/level_heart.tscn"),
-	preload("res://levels/level_bar.tscn")
+	preload("res://levels/level_bar.tscn"),
+	preload("res://levels/level_end.tscn"),
 ]
 
 var current : Node3D

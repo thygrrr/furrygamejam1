@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://chc4y0d6kkgkr"]
+[gd_scene load_steps=7 format=3 uid="uid://chc4y0d6kkgkr"]
 
 [ext_resource type="Script" uid="uid://dcqd4pk8b3p6o" path="res://code/camera_frontend.gd" id="1_nsgqi"]
 [ext_resource type="Script" uid="uid://ts62aa2lgsgi" path="res://code/look_at.gd" id="2_ggq3h"]
 [ext_resource type="Script" uid="uid://qnkq6cbv0adf" path="res://code/camera_shake.gd" id="3_i8x6x"]
-[ext_resource type="Environment" uid="uid://dcqc2mpy0qkyy" path="res://vfx/default_environment.tres" id="4_um7uo"]
 [ext_resource type="Script" uid="uid://ydal6ykomv0n" path="res://code/stiff_follow.gd" id="5_i8x6x"]
 [ext_resource type="Script" uid="uid://bob5guqytrpmh" path="res://code/smooth_remote_transform.gd" id="6_um7uo"]
 
@@ -30,7 +29,6 @@ script = ExtResource("3_i8x6x")
 [node name="Camera3D" type="Camera3D" parent="CameraOffset/CameraPosition/CameraLook/CameraShake"]
 unique_name_in_owner = true
 transform = Transform3D(0.996195, 0.0871557, 0, -0.0871558, 0.996195, 0, 0, 0, 0.999999, 0, 0, 0)
-environment = ExtResource("4_um7uo")
 attributes = SubResource("CameraAttributesPractical_i8x6x")
 current = true
 fov = 30.0

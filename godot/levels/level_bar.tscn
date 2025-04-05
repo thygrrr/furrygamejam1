@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dod7vdgcc64td"]
+[gd_scene load_steps=31 format=4 uid="uid://dod7vdgcc64td"]
 
 [ext_resource type="Script" uid="uid://16mgj2rlxhd4" path="res://levels/level_bar.gd" id="1_yafm2"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="3_t5hu4"]
@@ -25,11 +25,6 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_67vg4"]
 font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_yafm2"]
-font_size = 48
-outline_size = 12
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4kh1"]
 albedo_color = Color(0, 0, 0, 1)
@@ -418,7 +413,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "I can solve this!"
+text = "I can solve this!
+Let's get those shakes!"
 label_settings = SubResource("LabelSettings_67vg4")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -621,111 +617,6 @@ grow_vertical = 2
 scale = Vector2(-1, 1)
 texture = ExtResource("6_46211")
 expand_mode = 2
-
-[node name="ThankYou" type="Control" parent="UI"]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -44.5
-offset_top = -11.5
-offset_right = 44.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-script = ExtResource("5_yafm2")
-
-[node name="Title Label" type="Label" parent="UI/ThankYou"]
-self_modulate = Color(0.95, 1, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -304.0
-offset_top = -48.0
-offset_right = 303.0
-offset_bottom = 49.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "BLOCK PARTY"
-label_settings = SubResource("LabelSettings_eg35p")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_yafm2")
-
-[node name="Title Label2" type="Label" parent="UI/ThankYou/Title Label"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = 52.0
-offset_right = 307.0
-offset_bottom = 149.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "A silly game about
-a Blox and a Blitty"
-label_settings = SubResource("LabelSettings_yafm2")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Title Label4" type="Label" parent="UI/ThankYou"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -283.5
-offset_top = 123.5
-offset_right = 323.5
-offset_bottom = 220.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Made for Furry Game Jam #1"
-label_settings = SubResource("LabelSettings_yafm2")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_yafm2")
-
-[node name="Control" type="Control" parent="UI/ThankYou"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_yafm2")
-
-[node name="Control2" type="Control" parent="UI/ThankYou"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_yafm2")
-
-[node name="Title Label3" type="Label" parent="UI/ThankYou"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -299.5
-offset_top = -92.5
-offset_right = 307.5
-offset_bottom = 67.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Thank you
-for playing"
-label_settings = SubResource("LabelSettings_eg35p")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_yafm2")
 
 [node name="Blox" parent="." instance=ExtResource("7_8swdu")]
 unique_name_in_owner = true

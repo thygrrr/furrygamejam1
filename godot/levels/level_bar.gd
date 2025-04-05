@@ -54,11 +54,5 @@ func _cutscene():
 	await %Outro.play()
 	await AppUi.fade_overlay.fade_out()
 	await seconds(2)
-	await %ThankYou.play()
 	await Music.fade_calm()
-	Camera.follow = null
-	await seconds(2)
-	$Ambience.stop()
-	$Ambience3.stop()
-	$Ambience4.stop()
-	get_tree().change_scene_to_file.call_deferred("res://scenes/main_menu_scene.tscn")
+	await LevelManager.load(5)

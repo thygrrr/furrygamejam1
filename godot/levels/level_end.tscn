@@ -1,0 +1,852 @@
+[gd_scene load_steps=27 format=3 uid="uid://bngny6c0gk4ik"]
+
+[ext_resource type="Script" uid="uid://bec4p78usm1jq" path="res://levels/level_end.gd" id="1_enl4u"]
+[ext_resource type="AudioStream" uid="uid://ckqtp8kyaxldn" path="res://sfx/ambiences/smartsound_ATMO_BUSH_Water_Hole_Night_Calm_02.mp3" id="2_vl6al"]
+[ext_resource type="Script" uid="uid://bkhkrb5qgkjvn" path="res://code/cutscene.gd" id="3_quvdh"]
+[ext_resource type="Texture2D" uid="uid://y3joqtcj7fi6" path="res://sprites/bloxthingy.png" id="4_8r0el"]
+[ext_resource type="Texture2D" uid="uid://c84g6b6jgmd4q" path="res://sprites/catthingy.png" id="5_4iuuu"]
+[ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="7_ix6rd"]
+[ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="8_6kr6l"]
+[ext_resource type="PackedScene" uid="uid://bqw6myde6pcwa" path="res://models/kenney.nl-suburban/planter.glb" id="9_gx6jy"]
+[ext_resource type="PackedScene" uid="uid://we7qefwji5sk" path="res://models/props/floor_10x_10.tscn" id="10_c0vh8"]
+[ext_resource type="PackedScene" uid="uid://2t86aecxyk5r" path="res://models/kenney.nl-suburban/tree-small.glb" id="11_6j8j4"]
+[ext_resource type="PackedScene" uid="uid://cak04bufxgpbi" path="res://models/kenney.nl-suburban/building-type-o.glb" id="12_7rnxo"]
+[ext_resource type="PackedScene" uid="uid://y5v35fsvjogx" path="res://models/kenney.nl-suburban/building-type-h.glb" id="13_xuwb4"]
+[ext_resource type="PackedScene" uid="uid://k8vpqd2opuvs" path="res://models/kenney.nl-suburban/fence-1x3.glb" id="14_fapfm"]
+[ext_resource type="PackedScene" uid="uid://4etlue2bh36r" path="res://models/kenney.nl-suburban/fence-3x2.glb" id="15_0r44o"]
+[ext_resource type="PackedScene" uid="uid://die3ageh4fea7" path="res://models/kenney.nl-suburban/building-type-a.glb" id="16_rrrbq"]
+[ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="17_esvl6"]
+[ext_resource type="PackedScene" uid="uid://bsr2dvb5ueex4" path="res://models/kenney.nl-suburban/path-stones-long.glb" id="17_vl6al"]
+[ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="18_77bbg"]
+[ext_resource type="PackedScene" uid="uid://b2mrudvpj2lof" path="res://characters/tiles/mailbox.tscn" id="20_0gdp1"]
+[ext_resource type="Environment" uid="uid://c1idlx7nxk5q6" path="res://vfx/night_environment.tres" id="21_vl6al"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkxa6"]
+font_size = 128
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w75he"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_vl6al"]
+font_size = 96
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_quvdh"]
+font_size = 48
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etwux"]
+albedo_color = Color(0.201303, 0.487727, 0.390602, 1)
+metallic = 0.25
+roughness = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w75he"]
+material = SubResource("StandardMaterial3D_etwux")
+size = Vector2(100, 100)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_enl4u")
+moves_par = 21
+moves_record = 13
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("21_vl6al")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vl6al")
+volume_db = -12.0
+autoplay = true
+bus = &"Sound"
+parameters/looping = true
+
+[node name="Fill Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.494737, -0.196262, -0.846591, 0, 0.974165, -0.225837, 0.869043, -0.11173, -0.481955, -4.51481, -1.71708, -14.255)
+light_color = Color(0, 0, 0.933333, 1)
+light_energy = 0.5
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Intro" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("3_quvdh")
+
+[node name="Title Label" type="Label" parent="UI/Intro"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -247.5
+offset_top = 209.5
+offset_right = 279.5
+offset_bottom = 429.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "some shakes
+later ..."
+label_settings = SubResource("LabelSettings_jkxa6")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_quvdh")
+
+[node name="DialogLine4" type="HBoxContainer" parent="UI/Intro"]
+layout_mode = 0
+offset_left = 16.5
+offset_top = -385.5
+offset_right = 470.5
+offset_bottom = -257.5
+script = ExtResource("3_quvdh")
+
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine4"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine4/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Almost home!
+Hahaha!"
+label_settings = SubResource("LabelSettings_w75he")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait2" type="Panel" parent="UI/Intro/DialogLine4"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine4/Portrait2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("5_4iuuu")
+expand_mode = 2
+
+[node name="DialogLine1" type="HBoxContainer" parent="UI/Intro"]
+layout_mode = 0
+offset_left = -385.5
+offset_top = 97.5
+offset_right = 68.5
+offset_bottom = 225.5
+script = ExtResource("3_quvdh")
+
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8r0el")
+expand_mode = 2
+
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine1"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine1/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Watch your step.
+Oops! Haha."
+label_settings = SubResource("LabelSettings_w75he")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Outro" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("3_quvdh")
+
+[node name="DialogLine2" type="HBoxContainer" parent="UI/Outro"]
+layout_mode = 0
+offset_left = -166.5
+offset_top = 272.5
+offset_right = 287.5
+offset_bottom = 400.5
+script = ExtResource("3_quvdh")
+
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine2/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8r0el")
+expand_mode = 2
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine2"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine2/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Good Night, Blitty!"
+label_settings = SubResource("LabelSettings_w75he")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogLine1" type="HBoxContainer" parent="UI/Outro"]
+layout_mode = 0
+offset_left = -198.5
+offset_top = -397.5
+offset_right = 255.5
+offset_bottom = -269.5
+script = ExtResource("3_quvdh")
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine1"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine1/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Good night!"
+label_settings = SubResource("LabelSettings_w75he")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine1"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine1/Portrait2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("5_4iuuu")
+expand_mode = 2
+
+[node name="DialogLine4" type="HBoxContainer" parent="UI/Outro"]
+layout_mode = 0
+offset_left = -171.5
+offset_top = -264.5
+offset_right = 282.5
+offset_bottom = -136.5
+script = ExtResource("3_quvdh")
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine4"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine4/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "..."
+label_settings = SubResource("LabelSettings_w75he")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine4"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine4/Portrait2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("5_4iuuu")
+expand_mode = 2
+
+[node name="DialogLine5" type="HBoxContainer" parent="UI/Outro"]
+visible = false
+layout_mode = 0
+offset_left = -182.5
+offset_top = -125.5
+offset_right = 271.5
+offset_bottom = 2.5
+script = ExtResource("3_quvdh")
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine5"]
+visible = false
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine5/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "... Blox."
+label_settings = SubResource("LabelSettings_w75he")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine5"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine5/Portrait2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("5_4iuuu")
+expand_mode = 2
+
+[node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
+layout_mode = 0
+offset_left = -142.5
+offset_top = -129.5
+offset_right = 311.5
+offset_bottom = -1.5
+script = ExtResource("3_quvdh")
+
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine6"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine6/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Blox ...?"
+label_settings = SubResource("LabelSettings_w75he")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine6"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine6/Portrait2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("5_4iuuu")
+expand_mode = 2
+
+[node name="Step1" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 72.0
+offset_right = -229.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="UI/Step1"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 256.0
+offset_right = 369.0
+offset_bottom = 337.0
+
+[node name="Label" type="RichTextLabel" parent="UI/Step1/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Say [color=green]GOOD NIGHT[/color] to each other."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThankYou" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("3_quvdh")
+
+[node name="Title Label" type="Label" parent="UI/ThankYou"]
+self_modulate = Color(0.95, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -48.0
+offset_right = 303.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BLOCK PARTY"
+label_settings = SubResource("LabelSettings_vl6al")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_quvdh")
+
+[node name="Title Label2" type="Label" parent="UI/ThankYou/Title Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 52.0
+offset_right = 307.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A silly game about
+a Blox and a Blitty"
+label_settings = SubResource("LabelSettings_quvdh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title Label4" type="Label" parent="UI/ThankYou"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = 123.5
+offset_right = 323.5
+offset_bottom = 220.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Made for Furry Game Jam #1
+(and Berlin Mini Jam 2025-04)"
+label_settings = SubResource("LabelSettings_quvdh")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_quvdh")
+
+[node name="Control" type="Control" parent="UI/ThankYou"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_quvdh")
+
+[node name="Control2" type="Control" parent="UI/ThankYou"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_quvdh")
+
+[node name="Title Label3" type="Label" parent="UI/ThankYou"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -299.5
+offset_top = -92.5
+offset_right = 307.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you
+for playing"
+label_settings = SubResource("LabelSettings_vl6al")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_quvdh")
+
+[node name="Environment" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="wall16" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="wall17" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="wall5" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="wall6" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="wall7" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+
+[node name="wall34" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+
+[node name="wall35" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+
+[node name="wall36" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
+
+[node name="wall37" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="wall38" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="wall39" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="wall40" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="wall41" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="wall42" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="wall43" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="wall44" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="wall45" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
+
+[node name="wall46" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="wall47" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
+
+[node name="wall48" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+
+[node name="wall49" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 4)
+
+[node name="wall50" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 4)
+
+[node name="wall8" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="wall15" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="wall9" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+
+[node name="wall19" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+
+[node name="wall20" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+
+[node name="wall10" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="wall14" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="wall26" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="wall27" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="wall28" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="wall11" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="wall12" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+
+[node name="wall13" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3)
+
+[node name="wall21" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
+
+[node name="wall22" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+
+[node name="wall62" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+
+[node name="wall63" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+
+[node name="wall64" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7)
+
+[node name="wall65" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7)
+
+[node name="wall66" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1, 0, -7)
+
+[node name="wall68" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1, 0, -8)
+
+[node name="wall69" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1, 0, -9)
+
+[node name="wall70" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1, 0, -9)
+
+[node name="wall67" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -7)
+
+[node name="wall71" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1, 0, -7)
+
+[node name="wall72" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2, 0, -7)
+
+[node name="wall31" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+
+[node name="wall32" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="wall33" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+
+[node name="wall51" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
+
+[node name="wall56" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+
+[node name="wall57" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+
+[node name="wall58" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="wall59" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
+
+[node name="wall60" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="wall61" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="wall29" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
+
+[node name="wall30" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
+
+[node name="wall23" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="wall24" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+
+[node name="wall52" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+
+[node name="wall53" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
+
+[node name="wall54" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+
+[node name="wall55" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+
+[node name="wall25" parent="Environment" instance=ExtResource("7_ix6rd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+
+[node name="door" parent="Environment" instance=ExtResource("8_6kr6l")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 5.4, 0.185064, 2)
+
+[node name="planter2" parent="Environment" instance=ExtResource("9_gx6jy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.2, 3.2)
+
+[node name="planter3" parent="Environment" instance=ExtResource("9_gx6jy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.2, 3.2)
+
+[node name="Floor-10x10" parent="Environment" instance=ExtResource("10_c0vh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.5)
+
+[node name="Floor-10x13" parent="Environment" instance=ExtResource("10_c0vh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 0, -9.5)
+
+[node name="Floor-10x14" parent="Environment" instance=ExtResource("10_c0vh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -12.5)
+
+[node name="Floor-10x11" parent="Environment" instance=ExtResource("10_c0vh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, 0, -11.4)
+
+[node name="Floor-10x12" parent="Environment" instance=ExtResource("10_c0vh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9, 0, -4.2)
+
+[node name="tree-small2" parent="Environment" instance=ExtResource("11_6j8j4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05845, 0.2, -4.18447)
+
+[node name="tree-small3" parent="Environment" instance=ExtResource("11_6j8j4")]
+transform = Transform3D(0.984808, 0.0151344, 0.172987, 0, 0.996195, -0.0871557, -0.173648, 0.0858316, 0.98106, 6.15997, 0.1, -3.2671)
+
+[node name="tree-small4" parent="Environment" instance=ExtResource("11_6j8j4")]
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 5.15845, 0.1, -2.98447)
+
+[node name="tree-small5" parent="Environment" instance=ExtResource("11_6j8j4")]
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, -1.84155, 0.1, -3.98447)
+
+[node name="tree-small6" parent="Environment" instance=ExtResource("11_6j8j4")]
+transform = Transform3D(-0.0871561, 0, 0.996195, 0, 1, 0, -0.996195, 0, -0.0871561, -1.84155, 0.1, -4.98447)
+
+[node name="tree-small7" parent="Environment" instance=ExtResource("11_6j8j4")]
+transform = Transform3D(-0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, -0.173648, -0.84155, 0.1, -6.98447)
+
+[node name="building-type-o2" parent="Environment" instance=ExtResource("12_7rnxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6, 0, 1)
+
+[node name="building-type-h2" parent="Environment" instance=ExtResource("13_xuwb4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8.6)
+
+[node name="fence-1x32" parent="Environment" instance=ExtResource("14_fapfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99166, 0, 2.12771)
+
+[node name="fence-3x22" parent="Environment" instance=ExtResource("15_0r44o")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -0.9)
+
+[node name="building-type-a2" parent="Environment" instance=ExtResource("16_rrrbq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.6, 0.4, 0.3)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
+transform = Transform3D(1, -1.41714e-08, 5.6365e-17, 1.41714e-08, 1, -3.97738e-09, 0, 3.97738e-09, 1, 3, 4, 1)
+light_energy = 0.3
+shadow_opacity = 0.8
+shadow_blur = 3.0
+omni_range = 50.0
+omni_attenuation = 0.5
+
+[node name="path-stones-long2" parent="Environment" instance=ExtResource("17_vl6al")]
+transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -2.5, 0.2, -6.4)
+
+[node name="path-stones-long3" parent="Environment" instance=ExtResource("17_vl6al")]
+transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -4.1, 0.2, -7.7)
+
+[node name="Blox" parent="." instance=ExtResource("17_esvl6")]
+unique_name_in_owner = true
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -1, 0, 0)
+
+[node name="Blitty" parent="." instance=ExtResource("18_77bbg")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -1)
+
+[node name="Mailbox" parent="." instance=ExtResource("20_0gdp1")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 5)
+
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 10)
+mesh = SubResource("PlaneMesh_w75he")
+skeleton = NodePath("../Environment")
