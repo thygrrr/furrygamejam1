@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://d2fn8v3fk3w4x"]
+[gd_scene load_steps=35 format=4 uid="uid://d2fn8v3fk3w4x"]
 
 [ext_resource type="Script" uid="uid://c24s7mlhuak7t" path="res://levels/level_heart.gd" id="1_v63gk"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="2_3b84q"]
@@ -8,12 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://y3joqtcj7fi6" path="res://sprites/bloxthingy.png" id="6_mfec6"]
 [ext_resource type="PackedScene" uid="uid://5xpof3rkouys" path="res://characters/blox.tscn" id="7_f183y"]
 [ext_resource type="PackedScene" uid="uid://1247skxw88ik" path="res://characters/blitty.tscn" id="8_3trsy"]
+[ext_resource type="PackedScene" uid="uid://mpvv4ein0pvw" path="res://characters/door.tscn" id="9_rqrpm"]
 [ext_resource type="PackedScene" uid="uid://cxd84i4g6yp12" path="res://savegame/tiles/wall.tscn" id="10_xb0qd"]
 [ext_resource type="Material" uid="uid://c08aipotjgscs" path="res://characters/props/dark_wall.tres" id="11_7c2e6"]
 [ext_resource type="Texture2D" uid="uid://8tml2um8cjvn" path="res://models/kenney.nl-prototyping/Textures/colormap.png" id="12_3b84q"]
 [ext_resource type="PackedScene" uid="uid://q5urabsljkln" path="res://characters/blocelot.tscn" id="14_iqy18"]
 [ext_resource type="PackedScene" uid="uid://d0g3lhg4l6vfk" path="res://characters/bleep.tscn" id="17_plpww"]
-[ext_resource type="PackedScene" uid="uid://igkorpqlh3wa" path="res://models/props/door.obj" id="19_oadvn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h351q"]
 font_size = 96
@@ -79,7 +79,7 @@ emission_energy_multiplier = 1.5
 [sub_resource type="TextMesh" id="TextMesh_3b84q"]
 material = SubResource("StandardMaterial3D_3b84q")
 text = "Herd Bleat
-Dance Beats"
+         Dance Beats"
 font_size = 64
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oadvn"]
@@ -92,6 +92,20 @@ emission_energy_multiplier = 1.5
 material = SubResource("StandardMaterial3D_oadvn")
 text = "Blocktails
 -------->>>"
+font_size = 64
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1srav"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.175772, 0.562615, 1, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="TextMesh" id="TextMesh_rqrpm"]
+material = SubResource("StandardMaterial3D_1srav")
+text = "O
+P
+E
+N"
 font_size = 64
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8wl4"]
@@ -211,26 +225,40 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -299.5
-offset_top = 235.5
-offset_right = 307.5
-offset_bottom = 332.5
+offset_left = -293.5
+offset_top = 315.5
+offset_right = 313.5
+offset_bottom = 412.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "8 balls later..."
+text = "after the match..."
 label_settings = SubResource("LabelSettings_h351q")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_k4kd3")
 
 [node name="DialogLine1" type="HBoxContainer" parent="UI/Intro"]
-visible = false
 layout_mode = 0
-offset_left = 12.5
-offset_top = -412.5
-offset_right = 466.5
-offset_bottom = -284.5
+offset_left = 7.5
+offset_top = 183.5
+offset_right = 461.5
+offset_bottom = 311.5
 script = ExtResource("4_k4kd3")
+
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mfec6")
+expand_mode = 2
 
 [node name="Text" type="Panel" parent="UI/Intro/DialogLine1"]
 custom_minimum_size = Vector2(320, 0)
@@ -243,18 +271,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Corner Pocket!
-I win again!"
+text = "You comin', Blitty?"
 label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1"]
+[node name="DialogLine5" type="HBoxContainer" parent="UI/Intro"]
+layout_mode = 0
+offset_left = -375.5
+offset_top = -245.5
+offset_right = 78.5
+offset_bottom = -117.5
+script = ExtResource("4_k4kd3")
+
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine5"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine5/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "I need to freshen up.
+Wow, what a queue..."
+label_settings = SubResource("LabelSettings_dpc8t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine5"]
 clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine5/Portrait"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -267,120 +319,38 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_g8wl4")
 expand_mode = 2
 
-[node name="DialogLine2" type="HBoxContainer" parent="UI/Intro"]
-visible = false
+[node name="DialogLine6" type="HBoxContainer" parent="UI/Intro"]
 layout_mode = 0
-offset_left = -379.5
-offset_top = -228.5
-offset_right = 74.5
-offset_bottom = -100.5
+offset_left = -294.5
+offset_top = -101.5
+offset_right = 159.5
+offset_bottom = 26.5
 script = ExtResource("4_k4kd3")
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine2"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine2/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_mfec6")
-expand_mode = 2
-
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine2"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine6"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine2/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine6/Text"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Oof, that play knocked
- me right off my paws!"
+text = "... you go ahead,
+I'll be there in a jiffy!"
 label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine3" type="HBoxContainer" parent="UI/Intro"]
-visible = false
-layout_mode = 0
-offset_left = -323.5
-offset_top = -92.5
-offset_right = 130.5
-offset_bottom = 35.5
-script = ExtResource("4_k4kd3")
-
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine3"]
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine6"]
 visible = false
 clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine3/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_mfec6")
-expand_mode = 2
-
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine3"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine3/Text"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "... rematch?"
-label_settings = SubResource("LabelSettings_dpc8t")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DialogLine4" type="HBoxContainer" parent="UI/Intro"]
-visible = false
-layout_mode = 0
-offset_left = -99.5
-offset_top = 155.5
-offset_right = 354.5
-offset_bottom = 283.5
-script = ExtResource("4_k4kd3")
-
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine4"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine4/Text"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Of course. But you can't 
-play pool on your back!"
-label_settings = SubResource("LabelSettings_dpc8t")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine4"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine4/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine6/Portrait"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -402,6 +372,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = 551.0
+offset_top = -18.0
+offset_right = 551.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -424,9 +398,240 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 bbcode_enabled = true
-text = "[color=green]TURN YOURSELF[/color] around."
+text = "[color=green]FIND[/color] the [color=green]BAR[/color] entrance."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Step2" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 279.0
+offset_top = -14.0
+offset_right = 279.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="UI/Step2"]
+layout_mode = 0
+offset_left = -400.0
+offset_top = 336.0
+offset_right = -151.0
+offset_bottom = 417.0
+
+[node name="Label" type="RichTextLabel" parent="UI/Step2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "[color=green]FACE[/color] the [color=green]DOOR[/color] to the [color=green]BAR[/color]."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Step3" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="UI/Step3"]
+layout_mode = 0
+offset_left = -400.0
+offset_top = 336.0
+offset_right = -151.0
+offset_bottom = 417.0
+
+[node name="Label" type="RichTextLabel" parent="UI/Step3/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Simply [color=green]PUSH[/color] through the queue."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Step4" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 257.0
+offset_top = -1.0
+offset_right = 257.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="UI/Step4"]
+layout_mode = 0
+offset_left = -400.0
+offset_top = 336.0
+offset_right = -151.0
+offset_bottom = 417.0
+
+[node name="Label" type="RichTextLabel" parent="UI/Step4/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Face the [color=green]WC DOOR[/color]."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Intermezzo1" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("4_k4kd3")
+
+[node name="DialogLine3" type="HBoxContainer" parent="UI/Intermezzo1"]
+layout_mode = 0
+offset_left = -167.5
+offset_top = -325.5
+offset_right = 286.5
+offset_bottom = -197.5
+script = ExtResource("4_k4kd3")
+
+[node name="Portrait" type="Panel" parent="UI/Intermezzo1/DialogLine3"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intermezzo1/DialogLine3/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mfec6")
+expand_mode = 2
+
+[node name="Text" type="Panel" parent="UI/Intermezzo1/DialogLine3"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Intermezzo1/DialogLine3/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Time to order
+those milk shakes!"
+label_settings = SubResource("LabelSettings_dpc8t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Intermezzo2" type="Control" parent="UI"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -11.5
+offset_right = 44.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("4_k4kd3")
+
+[node name="DialogLine7" type="HBoxContainer" parent="UI/Intermezzo2"]
+layout_mode = 0
+offset_left = -179.5
+offset_top = 183.5
+offset_right = 274.5
+offset_bottom = 311.5
+script = ExtResource("4_k4kd3")
+
+[node name="Text" type="Panel" parent="UI/Intermezzo2/DialogLine7"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="Label" parent="UI/Intermezzo2/DialogLine7/Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Coming through!"
+label_settings = SubResource("LabelSettings_dpc8t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Portrait" type="Panel" parent="UI/Intermezzo2/DialogLine7"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intermezzo2/DialogLine7/Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+texture = ExtResource("5_g8wl4")
+expand_mode = 2
 
 [node name="Outro" type="Control" parent="UI"]
 unique_name_in_owner = true
@@ -446,117 +651,36 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("4_k4kd3")
 
-[node name="DialogLine1" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine8" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
-offset_left = -363.5
-offset_top = -404.5
-offset_right = 90.5
-offset_bottom = -276.5
+offset_left = -165.5
+offset_top = -68.5
+offset_right = 288.5
+offset_bottom = 59.5
 script = ExtResource("4_k4kd3")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine1"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine1/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_mfec6")
-expand_mode = 2
-
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine1"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine8"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine1/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine8/Text"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Eight new balls
-comin' right up!"
+text = "This was getting dicey."
 label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine2" type="HBoxContainer" parent="UI/Outro"]
-layout_mode = 0
-offset_left = -163.5
-offset_top = -268.5
-offset_right = 290.5
-offset_bottom = -140.5
-script = ExtResource("4_k4kd3")
-
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2"]
-visible = false
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine8"]
 clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine2/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_mfec6")
-expand_mode = 2
-
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine2"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine2/Text"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "... I love this sound."
-label_settings = SubResource("LabelSettings_dpc8t")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DialogLine5" type="HBoxContainer" parent="UI/Outro"]
-layout_mode = 0
-offset_left = 20.5
-offset_top = 115.5
-offset_right = 474.5
-offset_bottom = 243.5
-script = ExtResource("4_k4kd3")
-
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine5"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine5/Text"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Game On!
-Your break."
-label_settings = SubResource("LabelSettings_dpc8t")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine5"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine5/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine8/Portrait"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -569,38 +693,37 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_g8wl4")
 expand_mode = 2
 
-[node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine9" type="HBoxContainer" parent="UI/Outro"]
 layout_mode = 0
-offset_left = 100.5
-offset_top = 251.5
-offset_right = 554.5
-offset_bottom = 379.5
+offset_left = -89.5
+offset_top = 68.5
+offset_right = 364.5
+offset_bottom = 196.5
 script = ExtResource("4_k4kd3")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine6"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine9"]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine6/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine9/Text"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "...care for a milk
-shake after this one?"
+text = "... sweet release!"
 label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine6"]
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine9"]
 visible = false
 clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine6/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine9/Portrait"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -612,45 +735,6 @@ grow_vertical = 2
 scale = Vector2(-1, 1)
 texture = ExtResource("5_g8wl4")
 expand_mode = 2
-
-[node name="DialogLine3" type="HBoxContainer" parent="UI/Outro"]
-layout_mode = 0
-offset_left = -387.5
-offset_top = -236.5
-offset_right = 66.5
-offset_bottom = -108.5
-script = ExtResource("4_k4kd3")
-
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine3"]
-clip_contents = true
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine3/Portrait"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_mfec6")
-expand_mode = 2
-
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine3"]
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine3/Text"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "You read my mind!"
-label_settings = SubResource("LabelSettings_dpc8t")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Blox" parent="." instance=ExtResource("7_f183y")]
 unique_name_in_owner = true
@@ -659,6 +743,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 [node name="Blitty" parent="." instance=ExtResource("8_3trsy")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -2, 0, 9)
+
+[node name="DoorBar" parent="." instance=ExtResource("9_rqrpm")]
+unique_name_in_owner = true
+transform = Transform3D(1.25, 0, 2.84124e-08, 0, 2, 0, 3.0598e-08, 0, 0.8, 9, 0, 7)
+
+[node name="DoorWC" parent="." instance=ExtResource("9_rqrpm")]
+unique_name_in_owner = true
+transform = Transform3D(1.25, 0, 2.84124e-08, 0, 2, 0, 3.0598e-08, 0, 0.8, -8, 0, 8)
 
 [node name="Environment" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 14)
@@ -754,18 +846,6 @@ material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
 
-[node name="floor-thick18" type="MeshInstance3D" parent="Environment/wall55"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -2.5)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
-
-[node name="floor-thick21" type="MeshInstance3D" parent="Environment/wall55"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -1.25)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
-
 [node name="floor-thick23" type="MeshInstance3D" parent="Environment/wall55"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
 material_override = ExtResource("11_7c2e6")
@@ -780,18 +860,6 @@ skeleton = NodePath("")
 
 [node name="floor-thick25" type="MeshInstance3D" parent="Environment/wall55"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 2.5)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
-
-[node name="floor-thick22" type="MeshInstance3D" parent="Environment/wall55"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -1.25)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
-
-[node name="floor-thick19" type="MeshInstance3D" parent="Environment/wall55"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
 skeleton = NodePath("")
@@ -836,7 +904,7 @@ skeleton = NodePath("")
 mesh = SubResource("PlaneMesh_w75he")
 
 [node name="Neon Sign" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 2.7, 1.3, -7.52773)
+transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 2.7, 1.2, -7.52773)
 cast_shadow = 0
 mesh = SubResource("TextMesh_3b84q")
 
@@ -850,11 +918,25 @@ shadow_blur = 3.0
 omni_attenuation = 0.2
 
 [node name="Neon Sign2" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 8.7, 1.3, -7.52773)
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.7, 1.3, -7.52773)
 cast_shadow = 0
 mesh = SubResource("TextMesh_k4kd3")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign2"]
+transform = Transform3D(0.133213, 0.858634, -0.494975, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
+light_color = Color(0, 0.389078, 0.756262, 1)
+light_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_blur = 3.0
+omni_attenuation = 0.2
+
+[node name="Neon Sign5" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 13.0316, 1.6, -6.5269)
+cast_shadow = 0
+mesh = SubResource("TextMesh_rqrpm")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign5"]
 transform = Transform3D(0.133213, 0.858634, -0.494975, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
 light_color = Color(0, 0.389078, 0.756262, 1)
 light_energy = 0.5
@@ -892,7 +974,7 @@ shadow_blur = 3.0
 omni_attenuation = 0.2
 
 [node name="Blocelot2" parent="Environment" instance=ExtResource("14_iqy18")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -5)
 
 [node name="Blocelot6" parent="Environment" instance=ExtResource("14_iqy18")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 0, -5)
@@ -978,46 +1060,25 @@ transform = Transform3D(1.64905e-07, 0, 1, 0, 1, 0, -1, 0, 1.64905e-07, 0, 0, -7
 [node name="Bleep33" parent="Environment" instance=ExtResource("17_plpww")]
 transform = Transform3D(1.64905e-07, 0, 1, 0, 1, 0, -1, 0, 1.64905e-07, -1, 0, -7)
 
-[node name="Bleep3" parent="Environment" instance=ExtResource("17_plpww")]
-transform = Transform3D(1, 0, 4.37114e-08, -4.37114e-08, 1.91069e-15, 1, 0, -1, 1.91069e-15, -1, 0, -4)
-
-[node name="Bleep8" parent="Environment" instance=ExtResource("17_plpww")]
-transform = Transform3D(-1, 0, 8.84149e-08, 0, 1, 0, -8.84149e-08, 0, -1, -1, 0, -3)
-
-[node name="Bleep31" parent="Environment" instance=ExtResource("17_plpww")]
-transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 3, 0, -2)
-
 [node name="Bleep7" parent="Environment" instance=ExtResource("17_plpww")]
-transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, -3, 0, -5)
+transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, -4, 0, -5)
 
 [node name="outer_wall" parent="Environment" instance=ExtResource("10_xb0qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.8, -10, 0, 3)
 include_children = true
 
 [node name="floor-thick" parent="Environment/outer_wall" index="0"]
-transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 3, 0, -3.75)
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 4, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
-
-[node name="door" parent="Environment/outer_wall" instance=ExtResource("19_oadvn")]
-transform = Transform3D(1.25, 0, 1.09278e-08, 0, 2, 0, 1.09278e-08, 0, 1, 5, 0, -11.25)
-
-[node name="door2" parent="Environment/outer_wall" instance=ExtResource("19_oadvn")]
-transform = Transform3D(-1.25, 0, -9.83506e-08, 0, 2, 0, 9.83506e-08, 0, -1, 22, 0, -12.5)
-
-[node name="floor-thick12" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 16, 0, -3.75)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
-
-[node name="floor-thick13" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 7, 0, 0, 0, 1, 13, 0, -3.75)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
 [node name="floor-thick14" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 15, 0, -3.75)
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 20, 0, -7.5)
+material_override = ExtResource("11_7c2e6")
+mesh = SubResource("ArrayMesh_mfec6")
+skeleton = NodePath("")
+
+[node name="floor-thick15" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 24, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
@@ -1040,14 +1101,20 @@ material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
-[node name="floor-thick26" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -7.5)
+[node name="floor-thick70" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 18, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
-[node name="floor-thick37" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 13, 0, -7.5)
+[node name="floor-thick71" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 17, 0, -8.75)
+material_override = ExtResource("11_7c2e6")
+mesh = SubResource("ArrayMesh_mfec6")
+skeleton = NodePath("")
+
+[node name="floor-thick26" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
@@ -1066,12 +1133,6 @@ skeleton = NodePath("")
 
 [node name="floor-thick34" type="MeshInstance3D" parent="Environment/outer_wall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -6.25)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
-
-[node name="floor-thick35" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 11, 0, -6.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
@@ -1131,7 +1192,7 @@ mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
 [node name="floor-thick36" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 10, 0, -6.25)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
@@ -1192,12 +1253,6 @@ skeleton = NodePath("")
 
 [node name="floor-thick68" type="MeshInstance3D" parent="Environment/outer_wall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 23, 0, -7.5)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
-
-[node name="floor-thick71" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 24, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
@@ -1274,6 +1329,24 @@ material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
+[node name="floor-thick37" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 16, 0, -8.75)
+material_override = ExtResource("11_7c2e6")
+mesh = SubResource("ArrayMesh_mfec6")
+skeleton = NodePath("")
+
+[node name="floor-thick73" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 14, 0, -8.75)
+material_override = ExtResource("11_7c2e6")
+mesh = SubResource("ArrayMesh_mfec6")
+skeleton = NodePath("")
+
+[node name="floor-thick69" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 15, 0, -8.75)
+material_override = ExtResource("11_7c2e6")
+mesh = SubResource("ArrayMesh_mfec6")
+skeleton = NodePath("")
+
 [node name="floor-thick24" type="MeshInstance3D" parent="Environment/outer_wall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 5, 0, 1, 0, -4.37114e-08, 7, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
@@ -1286,44 +1359,50 @@ material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
-[node name="floor-thick27" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 4, 0, -3.75)
+[node name="floor-thick35" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
-[node name="floor-thick28" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 3, 0, -3.75)
+[node name="floor-thick74" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
-[node name="floor-thick29" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -3.75)
+[node name="floor-thick75" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -6.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
-[node name="floor-thick38" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -5)
+[node name="floor-thick77" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
-[node name="floor-thick39" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -6.25)
-material_override = ExtResource("11_7c2e6")
-mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
-
-[node name="floor-thick40" type="MeshInstance3D" parent="Environment/outer_wall"]
-transform = Transform3D(-2.18557e-07, 0, -0.5, 0, 10, 0, 5, 0, -2.18557e-08, 2, 2, -7.5)
+[node name="floor-thick78" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")
 
 [node name="floor-thick41" type="MeshInstance3D" parent="Environment/outer_wall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -8.75)
+material_override = ExtResource("11_7c2e6")
+mesh = SubResource("ArrayMesh_mfec6")
+skeleton = NodePath("")
+
+[node name="floor-thick79" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 23, 0, -12.5)
+material_override = ExtResource("11_7c2e6")
+mesh = SubResource("ArrayMesh_mfec6")
+skeleton = NodePath("")
+
+[node name="floor-thick80" type="MeshInstance3D" parent="Environment/outer_wall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 24, 0, -12.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
 skeleton = NodePath("")

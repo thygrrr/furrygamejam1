@@ -14,25 +14,54 @@ func _main() -> void:
 	Camera.follow = player
 	Camera.warp()
 	%Intro.play()
-	after(6, %Step1.show)
 	player.moved.connect(count_move)
 	_play()
 	await player.moved
 	await player.moved
-	await player.moved
-	await player.moved
+	%Step1.show()
 	%Intro.hide()
+	await player.moved
+	after(1, %Step1.hide)
+	after(2, %Step2.show)
 
+	playing = await until(player.faces, %DoorBar)
 	
-	#await _cutscene()
+	await _cutscene1()
+
+	_play()
+	%Step3.show()
+	await player.moved
+	await player.moved
+	await player.moved
+	await player.moved
+	after(1, %Step3.hide)
+	after(2, %Step4.show)
+	
+	playing = await until(player.faces,%DoorWC)
+
+	await _cutscene2()	
 	prints("Moves taken:", moves)
+	
 
+func _cutscene1():
+	%Step1.hide()
+	%Step2.hide()
+	Music.success.play()
+	await seconds(1)
+	%DoorBar.highlight.play()
+	await %Intermezzo1.play()
+	player = %Blitty
+	Camera.follow = player
+	await %Intermezzo2.play()
+	%Blox.hide()
 
-func _cutscene():
+func _cutscene2():
+	%Step3.hide()
+	%Step4.hide()
 	Music.victory.play()
 	await seconds(1)
-	%BilliardTable.highlight.play()
-	await %Outro.play()
+	%DoorWC.highlight.play()
 	await AppUi.fade_overlay.fade_out()
+	await %Outro.play()
 	await seconds(2)
 	await LevelManager.load(4)
