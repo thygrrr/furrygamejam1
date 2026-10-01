@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://o760msijykqa"]
+[gd_scene format=3 uid="uid://o760msijykqa"]
 
 [ext_resource type="Script" uid="uid://d7jtgn1llo46" path="res://code/critter.gd" id="1_ftbhh"]
 [ext_resource type="Script" uid="uid://dbxl1smfojyp2" path="res://code/breath.gd" id="2_wrh6k"]
@@ -102,21 +102,21 @@ stream_0/stream = ExtResource("15_e1fyu")
 stream_1/stream = ExtResource("16_nid5x")
 stream_2/stream = ExtResource("17_lixqi")
 
-[node name="Critter" type="Node3D" groups=["critters"]]
+[node name="Critter" type="Node3D" unique_id=51244639 groups=["critters"]]
 script = ExtResource("1_ftbhh")
 
-[node name="anchor" type="Node3D" parent="."]
+[node name="anchor" type="Node3D" parent="." unique_id=290660960]
 unique_name_in_owner = true
 
-[node name="offset" type="Node3D" parent="anchor"]
+[node name="offset" type="Node3D" parent="anchor" unique_id=1818222102]
 unique_name_in_owner = true
 
-[node name="view" type="Node3D" parent="anchor/offset"]
+[node name="view" type="Node3D" parent="anchor/offset" unique_id=1193797060]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39, 0)
 script = ExtResource("2_wrh6k")
 
-[node name="Particles" type="CPUParticles3D" parent="anchor"]
+[node name="Particles" type="CPUParticles3D" parent="anchor" unique_id=462143433]
 emitting = false
 amount = 20
 lifetime = 0.3
@@ -142,14 +142,14 @@ scale_amount_curve = SubResource("Curve_7ou5g")
 color_ramp = SubResource("Gradient_f1fed")
 anim_speed_curve = SubResource("Curve_81ot8")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=1441686659]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 sync_to_physics = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1624840546]
 shape = SubResource("SphereShape3D_0oab4")
 
-[node name="FlopSound" type="AudioStreamPlayer3D" parent="."]
+[node name="FlopSound" type="AudioStreamPlayer3D" parent="." unique_id=633565405]
 stream = SubResource("AudioStreamRandomizer_p1xh7")
 volume_db = -6.0
 unit_size = 8.0
@@ -157,14 +157,14 @@ max_polyphony = 5
 panning_strength = 0.2
 bus = &"Sound"
 
-[node name="MoveSound" type="AudioStreamPlayer3D" parent="."]
+[node name="MoveSound" type="AudioStreamPlayer3D" parent="." unique_id=1942841687]
 stream = SubResource("AudioStreamRandomizer_f1fed")
 volume_db = -12.0
 max_polyphony = 5
 panning_strength = 0.2
 bus = &"Sound"
 
-[node name="BlockSound" type="AudioStreamPlayer3D" parent="."]
+[node name="BlockSound" type="AudioStreamPlayer3D" parent="." unique_id=642836056]
 stream = SubResource("AudioStreamRandomizer_lppw8")
 volume_db = -5.0
 unit_size = 5.0
@@ -172,7 +172,7 @@ max_polyphony = 5
 panning_strength = 0.2
 bus = &"Sound"
 
-[node name="PushSound" type="AudioStreamPlayer3D" parent="."]
+[node name="PushSound" type="AudioStreamPlayer3D" parent="." unique_id=719389016]
 stream = SubResource("AudioStreamRandomizer_g61wt")
 volume_db = -5.0
 unit_size = 5.0
@@ -180,7 +180,7 @@ max_polyphony = 5
 panning_strength = 0.2
 bus = &"Sound"
 
-[node name="PopSound" type="AudioStreamPlayer3D" parent="."]
+[node name="PopSound" type="AudioStreamPlayer3D" parent="." unique_id=2070872508]
 stream = SubResource("AudioStreamRandomizer_kq1al")
 volume_db = -8.0
 unit_size = 5.0
@@ -188,7 +188,7 @@ max_polyphony = 5
 panning_strength = 0.2
 bus = &"Sound"
 
-[node name="CollisionSound" type="AudioStreamPlayer3D" parent="."]
+[node name="CollisionSound" type="AudioStreamPlayer3D" parent="." unique_id=1255749429]
 stream = SubResource("AudioStreamRandomizer_wnex8")
 volume_db = -5.0
 unit_size = 5.0
@@ -196,11 +196,11 @@ max_polyphony = 5
 panning_strength = 0.2
 bus = &"Sound"
 
-[node name="voice" type="AudioStreamPlayer3D" parent="."]
+[node name="voice" type="AudioStreamPlayer3D" parent="." unique_id=504388900]
 stream = ExtResource("6_wnex8")
 bus = &"Sound"
 
-[node name="highlight" type="AudioStreamPlayer3D" parent="."]
+[node name="highlight" type="AudioStreamPlayer3D" parent="." unique_id=803992127]
 bus = &"Sound"
 
 [connection signal="mouse_entered" from="AnimatableBody3D" to="." method="_on_animatable_body_3d_mouse_entered"]

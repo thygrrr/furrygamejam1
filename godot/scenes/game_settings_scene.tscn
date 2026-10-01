@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://g4qhvbvdm62w"]
+[gd_scene format=3 uid="uid://g4qhvbvdm62w"]
 
 [ext_resource type="Script" uid="uid://beiufp2fwnabw" path="res://scenes/game_settings_scene.gd" id="1_3764u"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_w6tmj"]
@@ -7,19 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="3_1ykg1"]
 [ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="3_unbh4"]
 
-[node name="GameSettingsScene" type="Control"]
+[node name="GameSettingsScene" type="Control" unique_id=758170482]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_3764u")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=23077991]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_3hjmb")
 
-[node name="GameLogo" parent="TextureRect" instance=ExtResource("3_1ykg1")]
+[node name="GameLogo" parent="TextureRect" unique_id=639971395 instance=ExtResource("3_1ykg1")]
 modulate = Color(0, 0, 0, 0.7)
+layout_mode = 0
 offset_left = -16.0
 offset_top = 24.0
 offset_right = 904.0
@@ -27,7 +28,8 @@ offset_bottom = 284.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="GameLogo-FG" parent="TextureRect" instance=ExtResource("3_1ykg1")]
+[node name="GameLogo-FG" parent="TextureRect" unique_id=1723152871 instance=ExtResource("3_1ykg1")]
+layout_mode = 0
 offset_left = -8.0
 offset_top = 40.0
 offset_right = 912.0
@@ -35,7 +37,7 @@ offset_bottom = 300.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="RichTextLabel" parent="TextureRect"]
+[node name="Label" type="RichTextLabel" parent="TextureRect" unique_id=1014893223]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -55,7 +57,7 @@ Additional Sound Effects by Zapsplat
 Pixel Font by Eeve Somepx
 Made with love in Godot 4.4"
 
-[node name="Label-FG" type="RichTextLabel" parent="TextureRect"]
+[node name="Label-FG" type="RichTextLabel" parent="TextureRect" unique_id=1551152896]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -74,33 +76,33 @@ Additional Sound Effects by Zapsplat
 Pixel Font by Eeve Somepx
 Made with love in Godot 4.4"
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=242263878]
 
-[node name="CenterContainer" type="CenterContainer" parent="UI"]
+[node name="CenterContainer" type="CenterContainer" parent="UI" unique_id=1173817459]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer" unique_id=1538841268]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="SettingsLabel" type="Label" parent="UI/CenterContainer/VBoxContainer"]
+[node name="SettingsLabel" type="Label" parent="UI/CenterContainer/VBoxContainer" unique_id=449549378]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "settings"
 
-[node name="GameSettings" parent="UI/CenterContainer/VBoxContainer" instance=ExtResource("2_qsqie")]
+[node name="GameSettings" parent="UI/CenterContainer/VBoxContainer" unique_id=628480461 instance=ExtResource("2_qsqie")]
 layout_mode = 2
 
-[node name="ReturnButton" type="Button" parent="UI/CenterContainer/VBoxContainer"]
+[node name="ReturnButton" type="Button" parent="UI/CenterContainer/VBoxContainer" unique_id=707099073]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_unbh4")
 text = "return_to_main"
 
-[node name="FadeOverlay" parent="UI" instance=ExtResource("1_w6tmj")]
+[node name="FadeOverlay" parent="UI" unique_id=523049041 instance=ExtResource("1_w6tmj")]
 unique_name_in_owner = true
 visible = false

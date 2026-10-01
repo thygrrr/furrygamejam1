@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" uid="uid://btxfctnmgpykd" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="2_nl5i6"]
@@ -6,14 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/game_logo.tscn" id="4_fnufg"]
 [ext_resource type="Texture2D" uid="uid://bw22etf6ar1ji" path="res://sprites/New_Piskel-1.png_40.png" id="4_yj20m"]
 
-[node name="MainMenuScene" type="Node2D"]
+[node name="MainMenuScene" type="Node2D" unique_id=527144948]
 script = ExtResource("1_1foie")
 game_scene = ExtResource("2_nl5i6")
 settings_scene = ExtResource("3_dgs4d")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1185762591]
 
-[node name="Background" type="TextureRect" parent="UI"]
+[node name="Background" type="TextureRect" parent="UI" unique_id=555027465]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,7 +23,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("4_yj20m")
 
-[node name="GameLogo" parent="UI" instance=ExtResource("4_fnufg")]
+[node name="GameLogo" parent="UI" unique_id=1181505 instance=ExtResource("4_fnufg")]
 modulate = Color(0, 0, 0, 0.7)
 offset_left = -16.0
 offset_top = 24.0
@@ -32,7 +32,7 @@ offset_bottom = 284.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="GameLogo-FG" parent="UI" instance=ExtResource("4_fnufg")]
+[node name="GameLogo-FG" parent="UI" unique_id=460763399 instance=ExtResource("4_fnufg")]
 offset_left = -8.0
 offset_top = 40.0
 offset_right = 912.0
@@ -40,7 +40,7 @@ offset_bottom = 300.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Control" type="Control" parent="UI"]
+[node name="Control" type="Control" parent="UI" unique_id=51690282]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 8
@@ -58,7 +58,7 @@ scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control" unique_id=80274406]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,7 +75,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 5
 
-[node name="NewGameButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="UI/Control/VBoxContainer" unique_id=1751007573]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -83,7 +83,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "new_game"
 
-[node name="SettingsButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="UI/Control/VBoxContainer" unique_id=1490879582]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -91,7 +91,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "settings"
 
-[node name="Label" type="RichTextLabel" parent="UI"]
+[node name="Label" type="RichTextLabel" parent="UI" unique_id=1862284810]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,7 +112,7 @@ music:      CoVahr of AudioCreatures
 graphics:  someone404 and Mobropro
 "
 
-[node name="Label-FG" type="RichTextLabel" parent="UI"]
+[node name="Label-FG" type="RichTextLabel" parent="UI" unique_id=2060968922]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

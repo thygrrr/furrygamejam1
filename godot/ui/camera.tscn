@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chc4y0d6kkgkr"]
+[gd_scene format=3 uid="uid://chc4y0d6kkgkr"]
 
 [ext_resource type="Script" uid="uid://dcqd4pk8b3p6o" path="res://code/camera_frontend.gd" id="1_nsgqi"]
 [ext_resource type="Script" uid="uid://ts62aa2lgsgi" path="res://code/look_at.gd" id="2_ggq3h"]
@@ -8,25 +8,25 @@
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_i8x6x"]
 
-[node name="Camera" type="Node"]
+[node name="Camera" type="Node" unique_id=1083554463]
 script = ExtResource("1_nsgqi")
 
-[node name="CameraOffset" type="Node3D" parent="."]
+[node name="CameraOffset" type="Node3D" parent="." unique_id=904157608]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1, 8, 6)
 
-[node name="CameraPosition" type="Node3D" parent="CameraOffset"]
+[node name="CameraPosition" type="Node3D" parent="CameraOffset" unique_id=1591509471]
 
-[node name="CameraLook" type="Node3D" parent="CameraOffset/CameraPosition" node_paths=PackedStringArray("target")]
+[node name="CameraLook" type="Node3D" parent="CameraOffset/CameraPosition" unique_id=541045177 node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
 transform = Transform3D(0.984808, -0.122788, 0.122788, 0, 0.707107, 0.707107, -0.173648, -0.696364, 0.696364, 0, 0, 0)
 script = ExtResource("2_ggq3h")
 target = NodePath("../../../CameraLookTarget")
 
-[node name="CameraShake" type="Node3D" parent="CameraOffset/CameraPosition/CameraLook"]
+[node name="CameraShake" type="Node3D" parent="CameraOffset/CameraPosition/CameraLook" unique_id=345315503]
 unique_name_in_owner = true
 script = ExtResource("3_i8x6x")
 
-[node name="Camera3D" type="Camera3D" parent="CameraOffset/CameraPosition/CameraLook/CameraShake"]
+[node name="Camera3D" type="Camera3D" parent="CameraOffset/CameraPosition/CameraLook/CameraShake" unique_id=1191960677]
 unique_name_in_owner = true
 transform = Transform3D(0.996195, 0.0871557, 0, -0.0871558, 0.996195, 0, 0, 0, 0.999999, 0, 0, 0)
 attributes = SubResource("CameraAttributesPractical_i8x6x")
@@ -35,13 +35,13 @@ fov = 30.0
 size = 7.0
 far = 200.0
 
-[node name="CameraLookTarget" type="Node3D" parent="."]
+[node name="CameraLookTarget" type="Node3D" parent="." unique_id=1827416723]
 
-[node name="CameraFollow" type="Node3D" parent="."]
+[node name="CameraFollow" type="Node3D" parent="." unique_id=375993933]
 unique_name_in_owner = true
 script = ExtResource("5_i8x6x")
 
-[node name="CameraPositionMover" type="Node3D" parent="CameraFollow" node_paths=PackedStringArray("target")]
+[node name="CameraPositionMover" type="Node3D" parent="CameraFollow" unique_id=1018320480 node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
 script = ExtResource("6_um7uo")
 target = NodePath("../../CameraOffset/CameraPosition")
@@ -52,7 +52,7 @@ follow_position = null
 follow_rotation = null
 metadata/_custom_type_script = "uid://bob5guqytrpmh"
 
-[node name="CameraLookMover" type="Node3D" parent="CameraFollow" node_paths=PackedStringArray("target")]
+[node name="CameraLookMover" type="Node3D" parent="CameraFollow" unique_id=1908200035 node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
 script = ExtResource("6_um7uo")
 target = NodePath("../../CameraLookTarget")

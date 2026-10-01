@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dybuqfbfjm6bm"]
+[gd_scene format=3 uid="uid://dybuqfbfjm6bm"]
 
 [ext_resource type="PackedScene" uid="uid://djfa3yhhl2e6d" path="res://characters/props/obstacle.tscn" id="1_ywu47"]
 [ext_resource type="PackedScene" uid="uid://blxpa8ypqqfft" path="res://models/props/BilliarTable.obj" id="2_6x2bm"]
@@ -6,25 +6,25 @@
 [ext_resource type="Script" uid="uid://d0yi5hhd4qvu3" path="res://code/obstacle.gd" id="3_34go7"]
 [ext_resource type="AudioStream" uid="uid://sl7ra6qxbskf" path="res://sfx/sport_pool_table_coin_operated_balls_release.mp3" id="5_uk6if"]
 
-[node name="BilliardTable" instance=ExtResource("1_ywu47")]
+[node name="BilliardTable" unique_id=1139419595 instance=ExtResource("1_ywu47")]
 script = ExtResource("2_hmw3t")
 omni = true
 
-[node name="BilliarTable" parent="." index="0" instance=ExtResource("2_6x2bm")]
+[node name="BilliarTable" parent="." index="0" unique_id=2130309627 instance=ExtResource("2_6x2bm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 
-[node name="view" type="Node3D" parent="." index="1"]
+[node name="view" type="Node3D" parent="." index="1" unique_id=850109390]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("3_34go7")
 group_as_parent = true
 
-[node name="block2" type="Node3D" parent="." index="2"]
+[node name="block2" type="Node3D" parent="." index="2" unique_id=32655680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 script = ExtResource("3_34go7")
 group_as_parent = true
 
-[node name="highlight" type="AudioStreamPlayer3D" parent="." index="3"]
+[node name="highlight" type="AudioStreamPlayer3D" parent="." index="3" unique_id=2028766319]
 stream = ExtResource("5_uk6if")
 volume_db = -6.0
 bus = &"Sound"

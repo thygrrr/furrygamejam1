@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://nl1cn61u3wd"]
+[gd_scene format=3 uid="uid://nl1cn61u3wd"]
 
 [ext_resource type="PackedScene" uid="uid://bo4ehnumovbi" path="res://ui/components/bootsplash.tscn" id="1_gflph"]
 
-[node name="IntroScene" type="Node2D"]
+[node name="IntroScene" type="Node2D" unique_id=1097217704]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=441034]
 
-[node name="Bootsplash" parent="CanvasLayer" instance=ExtResource("1_gflph")]
+[node name="Bootsplash" parent="CanvasLayer" unique_id=96485151 instance=ExtResource("1_gflph")]

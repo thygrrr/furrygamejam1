@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://1247skxw88ik"]
+[gd_scene format=3 uid="uid://1247skxw88ik"]
 
 [ext_resource type="PackedScene" uid="uid://o760msijykqa" path="res://characters/critter.tscn" id="1_eq12e"]
 [ext_resource type="PackedScene" uid="uid://bv8tdfqtnsl5y" path="res://models/calico/calico.obj" id="2_4xbdr"]
 [ext_resource type="Script" uid="uid://d28tra6l3ta7x" path="res://code/player_blitty.gd" id="2_g71yv"]
 [ext_resource type="PackedScene" uid="uid://fdrvb8uucnxj" path="res://models/calico/calicoblinking.obj" id="3_jwla2"]
 
-[node name="Blitty" instance=ExtResource("1_eq12e")]
+[node name="Blitty" unique_id=1156585493 instance=ExtResource("1_eq12e")]
 script = ExtResource("2_g71yv")
 
-[node name="Normal" parent="anchor/offset/view" index="0" instance=ExtResource("2_4xbdr")]
+[node name="Normal" parent="anchor/offset/view" parent_id_path=PackedInt32Array(1193797060) index="0" unique_id=949834960 instance=ExtResource("2_4xbdr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.4, -0.2)
 
-[node name="Blink" parent="anchor/offset/view" index="1" instance=ExtResource("3_jwla2")]
+[node name="Blink" parent="anchor/offset/view" parent_id_path=PackedInt32Array(1193797060) index="1" unique_id=1333965485 instance=ExtResource("3_jwla2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.4, -0.2)
 visible = false
 

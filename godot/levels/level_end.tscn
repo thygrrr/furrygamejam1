@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bngny6c0gk4ik"]
+[gd_scene format=3 uid="uid://bngny6c0gk4ik"]
 
 [ext_resource type="Script" uid="uid://bec4p78usm1jq" path="res://levels/level_end.gd" id="1_enl4u"]
 [ext_resource type="AudioStream" uid="uid://ckqtp8kyaxldn" path="res://sfx/ambiences/smartsound_ATMO_BUSH_Water_Hole_Night_Calm_02.mp3" id="2_vl6al"]
@@ -48,30 +48,30 @@ roughness = 0.5
 material = SubResource("StandardMaterial3D_etwux")
 size = Vector2(100, 100)
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" unique_id=1179083506]
 script = ExtResource("1_enl4u")
 moves_par = 21
 moves_record = 13
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1571964693]
 environment = ExtResource("21_vl6al")
 
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=4932530]
 stream = ExtResource("2_vl6al")
 volume_db = -12.0
 autoplay = true
 bus = &"Sound"
 parameters/looping = true
 
-[node name="Fill Light" type="DirectionalLight3D" parent="."]
+[node name="Fill Light" type="DirectionalLight3D" parent="." unique_id=420514668]
 transform = Transform3D(-0.494737, -0.196262, -0.846591, 0, 0.974165, -0.225837, 0.869043, -0.11173, -0.481955, -4.51481, -1.71708, -14.255)
 light_color = Color(0, 0, 0.933333, 1)
 light_energy = 0.5
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1820971683]
 layer = 2
 
-[node name="Intro" type="Control" parent="UI"]
+[node name="Intro" type="Control" parent="UI" unique_id=907728135]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -89,7 +89,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("3_quvdh")
 
-[node name="Title Label" type="Label" parent="UI/Intro"]
+[node name="Title Label" type="Label" parent="UI/Intro" unique_id=748308073]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,7 +107,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_quvdh")
 
-[node name="DialogLine4" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine4" type="HBoxContainer" parent="UI/Intro" unique_id=1730728512]
 layout_mode = 0
 offset_left = 16.5
 offset_top = -385.5
@@ -115,11 +115,11 @@ offset_right = 470.5
 offset_bottom = -257.5
 script = ExtResource("3_quvdh")
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine4"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine4" unique_id=1373781195]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine4/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine4/Text" unique_id=1670230045]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,12 +132,12 @@ label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait2" type="Panel" parent="UI/Intro/DialogLine4"]
-clip_contents = true
+[node name="Portrait2" type="Panel" parent="UI/Intro/DialogLine4" unique_id=15707658]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine4/Portrait2"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine4/Portrait2" unique_id=355009184]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,7 +150,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_4iuuu")
 expand_mode = 2
 
-[node name="DialogLine1" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine1" type="HBoxContainer" parent="UI/Intro" unique_id=1411912278]
 layout_mode = 0
 offset_left = -385.5
 offset_top = 97.5
@@ -158,12 +158,12 @@ offset_right = 68.5
 offset_bottom = 225.5
 script = ExtResource("3_quvdh")
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1" unique_id=1659574512]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait" unique_id=763462062]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -173,11 +173,11 @@ grow_vertical = 2
 texture = ExtResource("4_8r0el")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine1"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine1" unique_id=1108158427]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine1/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine1/Text" unique_id=1532165445]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -190,7 +190,7 @@ label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Outro" type="Control" parent="UI"]
+[node name="Outro" type="Control" parent="UI" unique_id=231263357]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -208,7 +208,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("3_quvdh")
 
-[node name="DialogLine2" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine2" type="HBoxContainer" parent="UI/Outro" unique_id=2115593762]
 layout_mode = 0
 offset_left = -166.5
 offset_top = 272.5
@@ -216,12 +216,12 @@ offset_right = 287.5
 offset_bottom = 400.5
 script = ExtResource("3_quvdh")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2" unique_id=484361592]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine2/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine2/Portrait" unique_id=70001111]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -231,11 +231,11 @@ grow_vertical = 2
 texture = ExtResource("4_8r0el")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine2"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine2" unique_id=1417605843]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine2/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine2/Text" unique_id=495321171]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -247,7 +247,7 @@ label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine1" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine1" type="HBoxContainer" parent="UI/Outro" unique_id=1071035947]
 layout_mode = 0
 offset_left = -198.5
 offset_top = -397.5
@@ -255,11 +255,11 @@ offset_right = 255.5
 offset_bottom = -269.5
 script = ExtResource("3_quvdh")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine1"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine1" unique_id=1999021232]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine1/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine1/Text" unique_id=800735757]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -271,12 +271,12 @@ label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine1"]
-clip_contents = true
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine1" unique_id=2074531525]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine1/Portrait2"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine1/Portrait2" unique_id=1895588258]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -289,7 +289,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_4iuuu")
 expand_mode = 2
 
-[node name="DialogLine4" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine4" type="HBoxContainer" parent="UI/Outro" unique_id=1855772425]
 layout_mode = 0
 offset_left = -171.5
 offset_top = -264.5
@@ -297,11 +297,11 @@ offset_right = 282.5
 offset_bottom = -136.5
 script = ExtResource("3_quvdh")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine4"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine4" unique_id=1161765418]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine4/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine4/Text" unique_id=153368988]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -313,13 +313,13 @@ label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine4"]
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine4" unique_id=1687605007]
 visible = false
-clip_contents = true
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine4/Portrait2"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine4/Portrait2" unique_id=73797471]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -332,7 +332,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_4iuuu")
 expand_mode = 2
 
-[node name="DialogLine5" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine5" type="HBoxContainer" parent="UI/Outro" unique_id=1200150567]
 visible = false
 layout_mode = 0
 offset_left = -182.5
@@ -341,12 +341,12 @@ offset_right = 271.5
 offset_bottom = 2.5
 script = ExtResource("3_quvdh")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine5"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine5" unique_id=1742290563]
 visible = false
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine5/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine5/Text" unique_id=746294112]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -358,13 +358,13 @@ label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine5"]
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine5" unique_id=1861622604]
 visible = false
-clip_contents = true
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine5/Portrait2"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine5/Portrait2" unique_id=462836054]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -377,7 +377,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_4iuuu")
 expand_mode = 2
 
-[node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine6" type="HBoxContainer" parent="UI/Outro" unique_id=2079375627]
 layout_mode = 0
 offset_left = -142.5
 offset_top = -129.5
@@ -385,11 +385,11 @@ offset_right = 311.5
 offset_bottom = -1.5
 script = ExtResource("3_quvdh")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine6"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine6" unique_id=1740527417]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine6/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine6/Text" unique_id=1890446858]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -401,13 +401,13 @@ label_settings = SubResource("LabelSettings_w75he")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine6"]
+[node name="Portrait2" type="Panel" parent="UI/Outro/DialogLine6" unique_id=1502171417]
 visible = false
-clip_contents = true
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine6/Portrait2"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine6/Portrait2" unique_id=1263433655]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -420,7 +420,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_4iuuu")
 expand_mode = 2
 
-[node name="Step1" type="Control" parent="UI"]
+[node name="Step1" type="Control" parent="UI" unique_id=1563100312]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -437,14 +437,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="UI/Step1"]
+[node name="Panel" type="Panel" parent="UI/Step1" unique_id=2010262935]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 256.0
 offset_right = 369.0
 offset_bottom = 337.0
 
-[node name="Label" type="RichTextLabel" parent="UI/Step1/Panel"]
+[node name="Label" type="RichTextLabel" parent="UI/Step1/Panel" unique_id=1578901172]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -459,7 +459,7 @@ text = "Say [color=green]GOOD NIGHT[/color] to each other."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ThankYou" type="Control" parent="UI"]
+[node name="ThankYou" type="Control" parent="UI" unique_id=976386389]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -471,7 +471,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("3_quvdh")
 
-[node name="Title Label" type="Label" parent="UI/ThankYou"]
+[node name="Title Label" type="Label" parent="UI/ThankYou" unique_id=1840591294]
 self_modulate = Color(0.95, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -491,7 +491,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_quvdh")
 
-[node name="Title Label2" type="Label" parent="UI/ThankYou/Title Label"]
+[node name="Title Label2" type="Label" parent="UI/ThankYou/Title Label" unique_id=1277993283]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -510,7 +510,7 @@ label_settings = SubResource("LabelSettings_quvdh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title Label4" type="Label" parent="UI/ThankYou"]
+[node name="Title Label4" type="Label" parent="UI/ThankYou" unique_id=1233418044]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -528,19 +528,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_quvdh")
 
-[node name="Control" type="Control" parent="UI/ThankYou"]
+[node name="Control" type="Control" parent="UI/ThankYou" unique_id=1043432219]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_quvdh")
 
-[node name="Control2" type="Control" parent="UI/ThankYou"]
+[node name="Control2" type="Control" parent="UI/ThankYou" unique_id=1788302872]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_quvdh")
 
-[node name="Title Label3" type="Label" parent="UI/ThankYou"]
+[node name="Title Label3" type="Label" parent="UI/ThankYou" unique_id=358521532]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -558,268 +558,268 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_quvdh")
 
-[node name="Environment" type="Node3D" parent="."]
+[node name="Environment" type="Node3D" parent="." unique_id=664866168]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
-[node name="wall16" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall16" parent="Environment" unique_id=982219951 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
 
-[node name="wall17" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall17" parent="Environment" unique_id=325167056 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
 
-[node name="wall5" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall5" parent="Environment" unique_id=1511289667 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
 
-[node name="wall6" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall6" parent="Environment" unique_id=2083236548 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
 
-[node name="wall7" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall7" parent="Environment" unique_id=884802863 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
 
-[node name="wall34" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall34" parent="Environment" unique_id=1702496123 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
 
-[node name="wall35" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall35" parent="Environment" unique_id=1195069268 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
 
-[node name="wall36" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall36" parent="Environment" unique_id=748791407 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
 
-[node name="wall37" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall37" parent="Environment" unique_id=2006206990 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
 
-[node name="wall38" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall38" parent="Environment" unique_id=822224931 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
-[node name="wall39" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall39" parent="Environment" unique_id=140388070 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
-[node name="wall40" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall40" parent="Environment" unique_id=18556787 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 
-[node name="wall41" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall41" parent="Environment" unique_id=1511983920 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
 
-[node name="wall42" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall42" parent="Environment" unique_id=661123137 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
 
-[node name="wall43" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall43" parent="Environment" unique_id=1093298817 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
 
-[node name="wall44" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall44" parent="Environment" unique_id=1226533782 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
 
-[node name="wall45" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall45" parent="Environment" unique_id=1092104741 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4)
 
-[node name="wall46" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall46" parent="Environment" unique_id=881679047 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
 
-[node name="wall47" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall47" parent="Environment" unique_id=811360973 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4)
 
-[node name="wall48" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall48" parent="Environment" unique_id=604305676 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
 
-[node name="wall49" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall49" parent="Environment" unique_id=1457479742 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 4)
 
-[node name="wall50" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall50" parent="Environment" unique_id=1295433434 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 4)
 
-[node name="wall8" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall8" parent="Environment" unique_id=310081646 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
 
-[node name="wall15" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall15" parent="Environment" unique_id=152636411 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
 
-[node name="wall9" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall9" parent="Environment" unique_id=894749858 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
 
-[node name="wall19" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall19" parent="Environment" unique_id=942530226 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
 
-[node name="wall20" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall20" parent="Environment" unique_id=1194037109 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
 
-[node name="wall10" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall10" parent="Environment" unique_id=478443545 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 
-[node name="wall14" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall14" parent="Environment" unique_id=1434109874 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
 
-[node name="wall26" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall26" parent="Environment" unique_id=443695938 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="wall27" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall27" parent="Environment" unique_id=1421260782 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
 
-[node name="wall28" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall28" parent="Environment" unique_id=1040943768 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 
-[node name="wall11" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall11" parent="Environment" unique_id=951555423 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
 
-[node name="wall12" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall12" parent="Environment" unique_id=20755610 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
 
-[node name="wall13" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall13" parent="Environment" unique_id=1899981211 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3)
 
-[node name="wall21" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall21" parent="Environment" unique_id=1290909635 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
 
-[node name="wall22" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall22" parent="Environment" unique_id=920866370 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
 
-[node name="wall62" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall62" parent="Environment" unique_id=1140133138 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 
-[node name="wall63" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall63" parent="Environment" unique_id=1237105790 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
 
-[node name="wall64" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall64" parent="Environment" unique_id=535161937 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7)
 
-[node name="wall65" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall65" parent="Environment" unique_id=1267594191 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7)
 
-[node name="wall66" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall66" parent="Environment" unique_id=1250652469 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1, 0, -7)
 
-[node name="wall68" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall68" parent="Environment" unique_id=2081762161 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1, 0, -8)
 
-[node name="wall69" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall69" parent="Environment" unique_id=245258930 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1, 0, -9)
 
-[node name="wall70" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall70" parent="Environment" unique_id=408330293 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1, 0, -9)
 
-[node name="wall67" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall67" parent="Environment" unique_id=186541554 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -7)
 
-[node name="wall71" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall71" parent="Environment" unique_id=294303000 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1, 0, -7)
 
-[node name="wall72" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall72" parent="Environment" unique_id=389599879 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2, 0, -7)
 
-[node name="wall31" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall31" parent="Environment" unique_id=1899182386 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
 
-[node name="wall32" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall32" parent="Environment" unique_id=1129473259 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
-[node name="wall33" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall33" parent="Environment" unique_id=1431020427 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
 
-[node name="wall51" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall51" parent="Environment" unique_id=2060033985 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
 
-[node name="wall56" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall56" parent="Environment" unique_id=709899926 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
 
-[node name="wall57" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall57" parent="Environment" unique_id=1155536033 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
 
-[node name="wall58" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall58" parent="Environment" unique_id=1622116393 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="wall59" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall59" parent="Environment" unique_id=1943697174 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
 
-[node name="wall60" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall60" parent="Environment" unique_id=823968378 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
 
-[node name="wall61" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall61" parent="Environment" unique_id=350606479 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
 
-[node name="wall29" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall29" parent="Environment" unique_id=908205659 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
 
-[node name="wall30" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall30" parent="Environment" unique_id=2065053068 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7)
 
-[node name="wall23" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall23" parent="Environment" unique_id=1203229686 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
 
-[node name="wall24" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall24" parent="Environment" unique_id=1792908759 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
 
-[node name="wall52" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall52" parent="Environment" unique_id=1203040303 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
 
-[node name="wall53" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall53" parent="Environment" unique_id=544921977 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
 
-[node name="wall54" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall54" parent="Environment" unique_id=1789413485 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
 
-[node name="wall55" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall55" parent="Environment" unique_id=1532952837 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
 
-[node name="wall25" parent="Environment" instance=ExtResource("7_ix6rd")]
+[node name="wall25" parent="Environment" unique_id=198298910 instance=ExtResource("7_ix6rd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
 
-[node name="door" parent="Environment" instance=ExtResource("8_6kr6l")]
+[node name="door" parent="Environment" unique_id=1205457713 instance=ExtResource("8_6kr6l")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 5.4, 0.185064, 2)
 
-[node name="planter2" parent="Environment" instance=ExtResource("9_gx6jy")]
+[node name="planter2" parent="Environment" unique_id=549195354 instance=ExtResource("9_gx6jy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.2, 3.2)
 
-[node name="planter3" parent="Environment" instance=ExtResource("9_gx6jy")]
+[node name="planter3" parent="Environment" unique_id=373501345 instance=ExtResource("9_gx6jy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.2, 3.2)
 
-[node name="Floor-10x10" parent="Environment" instance=ExtResource("10_c0vh8")]
+[node name="Floor-10x10" parent="Environment" unique_id=228289509 instance=ExtResource("10_c0vh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.5)
 
-[node name="Floor-10x13" parent="Environment" instance=ExtResource("10_c0vh8")]
+[node name="Floor-10x13" parent="Environment" unique_id=789741372 instance=ExtResource("10_c0vh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 0, -9.5)
 
-[node name="Floor-10x14" parent="Environment" instance=ExtResource("10_c0vh8")]
+[node name="Floor-10x14" parent="Environment" unique_id=628918053 instance=ExtResource("10_c0vh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -12.5)
 
-[node name="Floor-10x11" parent="Environment" instance=ExtResource("10_c0vh8")]
+[node name="Floor-10x11" parent="Environment" unique_id=1707601008 instance=ExtResource("10_c0vh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, 0, -11.4)
 
-[node name="Floor-10x12" parent="Environment" instance=ExtResource("10_c0vh8")]
+[node name="Floor-10x12" parent="Environment" unique_id=271364584 instance=ExtResource("10_c0vh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9, 0, -4.2)
 
-[node name="tree-small2" parent="Environment" instance=ExtResource("11_6j8j4")]
+[node name="tree-small2" parent="Environment" unique_id=1736441185 instance=ExtResource("11_6j8j4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05845, 0.2, -4.18447)
 
-[node name="tree-small3" parent="Environment" instance=ExtResource("11_6j8j4")]
+[node name="tree-small3" parent="Environment" unique_id=446879944 instance=ExtResource("11_6j8j4")]
 transform = Transform3D(0.984808, 0.0151344, 0.172987, 0, 0.996195, -0.0871557, -0.173648, 0.0858316, 0.98106, 6.15997, 0.1, -3.2671)
 
-[node name="tree-small4" parent="Environment" instance=ExtResource("11_6j8j4")]
+[node name="tree-small4" parent="Environment" unique_id=94828790 instance=ExtResource("11_6j8j4")]
 transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 5.15845, 0.1, -2.98447)
 
-[node name="tree-small5" parent="Environment" instance=ExtResource("11_6j8j4")]
+[node name="tree-small5" parent="Environment" unique_id=947689063 instance=ExtResource("11_6j8j4")]
 transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, -1.84155, 0.1, -3.98447)
 
-[node name="tree-small6" parent="Environment" instance=ExtResource("11_6j8j4")]
+[node name="tree-small6" parent="Environment" unique_id=619679747 instance=ExtResource("11_6j8j4")]
 transform = Transform3D(-0.0871561, 0, 0.996195, 0, 1, 0, -0.996195, 0, -0.0871561, -1.84155, 0.1, -4.98447)
 
-[node name="tree-small7" parent="Environment" instance=ExtResource("11_6j8j4")]
+[node name="tree-small7" parent="Environment" unique_id=2028709586 instance=ExtResource("11_6j8j4")]
 transform = Transform3D(-0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, -0.173648, -0.84155, 0.1, -6.98447)
 
-[node name="building-type-o2" parent="Environment" instance=ExtResource("12_7rnxo")]
+[node name="building-type-o2" parent="Environment" unique_id=1319144025 instance=ExtResource("12_7rnxo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6, 0, 1)
 
-[node name="building-type-h2" parent="Environment" instance=ExtResource("13_xuwb4")]
+[node name="building-type-h2" parent="Environment" unique_id=2127698538 instance=ExtResource("13_xuwb4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8.6)
 
-[node name="fence-1x32" parent="Environment" instance=ExtResource("14_fapfm")]
+[node name="fence-1x32" parent="Environment" unique_id=1070351055 instance=ExtResource("14_fapfm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99166, 0, 2.12771)
 
-[node name="fence-3x22" parent="Environment" instance=ExtResource("15_0r44o")]
+[node name="fence-3x22" parent="Environment" unique_id=1837706924 instance=ExtResource("15_0r44o")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -0.9)
 
-[node name="building-type-a2" parent="Environment" instance=ExtResource("16_rrrbq")]
+[node name="building-type-a2" parent="Environment" unique_id=2124391781 instance=ExtResource("16_rrrbq")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.6, 0.4, 0.3)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment" unique_id=1460461617]
 transform = Transform3D(1, -1.41714e-08, 5.6365e-17, 1.41714e-08, 1, -3.97738e-09, 0, 3.97738e-09, 1, 3, 4, 1)
 light_energy = 0.3
 shadow_opacity = 0.8
@@ -827,25 +827,25 @@ shadow_blur = 3.0
 omni_range = 50.0
 omni_attenuation = 0.5
 
-[node name="path-stones-long2" parent="Environment" instance=ExtResource("17_vl6al")]
+[node name="path-stones-long2" parent="Environment" unique_id=1031956974 instance=ExtResource("17_vl6al")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -2.5, 0.2, -6.4)
 
-[node name="path-stones-long3" parent="Environment" instance=ExtResource("17_vl6al")]
+[node name="path-stones-long3" parent="Environment" unique_id=742594017 instance=ExtResource("17_vl6al")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -4.1, 0.2, -7.7)
 
-[node name="Blox" parent="." instance=ExtResource("17_esvl6")]
+[node name="Blox" parent="." unique_id=715083680 instance=ExtResource("17_esvl6")]
 unique_name_in_owner = true
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -1, 0, 0)
 
-[node name="Blitty" parent="." instance=ExtResource("18_77bbg")]
+[node name="Blitty" parent="." unique_id=330744528 instance=ExtResource("18_77bbg")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -1)
 
-[node name="Mailbox" parent="." instance=ExtResource("20_0gdp1")]
+[node name="Mailbox" parent="." unique_id=328011730 instance=ExtResource("20_0gdp1")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 5)
 
-[node name="ground" type="MeshInstance3D" parent="."]
+[node name="ground" type="MeshInstance3D" parent="." unique_id=1780837091]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 10)
 mesh = SubResource("PlaneMesh_w75he")
 skeleton = NodePath("../Environment")

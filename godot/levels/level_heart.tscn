@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://d2fn8v3fk3w4x"]
+[gd_scene format=4 uid="uid://d2fn8v3fk3w4x"]
 
 [ext_resource type="Script" uid="uid://c24s7mlhuak7t" path="res://levels/level_heart.gd" id="1_v63gk"]
 [ext_resource type="AudioStream" uid="uid://8seei85scwea" path="res://sfx/ambiences/344_audio_ext_manchester_pub_beer_garden_374.mp3" id="2_3b84q"]
@@ -170,33 +170,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g8wl4")
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" unique_id=1767737200]
 script = ExtResource("1_v63gk")
 moves_par = 12
 moves_record = 8
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=984369264]
 environment = ExtResource("2_w548r")
 
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=459884027]
 stream = ExtResource("2_3b84q")
 volume_db = -16.0
 autoplay = true
 bus = &"Sound"
 
-[node name="Ambience2" type="AudioStreamPlayer" parent="."]
+[node name="Ambience2" type="AudioStreamPlayer" parent="." unique_id=1063143306]
 stream = ExtResource("3_oadvn")
 volume_db = -12.0
 autoplay = true
 bus = &"Sound"
 
-[node name="Ambience3" type="AudioStreamPlayer3D" parent="."]
+[node name="Ambience3" type="AudioStreamPlayer3D" parent="." unique_id=150655372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, 9)
 stream = ExtResource("4_rqrpm")
 autoplay = true
 bus = &"Sound"
 
-[node name="Key Light" type="DirectionalLight3D" parent="."]
+[node name="Key Light" type="DirectionalLight3D" parent="." unique_id=1039985034]
 transform = Transform3D(0.549041, 0.552356, 0.627262, -0.774805, 0.617801, 0.13416, -0.313419, -0.559665, 0.767166, 10.5153, 5.43031, 13.732)
 light_color = Color(1, 1, 0.921569, 1)
 light_energy = 0.2
@@ -206,14 +206,14 @@ directional_shadow_split_2 = 0.1
 directional_shadow_split_3 = 0.3
 directional_shadow_blend_splits = true
 
-[node name="Fill Light" type="DirectionalLight3D" parent="."]
+[node name="Fill Light" type="DirectionalLight3D" parent="." unique_id=900551397]
 transform = Transform3D(-0.494737, -0.196262, -0.846591, 0, 0.974165, -0.225837, 0.869043, -0.11173, -0.481955, -6.51481, -1.71708, -0.255001)
 light_color = Color(6.73831e-06, 0.932929, 0.932929, 1)
 light_energy = 0.5
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1157263378]
 
-[node name="Intro" type="Control" parent="UI"]
+[node name="Intro" type="Control" parent="UI" unique_id=329569201]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -231,7 +231,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("4_k4kd3")
 
-[node name="Title Label" type="Label" parent="UI/Intro"]
+[node name="Title Label" type="Label" parent="UI/Intro" unique_id=1100516349]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -248,7 +248,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_k4kd3")
 
-[node name="DialogLine1" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine1" type="HBoxContainer" parent="UI/Intro" unique_id=1535369942]
 layout_mode = 0
 offset_left = 7.5
 offset_top = 183.5
@@ -256,12 +256,12 @@ offset_right = 461.5
 offset_bottom = 311.5
 script = ExtResource("4_k4kd3")
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1" unique_id=702740703]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait" unique_id=1150353909]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -271,11 +271,11 @@ grow_vertical = 2
 texture = ExtResource("6_mfec6")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine1"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine1" unique_id=911177920]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine1/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine1/Text" unique_id=1593718042]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,7 +287,7 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine5" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine5" type="HBoxContainer" parent="UI/Intro" unique_id=1193445579]
 layout_mode = 0
 offset_left = -375.5
 offset_top = -245.5
@@ -295,11 +295,11 @@ offset_right = 78.5
 offset_bottom = -117.5
 script = ExtResource("4_k4kd3")
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine5"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine5" unique_id=1937172321]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine5/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine5/Text" unique_id=924429624]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -312,12 +312,12 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine5"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine5" unique_id=464000973]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine5/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine5/Portrait" unique_id=760265407]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -330,7 +330,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_g8wl4")
 expand_mode = 2
 
-[node name="DialogLine6" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine6" type="HBoxContainer" parent="UI/Intro" unique_id=1519297048]
 layout_mode = 0
 offset_left = -294.5
 offset_top = -101.5
@@ -338,11 +338,11 @@ offset_right = 159.5
 offset_bottom = 26.5
 script = ExtResource("4_k4kd3")
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine6"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine6" unique_id=1056683995]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine6/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine6/Text" unique_id=271816557]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -355,13 +355,13 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine6"]
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine6" unique_id=866084930]
 visible = false
-clip_contents = true
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine6/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine6/Portrait" unique_id=2045387315]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -374,7 +374,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_g8wl4")
 expand_mode = 2
 
-[node name="Step1" type="Control" parent="UI"]
+[node name="Step1" type="Control" parent="UI" unique_id=695290987]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -391,14 +391,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="UI/Step1"]
+[node name="Panel" type="Panel" parent="UI/Step1" unique_id=471240457]
 layout_mode = 0
 offset_left = -400.0
 offset_top = 336.0
 offset_right = -151.0
 offset_bottom = 417.0
 
-[node name="Label" type="RichTextLabel" parent="UI/Step1/Panel"]
+[node name="Label" type="RichTextLabel" parent="UI/Step1/Panel" unique_id=762166956]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -413,7 +413,7 @@ text = "[color=green]FIND[/color] the [color=green]BAR[/color] entrance."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Step2" type="Control" parent="UI"]
+[node name="Step2" type="Control" parent="UI" unique_id=1437855162]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -430,14 +430,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="UI/Step2"]
+[node name="Panel" type="Panel" parent="UI/Step2" unique_id=1123972412]
 layout_mode = 0
 offset_left = -400.0
 offset_top = 336.0
 offset_right = -151.0
 offset_bottom = 417.0
 
-[node name="Label" type="RichTextLabel" parent="UI/Step2/Panel"]
+[node name="Label" type="RichTextLabel" parent="UI/Step2/Panel" unique_id=766211114]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -452,7 +452,7 @@ text = "[color=green]FACE[/color] the [color=green]DOOR[/color] to the [color=gr
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Step3" type="Control" parent="UI"]
+[node name="Step3" type="Control" parent="UI" unique_id=574875279]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -465,14 +465,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="UI/Step3"]
+[node name="Panel" type="Panel" parent="UI/Step3" unique_id=942059633]
 layout_mode = 0
 offset_left = -400.0
 offset_top = 336.0
 offset_right = -151.0
 offset_bottom = 417.0
 
-[node name="Label" type="RichTextLabel" parent="UI/Step3/Panel"]
+[node name="Label" type="RichTextLabel" parent="UI/Step3/Panel" unique_id=1764572535]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -487,7 +487,7 @@ text = "Simply [color=green]PUSH[/color] through the queue."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Step4" type="Control" parent="UI"]
+[node name="Step4" type="Control" parent="UI" unique_id=460765393]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -504,14 +504,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="UI/Step4"]
+[node name="Panel" type="Panel" parent="UI/Step4" unique_id=572051589]
 layout_mode = 0
 offset_left = -400.0
 offset_top = 336.0
 offset_right = -151.0
 offset_bottom = 417.0
 
-[node name="Label" type="RichTextLabel" parent="UI/Step4/Panel"]
+[node name="Label" type="RichTextLabel" parent="UI/Step4/Panel" unique_id=1836525004]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -526,7 +526,7 @@ text = "Face the [color=green]WC DOOR[/color]."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Intermezzo1" type="Control" parent="UI"]
+[node name="Intermezzo1" type="Control" parent="UI" unique_id=41227735]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -544,7 +544,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("4_k4kd3")
 
-[node name="DialogLine3" type="HBoxContainer" parent="UI/Intermezzo1"]
+[node name="DialogLine3" type="HBoxContainer" parent="UI/Intermezzo1" unique_id=380274285]
 layout_mode = 0
 offset_left = -167.5
 offset_top = -325.5
@@ -552,12 +552,12 @@ offset_right = 286.5
 offset_bottom = -197.5
 script = ExtResource("4_k4kd3")
 
-[node name="Portrait" type="Panel" parent="UI/Intermezzo1/DialogLine3"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Intermezzo1/DialogLine3" unique_id=350258316]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intermezzo1/DialogLine3/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intermezzo1/DialogLine3/Portrait" unique_id=853681106]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -567,11 +567,11 @@ grow_vertical = 2
 texture = ExtResource("6_mfec6")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Intermezzo1/DialogLine3"]
+[node name="Text" type="Panel" parent="UI/Intermezzo1/DialogLine3" unique_id=706244602]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intermezzo1/DialogLine3/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intermezzo1/DialogLine3/Text" unique_id=1171954483]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -584,7 +584,7 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Intermezzo2" type="Control" parent="UI"]
+[node name="Intermezzo2" type="Control" parent="UI" unique_id=702964510]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -602,7 +602,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("4_k4kd3")
 
-[node name="DialogLine7" type="HBoxContainer" parent="UI/Intermezzo2"]
+[node name="DialogLine7" type="HBoxContainer" parent="UI/Intermezzo2" unique_id=1458087189]
 layout_mode = 0
 offset_left = -179.5
 offset_top = 183.5
@@ -610,11 +610,11 @@ offset_right = 274.5
 offset_bottom = 311.5
 script = ExtResource("4_k4kd3")
 
-[node name="Text" type="Panel" parent="UI/Intermezzo2/DialogLine7"]
+[node name="Text" type="Panel" parent="UI/Intermezzo2/DialogLine7" unique_id=1339283519]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intermezzo2/DialogLine7/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intermezzo2/DialogLine7/Text" unique_id=1351115042]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -626,12 +626,12 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Intermezzo2/DialogLine7"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Intermezzo2/DialogLine7" unique_id=13218624]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intermezzo2/DialogLine7/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intermezzo2/DialogLine7/Portrait" unique_id=969166253]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -644,7 +644,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_g8wl4")
 expand_mode = 2
 
-[node name="Outro" type="Control" parent="UI"]
+[node name="Outro" type="Control" parent="UI" unique_id=1349515589]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -662,7 +662,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("4_k4kd3")
 
-[node name="DialogLine8" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine8" type="HBoxContainer" parent="UI/Outro" unique_id=2013090711]
 layout_mode = 0
 offset_left = -165.5
 offset_top = -68.5
@@ -670,11 +670,11 @@ offset_right = 288.5
 offset_bottom = 59.5
 script = ExtResource("4_k4kd3")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine8"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine8" unique_id=734409884]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine8/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine8/Text" unique_id=1088447775]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -686,12 +686,12 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine8"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine8" unique_id=1873709769]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine8/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine8/Portrait" unique_id=1481870629]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -704,7 +704,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_g8wl4")
 expand_mode = 2
 
-[node name="DialogLine9" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine9" type="HBoxContainer" parent="UI/Outro" unique_id=629462224]
 layout_mode = 0
 offset_left = -89.5
 offset_top = 68.5
@@ -712,11 +712,11 @@ offset_right = 364.5
 offset_bottom = 196.5
 script = ExtResource("4_k4kd3")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine9"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine9" unique_id=586692080]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine9/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine9/Text" unique_id=1986897805]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -728,13 +728,13 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine9"]
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine9" unique_id=891150827]
 visible = false
-clip_contents = true
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine9/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine9/Portrait" unique_id=388519567]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -747,179 +747,157 @@ scale = Vector2(-1, 1)
 texture = ExtResource("5_g8wl4")
 expand_mode = 2
 
-[node name="Blox" parent="." instance=ExtResource("7_f183y")]
+[node name="Blox" parent="." unique_id=1687996971 instance=ExtResource("7_f183y")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 
-[node name="Blitty" parent="." instance=ExtResource("8_3trsy")]
+[node name="Blitty" parent="." unique_id=757884850 instance=ExtResource("8_3trsy")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -2, 0, 9)
 
-[node name="DoorBar" parent="." instance=ExtResource("9_rqrpm")]
+[node name="DoorBar" parent="." unique_id=1412629025 instance=ExtResource("9_rqrpm")]
 unique_name_in_owner = true
 transform = Transform3D(1.25, 0, 2.84124e-08, 0, 2, 0, 3.0598e-08, 0, 0.8, 9, 0, 7)
 
-[node name="DoorWC" parent="." instance=ExtResource("9_rqrpm")]
+[node name="DoorWC" parent="." unique_id=761251423 instance=ExtResource("9_rqrpm")]
 unique_name_in_owner = true
 transform = Transform3D(1.25, 0, 2.84124e-08, 0, 2, 0, 3.0598e-08, 0, 0.8, -8, 0, 8)
 
-[node name="Environment" type="Node3D" parent="."]
+[node name="Environment" type="Node3D" parent="." unique_id=1142945392]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 14)
 
-[node name="wall55" parent="Environment" instance=ExtResource("10_xb0qd")]
+[node name="wall55" parent="Environment" unique_id=807688681 instance=ExtResource("10_xb0qd")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 0.8, -3, 0, -6)
 include_children = true
 
 [node name="floor-thick" parent="Environment/wall55" index="0"]
 material_override = ExtResource("11_7c2e6")
 
-[node name="floor-thick2" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick2" type="MeshInstance3D" parent="Environment/wall55" unique_id=661820465]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick6" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick6" type="MeshInstance3D" parent="Environment/wall55" unique_id=333622894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick3" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick3" type="MeshInstance3D" parent="Environment/wall55" unique_id=1415781070]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick7" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick7" type="MeshInstance3D" parent="Environment/wall55" unique_id=690238979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick8" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick8" type="MeshInstance3D" parent="Environment/wall55" unique_id=251356548]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick9" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick9" type="MeshInstance3D" parent="Environment/wall55" unique_id=129429100]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick10" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick10" type="MeshInstance3D" parent="Environment/wall55" unique_id=1931732672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick11" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick11" type="MeshInstance3D" parent="Environment/wall55" unique_id=676631364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick12" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick12" type="MeshInstance3D" parent="Environment/wall55" unique_id=610217650]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick13" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick13" type="MeshInstance3D" parent="Environment/wall55" unique_id=1151759453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick14" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick14" type="MeshInstance3D" parent="Environment/wall55" unique_id=1590505135]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick15" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick15" type="MeshInstance3D" parent="Environment/wall55" unique_id=858868412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick17" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick17" type="MeshInstance3D" parent="Environment/wall55" unique_id=359695606]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -1.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick20" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick20" type="MeshInstance3D" parent="Environment/wall55" unique_id=1154951849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick23" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick23" type="MeshInstance3D" parent="Environment/wall55" unique_id=1220712537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick24" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick24" type="MeshInstance3D" parent="Environment/wall55" unique_id=2026643871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 1.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick25" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick25" type="MeshInstance3D" parent="Environment/wall55" unique_id=821526357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick16" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick16" type="MeshInstance3D" parent="Environment/wall55" unique_id=1937293099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick4" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick4" type="MeshInstance3D" parent="Environment/wall55" unique_id=972333423]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick5" type="MeshInstance3D" parent="Environment/wall55"]
+[node name="floor-thick5" type="MeshInstance3D" parent="Environment/wall55" unique_id=673682147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="wall56" parent="Environment" instance=ExtResource("10_xb0qd")]
+[node name="wall56" parent="Environment" unique_id=703817184 instance=ExtResource("10_xb0qd")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 0.8, -4, 0, -6)
 
 [node name="floor-thick" parent="Environment/wall56" index="0"]
 material_override = ExtResource("11_7c2e6")
 
-[node name="floor-thick2" type="MeshInstance3D" parent="Environment/wall56"]
+[node name="floor-thick2" type="MeshInstance3D" parent="Environment/wall56" unique_id=1092380302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="floor-thick3" type="MeshInstance3D" parent="Environment/wall56"]
+[node name="floor-thick3" type="MeshInstance3D" parent="Environment/wall56" unique_id=831925382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_wl2bs")
-skeleton = NodePath("")
 
-[node name="ground" type="MeshInstance3D" parent="Environment"]
+[node name="ground" type="MeshInstance3D" parent="Environment" unique_id=1568557843]
 mesh = SubResource("PlaneMesh_w75he")
 
-[node name="Neon Sign" type="MeshInstance3D" parent="Environment"]
+[node name="Neon Sign" type="MeshInstance3D" parent="Environment" unique_id=2077354865]
 transform = Transform3D(0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 2.7, 1.2, -7.52773)
 cast_shadow = 0
 mesh = SubResource("TextMesh_3b84q")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign" unique_id=2131601769]
 transform = Transform3D(0.133213, 0.858634, -0.494975, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
 light_color = Color(0.72941, 0, 0.123842, 1)
 light_energy = 0.5
@@ -928,12 +906,12 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_attenuation = 0.2
 
-[node name="Neon Sign2" type="MeshInstance3D" parent="Environment"]
+[node name="Neon Sign2" type="MeshInstance3D" parent="Environment" unique_id=1156382987]
 transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 8.7, 1.3, -7.52773)
 cast_shadow = 0
 mesh = SubResource("TextMesh_k4kd3")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign2"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign2" unique_id=1560633246]
 transform = Transform3D(0.133213, 0.858634, -0.494975, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
 light_color = Color(0, 0.389078, 0.756262, 1)
 light_energy = 0.5
@@ -942,12 +920,12 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_attenuation = 0.2
 
-[node name="Neon Sign5" type="MeshInstance3D" parent="Environment"]
+[node name="Neon Sign5" type="MeshInstance3D" parent="Environment" unique_id=173863039]
 transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 13.0316, 1.6, -6.5269)
 cast_shadow = 0
 mesh = SubResource("TextMesh_rqrpm")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign5"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign5" unique_id=1283854683]
 transform = Transform3D(0.133213, 0.858634, -0.494975, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
 light_color = Color(0, 0.389078, 0.756262, 1)
 light_energy = 0.5
@@ -956,12 +934,12 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_attenuation = 0.2
 
-[node name="Neon Sign3" type="MeshInstance3D" parent="Environment"]
+[node name="Neon Sign3" type="MeshInstance3D" parent="Environment" unique_id=1056061294]
 transform = Transform3D(1, 8.9407e-08, 0, -8.9407e-08, 1, 0, 0, 0, 1, -0.5, 1.7, -5.52773)
 cast_shadow = 0
 mesh = SubResource("TextMesh_mfec6")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign3"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign3" unique_id=1898582481]
 transform = Transform3D(0.133213, 0.858634, -0.494975, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
 light_color = Color(0, 0.389078, 0.756262, 1)
 light_energy = 0.5
@@ -970,12 +948,12 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_attenuation = 0.2
 
-[node name="Neon Sign4" type="MeshInstance3D" parent="Environment"]
+[node name="Neon Sign4" type="MeshInstance3D" parent="Environment" unique_id=902596253]
 transform = Transform3D(1, 8.9407e-08, 0, -8.9407e-08, 1, 0, 0, 0, 1, -6, 1.7, -5.52773)
 cast_shadow = 0
 mesh = SubResource("TextMesh_f183y")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign4"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign4" unique_id=1126715844]
 transform = Transform3D(0.133213, 0.858634, -0.494975, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
 light_color = Color(0, 0.389078, 0.756262, 1)
 light_energy = 0.5
@@ -984,100 +962,100 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_attenuation = 0.2
 
-[node name="Blocelot2" parent="Environment" instance=ExtResource("14_iqy18")]
+[node name="Blocelot2" parent="Environment" unique_id=406139553 instance=ExtResource("14_iqy18")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -5)
 
-[node name="Blocelot6" parent="Environment" instance=ExtResource("14_iqy18")]
+[node name="Blocelot6" parent="Environment" unique_id=708412332 instance=ExtResource("14_iqy18")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 0, -5)
 
-[node name="Blocelot4" parent="Environment" instance=ExtResource("14_iqy18")]
+[node name="Blocelot4" parent="Environment" unique_id=1049809836 instance=ExtResource("14_iqy18")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1, 0, -7)
 
-[node name="Blocelot5" parent="Environment" instance=ExtResource("14_iqy18")]
+[node name="Blocelot5" parent="Environment" unique_id=2056980843 instance=ExtResource("14_iqy18")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 2, 0, -7)
 
-[node name="Bleep" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep" parent="Environment" unique_id=748799205 instance=ExtResource("17_plpww")]
 transform = Transform3D(-2.52328e-07, 0, -1, 0, 1, 0, 1, 0, -2.52328e-07, 0, 0, -5)
 
-[node name="Bleep2" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep2" parent="Environment" unique_id=1237688480 instance=ExtResource("17_plpww")]
 transform = Transform3D(-2.52328e-07, 0, -1, 0, 1, 0, 1, 0, -2.52328e-07, -2, 0, -5)
 
-[node name="Bleep10" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep10" parent="Environment" unique_id=2042938130 instance=ExtResource("17_plpww")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 3, 0, -7)
 
-[node name="Bleep11" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep11" parent="Environment" unique_id=1412077730 instance=ExtResource("17_plpww")]
 transform = Transform3D(1.64905e-07, 0, 1, 0, 1, 0, -1, 0, 1.64905e-07, 4, 0, -7)
 
-[node name="Bleep31" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep31" parent="Environment" unique_id=759620364 instance=ExtResource("17_plpww")]
 transform = Transform3D(1, 0, -1.63913e-07, 0, 1, 0, 1.63913e-07, 0, 1, 11, 0, -6)
 
-[node name="Bleep12" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep12" parent="Environment" unique_id=197248721 instance=ExtResource("17_plpww")]
 transform = Transform3D(1.64905e-07, 0, 1, 0, 1, 0, -1, 0, 1.64905e-07, 5, 0, -7)
 
-[node name="Bleep13" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep13" parent="Environment" unique_id=1037389293 instance=ExtResource("17_plpww")]
 transform = Transform3D(-0.707106, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707106, 6, 0, -7)
 
-[node name="Bleep15" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep15" parent="Environment" unique_id=210208790 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 6, 0, -8)
 
-[node name="Bleep16" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep16" parent="Environment" unique_id=726650881 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 6, 0, -9)
 
-[node name="Bleep17" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep17" parent="Environment" unique_id=2112079005 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 6, 0, -10)
 
-[node name="Bleep18" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep18" parent="Environment" unique_id=1510841973 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 5, 0, -9)
 
-[node name="Bleep19" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep19" parent="Environment" unique_id=1675099599 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 4, 0, -10)
 
-[node name="Bleep20" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep20" parent="Environment" unique_id=1148909106 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 5, 0, -10)
 
-[node name="Bleep21" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep21" parent="Environment" unique_id=1656650450 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 7, 0, -10)
 
-[node name="Bleep30" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep30" parent="Environment" unique_id=1025479585 instance=ExtResource("17_plpww")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 7, 0, -9)
 
-[node name="Bleep22" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep22" parent="Environment" unique_id=1170565665 instance=ExtResource("17_plpww")]
 transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 6, 0, -11)
 
-[node name="Bleep25" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep25" parent="Environment" unique_id=1274859262 instance=ExtResource("17_plpww")]
 transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 5, 0, -11)
 
-[node name="Bleep26" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep26" parent="Environment" unique_id=892952525 instance=ExtResource("17_plpww")]
 transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 8, 0, -11)
 
-[node name="Bleep27" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep27" parent="Environment" unique_id=1789961787 instance=ExtResource("17_plpww")]
 transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 9, 0, -10)
 
-[node name="Bleep28" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep28" parent="Environment" unique_id=358473499 instance=ExtResource("17_plpww")]
 transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 8, 0, -10)
 
-[node name="Bleep29" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep29" parent="Environment" unique_id=1105116150 instance=ExtResource("17_plpww")]
 transform = Transform3D(-2.52328e-07, 0, -1, 0, 1, 0, 1, 0, -2.52328e-07, 8, 0, -9)
 
-[node name="Bleep23" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep23" parent="Environment" unique_id=1202409948 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 7, 0, -11)
 
-[node name="Bleep24" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep24" parent="Environment" unique_id=1220387500 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1, 0, 1.21194e-07, 0, 1, 0, -1.21194e-07, 0, -1, 7, 0, -11)
 
-[node name="Bleep9" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep9" parent="Environment" unique_id=680848791 instance=ExtResource("17_plpww")]
 transform = Transform3D(-2.52328e-07, 0, -1, 0, 1, 0, 1, 0, -2.52328e-07, -1, 0, -5)
 
-[node name="Bleep14" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep14" parent="Environment" unique_id=1515165737 instance=ExtResource("17_plpww")]
 transform = Transform3D(1.64905e-07, 0, 1, 0, 1, 0, -1, 0, 1.64905e-07, 0, 0, -7)
 
-[node name="Bleep33" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep33" parent="Environment" unique_id=133854566 instance=ExtResource("17_plpww")]
 transform = Transform3D(1.64905e-07, 0, 1, 0, 1, 0, -1, 0, 1.64905e-07, -1, 0, -7)
 
-[node name="Bleep7" parent="Environment" instance=ExtResource("17_plpww")]
+[node name="Bleep7" parent="Environment" unique_id=264365867 instance=ExtResource("17_plpww")]
 transform = Transform3D(-1.58932e-08, 0, -1, 0, 1, 0, 1, 0, -1.58932e-08, -4, 0, -5)
 
-[node name="outer_wall" parent="Environment" instance=ExtResource("10_xb0qd")]
+[node name="outer_wall" parent="Environment" unique_id=245244782 instance=ExtResource("10_xb0qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.8, -10, 0, 3)
 include_children = true
 
@@ -1085,355 +1063,297 @@ include_children = true
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 4, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 
-[node name="floor-thick14" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick14" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=983698064]
 transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 20, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick15" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick15" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=32686197]
 transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 24, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick19" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick19" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1476221446]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 12, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick20" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick20" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=827944886]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 11, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick21" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick21" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1692246820]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 10, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick70" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick70" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1176282250]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 18, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick71" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick71" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1399870504]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 17, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick26" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick26" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=255249801]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick55" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick55" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=162289792]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 13, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick56" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick56" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1985652849]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick34" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick34" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=488213091]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -6.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick45" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick45" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=490870344]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 7, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick46" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick46" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1980942406]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 8, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick48" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick48" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=357633250]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 6, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick49" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick49" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=687932845]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 5, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick50" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick50" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1285376103]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 4, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick52" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick52" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1783949042]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 4, 0, -10)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick53" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick53" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1077912900]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 3, 0, -10)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick51" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick51" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1546785337]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 3, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick47" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick47" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=404801758]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 8, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick36" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick36" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=814403171]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick54" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick54" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=420948024]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 11, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick31" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick31" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1580744370]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 15, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick32" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick32" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=487418986]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 16, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick33" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick33" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=458482953]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 17, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick64" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick64" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1490093685]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 18, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick65" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick65" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1102117537]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 20, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick66" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick66" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1850305125]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 20, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick67" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick67" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1736955385]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 21, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick76" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick76" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1681553803]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 22, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick68" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick68" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1498600780]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 23, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick72" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick72" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=596491133]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 19, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick30" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick30" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1515090588]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 14, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick44" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick44" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=220664827]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 11, 0, -11.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick57" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick57" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=479103711]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 13, 0, -11.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick58" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick58" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=451957232]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 12, 0, -11.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick59" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick59" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=520317839]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 14, 0, -11.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick60" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick60" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=275561629]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 15, 0, -11.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick61" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick61" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1100908768]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 16, 0, -11.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick62" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick62" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1441230124]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 17, 0, -11.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick63" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick63" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=557393755]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 2, 0, 1, 0, -4.37114e-08, 17, 0, -12.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick22" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick22" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1863062770]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 9, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick23" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick23" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1328782499]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 8, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick37" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick37" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1024811822]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 16, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick73" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick73" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=77255766]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, 14, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick69" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick69" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1757920560]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 15, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick24" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick24" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=971799956]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 5, 0, 1, 0, -4.37114e-08, 7, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick25" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick25" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=104754338]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 6, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick35" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick35" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=5518128]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -3.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick74" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick74" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=316788449]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick75" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick75" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=909030953]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -6.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick77" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick77" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=170494379]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick78" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick78" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=34338161]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 4, 0, 1, 0, -4.37114e-08, 5, 0, -7.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick41" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick41" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1428995529]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -8.75)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick79" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick79" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=2089799641]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 23, 0, -12.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick80" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick80" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=2034272910]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 24, 0, -12.5)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick42" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick42" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=2023774079]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -10)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="floor-thick43" type="MeshInstance3D" parent="Environment/outer_wall"]
+[node name="floor-thick43" type="MeshInstance3D" parent="Environment/outer_wall" unique_id=1885102103]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 20, 0, 1, 0, -4.37114e-08, 2, 0, -11.25)
 material_override = ExtResource("11_7c2e6")
 mesh = SubResource("ArrayMesh_mfec6")
-skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment" unique_id=641546287]
 transform = Transform3D(0.34312, 0.733478, -0.586753, -0.765847, 0.580133, 0.277352, 0.543826, 0.354198, 0.760787, 0.5, 3, -2.8)
 light_color = Color(0.94021, 0.956835, 0.70196, 1)
 light_energy = 0.4

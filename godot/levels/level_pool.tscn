@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://2mcgggxjs382"]
+[gd_scene format=3 uid="uid://2mcgggxjs382"]
 
 [ext_resource type="Script" uid="uid://dagd0tb2fcara" path="res://levels/level_pool.gd" id="1_sd18g"]
 [ext_resource type="Environment" uid="uid://dcqc2mpy0qkyy" path="res://vfx/default_environment.tres" id="2_l85ig"]
@@ -48,27 +48,27 @@ text = "BiLL's
 Yard"
 font_size = 64
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" unique_id=1044276569]
 script = ExtResource("1_sd18g")
 moves_par = 12
 moves_record = 8
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=845200942]
 environment = ExtResource("2_l85ig")
 
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=26710084]
 stream = ExtResource("3_k2aru")
 volume_db = -16.0
 autoplay = true
 bus = &"Sound"
 
-[node name="Ambience2" type="AudioStreamPlayer" parent="."]
+[node name="Ambience2" type="AudioStreamPlayer" parent="." unique_id=1947192376]
 stream = ExtResource("4_ndgrd")
 volume_db = -12.0
 autoplay = true
 bus = &"Sound"
 
-[node name="Key Light" type="DirectionalLight3D" parent="."]
+[node name="Key Light" type="DirectionalLight3D" parent="." unique_id=1349255705]
 transform = Transform3D(0.549041, 0.552356, 0.627262, -0.774805, 0.617801, 0.13416, -0.313419, -0.559665, 0.767166, 10.5153, 5.43031, 13.732)
 light_color = Color(1, 1, 0.921569, 1)
 light_energy = 0.2
@@ -78,12 +78,12 @@ directional_shadow_split_2 = 0.1
 directional_shadow_split_3 = 0.3
 directional_shadow_blend_splits = true
 
-[node name="Fill Light" type="DirectionalLight3D" parent="."]
+[node name="Fill Light" type="DirectionalLight3D" parent="." unique_id=1352685396]
 transform = Transform3D(-0.494737, -0.196262, -0.846591, 0, 0.974165, -0.225837, 0.869043, -0.11173, -0.481955, -6.51481, -1.71708, -0.255001)
 light_color = Color(6.73831e-06, 0.932929, 0.932929, 1)
 light_energy = 0.5
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=185332779]
 transform = Transform3D(0.34312, 0.733478, -0.586753, -0.765847, 0.580133, 0.277352, 0.543826, 0.354198, 0.760787, -3.5, 3, 4.2)
 light_color = Color(0.94021, 0.956835, 0.70196, 1)
 light_energy = 0.4
@@ -92,9 +92,9 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_attenuation = 0.2
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1252701015]
 
-[node name="Intro" type="Control" parent="UI"]
+[node name="Intro" type="Control" parent="UI" unique_id=1128986536]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -112,7 +112,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("5_k2aru")
 
-[node name="Title Label" type="Label" parent="UI/Intro"]
+[node name="Title Label" type="Label" parent="UI/Intro" unique_id=1360825796]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -130,7 +130,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_k2aru")
 
-[node name="DialogLine1" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine1" type="HBoxContainer" parent="UI/Intro" unique_id=1371053714]
 visible = false
 layout_mode = 0
 offset_left = 12.5
@@ -139,11 +139,11 @@ offset_right = 466.5
 offset_bottom = -284.5
 script = ExtResource("5_k2aru")
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine1"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine1" unique_id=257100078]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine1/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine1/Text" unique_id=1987337974]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -156,12 +156,12 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine1" unique_id=936057822]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine1/Portrait" unique_id=883442794]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -174,7 +174,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("6_k2aru")
 expand_mode = 2
 
-[node name="DialogLine2" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine2" type="HBoxContainer" parent="UI/Intro" unique_id=405467966]
 visible = false
 layout_mode = 0
 offset_left = -379.5
@@ -183,12 +183,12 @@ offset_right = 74.5
 offset_bottom = -100.5
 script = ExtResource("5_k2aru")
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine2"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine2" unique_id=1679567238]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine2/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine2/Portrait" unique_id=389968915]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -198,11 +198,11 @@ grow_vertical = 2
 texture = ExtResource("6_ndgrd")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine2"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine2" unique_id=1815215494]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine2/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine2/Text" unique_id=2023515447]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -215,7 +215,7 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine3" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine3" type="HBoxContainer" parent="UI/Intro" unique_id=520979277]
 visible = false
 layout_mode = 0
 offset_left = -323.5
@@ -224,13 +224,13 @@ offset_right = 130.5
 offset_bottom = 35.5
 script = ExtResource("5_k2aru")
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine3"]
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine3" unique_id=1777908003]
 visible = false
-clip_contents = true
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine3/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine3/Portrait" unique_id=282828983]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,11 +240,11 @@ grow_vertical = 2
 texture = ExtResource("6_ndgrd")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine3"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine3" unique_id=190518326]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine3/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine3/Text" unique_id=1167282197]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -256,7 +256,7 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine4" type="HBoxContainer" parent="UI/Intro"]
+[node name="DialogLine4" type="HBoxContainer" parent="UI/Intro" unique_id=2056577149]
 visible = false
 layout_mode = 0
 offset_left = -99.5
@@ -265,11 +265,11 @@ offset_right = 354.5
 offset_bottom = 283.5
 script = ExtResource("5_k2aru")
 
-[node name="Text" type="Panel" parent="UI/Intro/DialogLine4"]
+[node name="Text" type="Panel" parent="UI/Intro/DialogLine4" unique_id=1700615715]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine4/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Intro/DialogLine4/Text" unique_id=221702134]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -282,12 +282,12 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine4"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Intro/DialogLine4" unique_id=1110406180]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine4/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Intro/DialogLine4/Portrait" unique_id=1295454999]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -300,7 +300,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("6_k2aru")
 expand_mode = 2
 
-[node name="Step1" type="Control" parent="UI"]
+[node name="Step1" type="Control" parent="UI" unique_id=1027256675]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -313,14 +313,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="UI/Step1"]
+[node name="Panel" type="Panel" parent="UI/Step1" unique_id=1653716928]
 layout_mode = 0
 offset_left = -400.0
 offset_top = 336.0
 offset_right = -151.0
 offset_bottom = 417.0
 
-[node name="Label" type="RichTextLabel" parent="UI/Step1/Panel"]
+[node name="Label" type="RichTextLabel" parent="UI/Step1/Panel" unique_id=613196968]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -335,7 +335,7 @@ text = "[color=green]TURN YOURSELF[/color] around."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Outro" type="Control" parent="UI"]
+[node name="Outro" type="Control" parent="UI" unique_id=757951984]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -353,7 +353,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("5_k2aru")
 
-[node name="DialogLine1" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine1" type="HBoxContainer" parent="UI/Outro" unique_id=1759149826]
 layout_mode = 0
 offset_left = -363.5
 offset_top = -404.5
@@ -361,12 +361,12 @@ offset_right = 90.5
 offset_bottom = -276.5
 script = ExtResource("5_k2aru")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine1"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine1" unique_id=1631333248]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine1/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine1/Portrait" unique_id=2025613823]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -376,11 +376,11 @@ grow_vertical = 2
 texture = ExtResource("6_ndgrd")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine1"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine1" unique_id=606820960]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine1/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine1/Text" unique_id=843390786]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -393,7 +393,7 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine2" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine2" type="HBoxContainer" parent="UI/Outro" unique_id=1830519087]
 layout_mode = 0
 offset_left = -163.5
 offset_top = -268.5
@@ -401,13 +401,13 @@ offset_right = 290.5
 offset_bottom = -140.5
 script = ExtResource("5_k2aru")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2"]
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine2" unique_id=215177768]
 visible = false
-clip_contents = true
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine2/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine2/Portrait" unique_id=1310768655]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -417,11 +417,11 @@ grow_vertical = 2
 texture = ExtResource("6_ndgrd")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine2"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine2" unique_id=2141385749]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine2/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine2/Text" unique_id=2062263818]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -433,7 +433,7 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DialogLine5" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine5" type="HBoxContainer" parent="UI/Outro" unique_id=952279403]
 layout_mode = 0
 offset_left = 20.5
 offset_top = 115.5
@@ -441,11 +441,11 @@ offset_right = 474.5
 offset_bottom = 243.5
 script = ExtResource("5_k2aru")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine5"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine5" unique_id=245648408]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine5/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine5/Text" unique_id=1619957289]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -458,12 +458,12 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine5"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine5" unique_id=977296017]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine5/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine5/Portrait" unique_id=1424118650]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -476,7 +476,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("6_k2aru")
 expand_mode = 2
 
-[node name="DialogLine6" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine6" type="HBoxContainer" parent="UI/Outro" unique_id=72390051]
 layout_mode = 0
 offset_left = 100.5
 offset_top = 251.5
@@ -484,11 +484,11 @@ offset_right = 554.5
 offset_bottom = 379.5
 script = ExtResource("5_k2aru")
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine6"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine6" unique_id=220145117]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine6/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine6/Text" unique_id=2031145760]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -501,13 +501,13 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine6"]
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine6" unique_id=1112139574]
 visible = false
-clip_contents = true
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine6/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine6/Portrait" unique_id=2059432416]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -520,7 +520,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("6_k2aru")
 expand_mode = 2
 
-[node name="DialogLine3" type="HBoxContainer" parent="UI/Outro"]
+[node name="DialogLine3" type="HBoxContainer" parent="UI/Outro" unique_id=2043013325]
 layout_mode = 0
 offset_left = -387.5
 offset_top = -236.5
@@ -528,12 +528,12 @@ offset_right = 66.5
 offset_bottom = -108.5
 script = ExtResource("5_k2aru")
 
-[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine3"]
-clip_contents = true
+[node name="Portrait" type="Panel" parent="UI/Outro/DialogLine3" unique_id=877618583]
 custom_minimum_size = Vector2(128, 128)
+clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine3/Portrait"]
+[node name="TextureRect" type="TextureRect" parent="UI/Outro/DialogLine3/Portrait" unique_id=1164598047]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -543,11 +543,11 @@ grow_vertical = 2
 texture = ExtResource("6_ndgrd")
 expand_mode = 2
 
-[node name="Text" type="Panel" parent="UI/Outro/DialogLine3"]
+[node name="Text" type="Panel" parent="UI/Outro/DialogLine3" unique_id=2087388525]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine3/Text"]
+[node name="RichTextLabel" type="Label" parent="UI/Outro/DialogLine3/Text" unique_id=674443019]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -559,57 +559,57 @@ label_settings = SubResource("LabelSettings_dpc8t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Blox" parent="." instance=ExtResource("7_00pa0")]
+[node name="Blox" parent="." unique_id=850566320 instance=ExtResource("7_00pa0")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 8.74228e-08, -1, 3.82137e-15, 1, 8.74228e-08, 4.37114e-08, -4, 0, 4)
 
-[node name="Blitty" parent="." instance=ExtResource("9_cp3aq")]
+[node name="Blitty" parent="." unique_id=1799138827 instance=ExtResource("9_cp3aq")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, 4)
 
-[node name="BilliardTable" parent="." instance=ExtResource("12_5orea")]
+[node name="BilliardTable" parent="." unique_id=601419284 instance=ExtResource("12_5orea")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, -0.1, 4)
 
-[node name="BilliardTable2" parent="." instance=ExtResource("12_5orea")]
+[node name="BilliardTable2" parent="." unique_id=1092532404 instance=ExtResource("12_5orea")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, 4)
 
-[node name="Environment" type="Node3D" parent="."]
+[node name="Environment" type="Node3D" parent="." unique_id=1464054206]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 9)
 
-[node name="wall55" parent="Environment" instance=ExtResource("12_4xp61")]
+[node name="wall55" parent="Environment" unique_id=1447262034 instance=ExtResource("12_4xp61")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 0.8, -3, 0, -6)
 
 [node name="floor-thick" parent="Environment/wall55" index="0"]
 material_override = ExtResource("11_w200a")
 
-[node name="wall56" parent="Environment" instance=ExtResource("12_4xp61")]
+[node name="wall56" parent="Environment" unique_id=216779101 instance=ExtResource("12_4xp61")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 0.8, -4, 0, -6)
 
 [node name="floor-thick" parent="Environment/wall56" index="0"]
 material_override = ExtResource("11_w200a")
 
-[node name="ground" type="MeshInstance3D" parent="Environment"]
+[node name="ground" type="MeshInstance3D" parent="Environment" unique_id=912397944]
 mesh = SubResource("PlaneMesh_w75he")
 
-[node name="Obstacle" parent="Environment" instance=ExtResource("11_hbb88")]
+[node name="Obstacle" parent="Environment" unique_id=577080648 instance=ExtResource("11_hbb88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
 
-[node name="Obstacle3" parent="Environment" instance=ExtResource("11_hbb88")]
+[node name="Obstacle3" parent="Environment" unique_id=621747805 instance=ExtResource("11_hbb88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
 
-[node name="Obstacle5" parent="Environment" instance=ExtResource("11_hbb88")]
+[node name="Obstacle5" parent="Environment" unique_id=1937620436 instance=ExtResource("11_hbb88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6)
 
-[node name="Obstacle4" parent="Environment" instance=ExtResource("11_hbb88")]
+[node name="Obstacle4" parent="Environment" unique_id=2009562725 instance=ExtResource("11_hbb88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
 
-[node name="Neon Sign" type="MeshInstance3D" parent="Environment"]
+[node name="Neon Sign" type="MeshInstance3D" parent="Environment" unique_id=1487768675]
 transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, -3.3, 1.3, -5.52773)
 cast_shadow = 0
 mesh = SubResource("TextMesh_w200a")
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Neon Sign" unique_id=119033865]
 transform = Transform3D(0.133213, 0.858634, -0.494975, -0.828558, 0.370527, 0.419764, 0.543826, 0.354198, 0.760787, -0.193186, 0.0517631, 0.0826721)
 light_color = Color(0.733599, 0.00266394, 0.958992, 1)
 light_energy = 0.5
@@ -618,46 +618,46 @@ shadow_opacity = 0.8
 shadow_blur = 3.0
 omni_attenuation = 0.2
 
-[node name="drinkgreen" parent="Environment" instance=ExtResource("13_uo0vl")]
+[node name="drinkgreen" parent="Environment" unique_id=1100662210 instance=ExtResource("13_uo0vl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.5, -2.1)
 
-[node name="Blocelot3" parent="Environment" instance=ExtResource("11_vm7no")]
+[node name="Blocelot3" parent="Environment" unique_id=601614245 instance=ExtResource("11_vm7no")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -7, 0, -5)
 
-[node name="Blocelot2" parent="Environment" instance=ExtResource("11_vm7no")]
+[node name="Blocelot2" parent="Environment" unique_id=3181824 instance=ExtResource("11_vm7no")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -4)
 
-[node name="drinkred" parent="Environment" instance=ExtResource("13_5orea")]
+[node name="drinkred" parent="Environment" unique_id=935502601 instance=ExtResource("13_5orea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2, 0.5, -3.1)
 
-[node name="drinkred2" parent="Environment" instance=ExtResource("13_5orea")]
+[node name="drinkred2" parent="Environment" unique_id=630943270 instance=ExtResource("13_5orea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0.5, -2.9)
 
-[node name="pumpkinsoup" parent="Environment" instance=ExtResource("14_0ourt")]
+[node name="pumpkinsoup" parent="Environment" unique_id=1949242959 instance=ExtResource("14_0ourt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -6)
 
-[node name="Bleep" parent="Environment" instance=ExtResource("15_0ourt")]
+[node name="Bleep" parent="Environment" unique_id=1851402915 instance=ExtResource("15_0ourt")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -2, 0, -3)
 
-[node name="Bleep3" parent="Environment" instance=ExtResource("15_0ourt")]
+[node name="Bleep3" parent="Environment" unique_id=2094768232 instance=ExtResource("15_0ourt")]
 transform = Transform3D(1, 0, 4.37114e-08, -4.37114e-08, 1.91069e-15, 1, 0, -1, 1.91069e-15, -1, 0, -4)
 
-[node name="Bleep4" parent="Environment" instance=ExtResource("15_0ourt")]
+[node name="Bleep4" parent="Environment" unique_id=755202865 instance=ExtResource("15_0ourt")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -4, 0, -3)
 
-[node name="Bleep7" parent="Environment" instance=ExtResource("15_0ourt")]
+[node name="Bleep7" parent="Environment" unique_id=100480997 instance=ExtResource("15_0ourt")]
 transform = Transform3D(-0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866026, -6, 0, -4)
 
-[node name="Bleep2" parent="Environment" instance=ExtResource("15_0ourt")]
+[node name="Bleep2" parent="Environment" unique_id=65849101 instance=ExtResource("15_0ourt")]
 transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -2, 0, -2)
 
-[node name="Bleep8" parent="Environment" instance=ExtResource("15_0ourt")]
+[node name="Bleep8" parent="Environment" unique_id=27433023 instance=ExtResource("15_0ourt")]
 transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 0, 0, -2)
 
-[node name="Bleep5" parent="Environment" instance=ExtResource("15_0ourt")]
+[node name="Bleep5" parent="Environment" unique_id=1448875339 instance=ExtResource("15_0ourt")]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -4, 0, -2)
 
-[node name="Bleep6" parent="Environment" instance=ExtResource("15_0ourt")]
+[node name="Bleep6" parent="Environment" unique_id=982580797 instance=ExtResource("15_0ourt")]
 transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, -3, 0, -2)
 
 [editable path="Environment/wall55"]

@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://jyv4g54adkmo"]
+[gd_scene format=3 uid="uid://jyv4g54adkmo"]
 
 [ext_resource type="Script" uid="uid://c212smgjd0j4i" path="res://ui/overlays/pause_overlay.gd" id="1_q2yda"]
 [ext_resource type="Script" uid="uid://d3271nc16u7gb" path="res://code/quick_level_button.gd" id="3_nk86g"]
 
-[node name="PauseOverlay" type="ColorRect"]
+[node name="PauseOverlay" type="ColorRect" unique_id=1989456013]
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,13 +13,13 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.501961)
 script = ExtResource("1_q2yda")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=244432089]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 0
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control"]
-layout_mode = 2
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control" unique_id=1888628297]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 272.0
 offset_right = 377.0
@@ -28,33 +28,33 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
-[node name="Label" type="Label" parent="Control/VBoxContainer3"]
+[node name="Label" type="Label" parent="Control/VBoxContainer3" unique_id=424032544]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "game_paused"
 horizontal_alignment = 1
 
-[node name="MenuContainer" type="VBoxContainer" parent="Control/VBoxContainer3"]
+[node name="MenuContainer" type="VBoxContainer" parent="Control/VBoxContainer3" unique_id=1055158529]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="ResumeButton" type="Button" parent="Control/VBoxContainer3/MenuContainer"]
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer3/MenuContainer" unique_id=1766453860]
 unique_name_in_owner = true
 layout_mode = 2
 text = "resume_game"
 
-[node name="RetryButton" type="Button" parent="Control/VBoxContainer3/MenuContainer"]
+[node name="RetryButton" type="Button" parent="Control/VBoxContainer3/MenuContainer" unique_id=793863383]
 unique_name_in_owner = true
 layout_mode = 2
 text = "retry_level"
 
-[node name="QuickSelect" type="HBoxContainer" parent="Control/VBoxContainer3/MenuContainer"]
+[node name="QuickSelect" type="HBoxContainer" parent="Control/VBoxContainer3/MenuContainer" unique_id=1144248049]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Level1" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+[node name="Level1" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect" unique_id=1781057500]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1"
@@ -62,7 +62,7 @@ script = ExtResource("3_nk86g")
 level = 1
 metadata/level = 1
 
-[node name="Level2" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+[node name="Level2" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect" unique_id=917442048]
 unique_name_in_owner = true
 layout_mode = 2
 text = "2"
@@ -70,7 +70,7 @@ script = ExtResource("3_nk86g")
 level = 2
 metadata/level = 2
 
-[node name="Level3" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+[node name="Level3" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect" unique_id=987147087]
 unique_name_in_owner = true
 layout_mode = 2
 text = "3"
@@ -78,7 +78,7 @@ script = ExtResource("3_nk86g")
 level = 3
 metadata/level = 3
 
-[node name="Level4" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+[node name="Level4" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect" unique_id=1259888250]
 unique_name_in_owner = true
 layout_mode = 2
 text = "4"
@@ -86,7 +86,7 @@ script = ExtResource("3_nk86g")
 level = 4
 metadata/level = 4
 
-[node name="Level5" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect"]
+[node name="Level5" type="Button" parent="Control/VBoxContainer3/MenuContainer/QuickSelect" unique_id=1081837640]
 unique_name_in_owner = true
 layout_mode = 2
 text = "5"

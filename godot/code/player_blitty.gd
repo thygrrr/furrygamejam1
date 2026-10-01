@@ -38,7 +38,7 @@ func execute(event: InputEvent) -> void:
 	else:
 		busy = false
 		return
-		
+
 	var next_pos = global_position + next_step
 	var curr_pos = global_position
 
