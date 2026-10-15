@@ -18,7 +18,7 @@ var flip_right := Quaternion(Vector3.FORWARD, deg_to_rad(90))
 var flip_up := Quaternion(Vector3.LEFT, deg_to_rad(90))
 var flip_down := Quaternion(Vector3.RIGHT, deg_to_rad(90))
 
-var flip : Tween
+var flip : TweensGdHandle
 
 signal moved(direction: Vector3)
 signal faces(whom: Critter)
@@ -79,19 +79,8 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 
 	rotation_t = 0.0
 
-	flip = create_tween()
-	flip.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(self, "rotation_t", 1.0, 0.2).set_delay(0.05)
-
-	var bounce := create_tween()
-	var parallel_a = bounce.parallel()
-	var parallel_b = bounce.parallel()
-
-	parallel_a.set_ease(Tween.EASE_OUT).tween_property(offset, "position", Vector3(0, 0.7, 0), 0.15)
-	parallel_a.parallel().set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(0.9, 1.3, 0.9), 0.1)
-	parallel_a.chain().set_ease(Tween.EASE_IN).tween_property(offset, "position", Vector3.ZERO, 0.05)
-
-	parallel_b.set_ease(Tween.EASE_OUT).tween_property(anchor, "scale", Vector3(1.25, 0.9, 1.25), 0.05)
-	parallel_b.chain().set_ease(Tween.EASE_IN).tween_property(anchor, "scale", Vector3.ONE, 0.1)
+	flip = Tweens.play(self, Tweens.property(^"rotation_t", 1.0, 0.2, Tweens.Ease.CUBIC_OUT, 0.05))
+	_bounce()
 
 	await get_tree().create_timer(0.15).timeout
 	_flop_sound()
@@ -99,8 +88,24 @@ func move_to(destination: Vector3, next_flip : Quaternion):
 		Camera.shake = 0.5
 	$anchor/Particles.emitting = true
 
-	await flip.finished
-	moved.emit()
+	if await flip.end == Tweens.Reason.COMPLETED:
+		moved.emit()
+
+
+# Both original parallel variables aliased one Tween: lift/stretch, fall,
+# squash, restore. Its default transition was LINEAR throughout.
+# Start the fixed timeline together so frame hitches preserve its timing.
+func _bounce() -> TweensGdGroup:
+	var lift := Vector3(0, 0.7, 0)
+	var stretch := Vector3(0.9, 1.3, 0.9)
+	var squash := Vector3(1.25, 0.9, 1.25)
+	return Tweens.group([
+		Tweens.play(offset, Tweens.position_3d(lift, 0.15)),
+		Tweens.play(anchor, Tweens.scale_3d(stretch, 0.1)),
+		Tweens.play(offset, Tweens.position_3d(Vector3.ZERO, 0.05).with_delay(0.15).with_from(lift)),
+		Tweens.play(anchor, Tweens.scale_3d(squash, 0.05).with_delay(0.2).with_from(stretch)),
+		Tweens.play(anchor, Tweens.scale_3d(Vector3.ONE, 0.1).with_delay(0.25).with_from(squash)),
+	])
 
 
 func update_facing():

@@ -6,24 +6,20 @@ extends Node
 @onready var calm = $Calm
 @onready var main = $Main
 
-var mtween : Tween
-var ctween : Tween
+var mtween : TweensGdHandle
+var ctween : TweensGdHandle
 func fade_main() -> void:
 	if mtween:
-		mtween.stop()
+		mtween.cancel()
 	if ctween:
-		ctween.stop()
-	mtween = create_tween()
-	mtween.tween_property(main, "volume_db", 0, 1)
-	ctween = create_tween()
-	ctween.tween_property(calm, "volume_db", -80, 5)
+		ctween.cancel()
+	mtween = Tweens.play(main, Tweens.property(^"volume_db", 0.0, 1.0))
+	ctween = Tweens.play(calm, Tweens.property(^"volume_db", -80.0, 5.0))
 
 func fade_calm() -> void:
 	if mtween:
-		mtween.stop()
+		mtween.cancel()
 	if ctween:
-		ctween.stop()
-	ctween = create_tween()
-	ctween.tween_property(calm, "volume_db", 0, 1)
-	mtween = create_tween()
-	mtween.tween_property(main, "volume_db", -80, 5)
+		ctween.cancel()
+	ctween = Tweens.play(calm, Tweens.property(^"volume_db", 0.0, 1.0))
+	mtween = Tweens.play(main, Tweens.property(^"volume_db", -80.0, 5.0))

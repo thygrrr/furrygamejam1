@@ -135,7 +135,7 @@ var file_to_navigate: String = &""
 var suppress_settings_sync: bool = false
 
 const QUICK_OPEN_INTERVAL: int = 400
-var quick_open_tween: Tween
+var quick_open_tween: TweensGdHandle
 #endregion
 
 #region Plugin Enter / Exit setup
@@ -322,19 +322,14 @@ func _shortcut_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		open_scripts_popup()
 	elif (open_quick_search_popup_shc.matches_event(event)):
-		if (quick_open_tween != null && quick_open_tween.is_running()):
+		if (quick_open_tween != null && !quick_open_tween.is_terminal && !quick_open_tween.is_paused):
 			get_viewport().set_input_as_handled()
 			if (quick_open_tween != null):
-				quick_open_tween.kill()
+				quick_open_tween.cancel()
 
-			quick_open_tween = create_tween()
-			quick_open_tween.tween_interval(0.1)
-			quick_open_tween.tween_callback(open_quick_search)
-			quick_open_tween.tween_callback(func(): quick_open_tween = null)
+			_start_quick_open_timer(0.1, true)
 		else:
-			quick_open_tween = create_tween()
-			quick_open_tween.tween_interval(QUICK_OPEN_INTERVAL / 1000.0)
-			quick_open_tween.tween_callback(func(): quick_open_tween = null)
+			_start_quick_open_timer(QUICK_OPEN_INTERVAL / 1000.0, false)
 	elif (EditorInterface.get_script_editor().is_visible_in_tree()):
 		if (tab_cycle_forward_shc.matches_event(event)):
 			get_viewport().set_input_as_handled()
@@ -351,12 +346,21 @@ func _shortcut_input(event: InputEvent) -> void:
 				new_tab = scripts_tab_container.get_tab_count() - 1
 			scripts_tab_container.current_tab = new_tab
 
+# Callback-only definition replaces Tween's interval/callback track.
+func _start_quick_open_timer(duration: float, open_search: bool) -> void:
+	var timer := Tweens.value(0.0, 1.0, duration)
+	timer.on_end = func(_handle):
+		if open_search:
+			open_quick_search()
+		quick_open_tween = null
+	quick_open_tween = Tweens.play(self, timer)
+
 ## May cancels the quick search shortcut timer.
 func _input(event: InputEvent) -> void:
 	if (event is InputEventKey):
 		if (!open_quick_search_popup_shc.matches_event(event)):
 			if (quick_open_tween != null):
-				quick_open_tween.kill()
+				quick_open_tween.cancel()
 				quick_open_tween = null
 #endregion
 

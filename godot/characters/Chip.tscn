@@ -17,7 +17,7 @@ script = ExtResource("2_qgd4y")
 [node name="view" type="Node3D" parent="." index="0" unique_id=858282972]
 unique_name_in_owner = true
 
-[node name="Mesh" parent="." index="1"]
+[node name="Mesh" parent="." index="1" unique_id=337406901]
 script = ExtResource("2_plj7h")
 excitement = 15.0
 

@@ -680,7 +680,7 @@ omni_attenuation = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.8, -3, 0, -6)
 include_children = true
 
-[node name="floor-thick" parent="Environment/outer_wall" index="0"]
+[node name="floor-thick" parent="Environment/outer_wall" index="0" unique_id=1339384181]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 11, 0, -11.25)
 material_override = ExtResource("12_8nkwk")
 

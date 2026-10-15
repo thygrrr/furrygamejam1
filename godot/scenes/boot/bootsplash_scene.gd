@@ -13,24 +13,16 @@ extends Control
 func _ready():
 	instance.modulate.a = 0.0
 	control.add_child(instance)
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.set_ease(Tween.EASE_IN)
-	tween.tween_property(instance, "modulate:a", 1.0, fade_duration)\
-	.from(0.0)\
-	.finished.connect(_fade_out)
+	if await Tweens.play(instance, Tweens.modulate_alpha(1.0, fade_duration, Tweens.Ease.CUBIC_IN).with_from(0.0)).end == Tweens.Reason.COMPLETED:
+		_fade_out()
 
 func _process(_delta):
 	if interuptable and Input.is_action_just_pressed("exit"):
 		_change_scene()
 
 func _fade_out():
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.set_ease(Tween.EASE_IN)
-	tween.tween_property(instance, "modulate:a", 0.0, fade_duration)\
-	.set_delay(stay_duration)\
-	.finished.connect(_change_scene)
+	if await Tweens.play(instance, Tweens.modulate_alpha(0.0, fade_duration, Tweens.Ease.CUBIC_IN, stay_duration)).end == Tweens.Reason.COMPLETED:
+		_change_scene()
 
 func _change_scene():
 	get_tree().change_scene_to_packed(next_scene)

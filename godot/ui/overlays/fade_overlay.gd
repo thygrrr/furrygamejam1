@@ -13,11 +13,7 @@ func _ready():
 		fade_in()
 
 func fade_in():
-	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "modulate", Color(modulate, 0.0), fade_in_duration)
-	await tween.finished
+	return await Tweens.play(self, Tweens.modulate_alpha(0.0, fade_in_duration, Tweens.Ease.CUBIC_IN_OUT)).end
 
 func fade_out():
-	var tween = create_tween().set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "modulate", Color(modulate, minimum_opacity), fade_out_duration)
-	await tween.finished
+	return await Tweens.play(self, Tweens.modulate_alpha(minimum_opacity, fade_out_duration, Tweens.Ease.CUBIC_IN_OUT)).end
